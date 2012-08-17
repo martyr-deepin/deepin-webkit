@@ -1,0 +1,118 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebDataSource
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebDataSource ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_data ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_encoding ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_initial_request ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_main_resource ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_request ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_subresources ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_unreachable_uri ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_get_web_frame ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_is_loading ##### -->
+<para>
+
+</para>
+
+@data_source: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_data_source_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+

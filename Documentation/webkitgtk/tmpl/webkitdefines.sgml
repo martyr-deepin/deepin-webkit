@@ -1,0 +1,112 @@
+<!-- ##### SECTION Title ##### -->
+webkitdefines
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO WEBKIT_API ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKITGTK_API_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_OBSOLETE_API ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_CHECK_VERSION ##### -->
+<para>
+
+</para>
+
+@major: 
+@minor: 
+@micro: 
+
+
+<!-- ##### MACRO WEBKIT_MAJOR_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_MICRO_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_MINOR_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION webkit_check_version ##### -->
+<para>
+
+</para>
+
+@major: 
+@minor: 
+@micro: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_major_version ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_micro_version ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_minor_version ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+

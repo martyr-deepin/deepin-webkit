@@ -1,0 +1,128 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebNavigationAction
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebNavigationAction ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitWebNavigationAction:button ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebNavigationAction:modifier-state ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebNavigationAction:original-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebNavigationAction:reason ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebNavigationAction:target-frame ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM WebKitWebNavigationReason ##### -->
+<para>
+
+</para>
+
+@WEBKIT_WEB_NAVIGATION_REASON_LINK_CLICKED: 
+@WEBKIT_WEB_NAVIGATION_REASON_FORM_SUBMITTED: 
+@WEBKIT_WEB_NAVIGATION_REASON_BACK_FORWARD: 
+@WEBKIT_WEB_NAVIGATION_REASON_RELOAD: 
+@WEBKIT_WEB_NAVIGATION_REASON_FORM_RESUBMITTED: 
+@WEBKIT_WEB_NAVIGATION_REASON_OTHER: 
+
+<!-- ##### FUNCTION webkit_web_navigation_action_get_button ##### -->
+<para>
+
+</para>
+
+@navigationAction: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_navigation_action_get_modifier_state ##### -->
+<para>
+
+</para>
+
+@navigationAction: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_navigation_action_get_original_uri ##### -->
+<para>
+
+</para>
+
+@navigationAction: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_navigation_action_get_reason ##### -->
+<para>
+
+</para>
+
+@navigationAction: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_navigation_action_get_target_frame ##### -->
+<para>
+
+</para>
+
+@navigationAction: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_navigation_action_set_original_uri ##### -->
+<para>
+
+</para>
+
+@navigationAction: 
+@originalUri: 
+
+
+<!-- ##### FUNCTION webkit_web_navigation_action_set_reason ##### -->
+<para>
+
+</para>
+
+@navigationAction: 
+@reason: 
+
+

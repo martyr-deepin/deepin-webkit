@@ -1,0 +1,138 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebResource
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebResource ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitWebResource::content-length-received ##### -->
+<para>
+
+</para>
+
+@webkitwebresource: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebResource::load-failed ##### -->
+<para>
+
+</para>
+
+@webkitwebresource: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebResource::load-finished ##### -->
+<para>
+
+</para>
+
+@webkitwebresource: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebResource::response-received ##### -->
+<para>
+
+</para>
+
+@webkitwebresource: the object which received the signal.
+@arg1: 
+
+<!-- ##### ARG WebKitWebResource:encoding ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebResource:frame-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebResource:mime-type ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebResource:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_web_resource_get_data ##### -->
+<para>
+
+</para>
+
+@web_resource: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_resource_get_encoding ##### -->
+<para>
+
+</para>
+
+@web_resource: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_resource_get_frame_name ##### -->
+<para>
+
+</para>
+
+@web_resource: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_resource_get_mime_type ##### -->
+<para>
+
+</para>
+
+@web_resource: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_resource_get_uri ##### -->
+<para>
+
+</para>
+
+@web_resource: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_resource_new ##### -->
+<para>
+
+</para>
+
+@data: 
+@size: 
+@uri: 
+@mime_type: 
+@encoding: 
+@frame_name: 
+@Returns: 
+
+

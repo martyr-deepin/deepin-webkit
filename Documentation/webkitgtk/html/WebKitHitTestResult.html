@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitHitTestResult</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitViewportAttributes.html" title="WebKitViewportAttributes">
+<link rel="next" href="WebKitWebPlugin.html" title="WebKitWebPlugin">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitViewportAttributes.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitWebPlugin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitHitTestResult.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitHitTestResult.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitHitTestResult.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#WebKitHitTestResult.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitHitTestResult"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitHitTestResult.top_of_page"></a>WebKitHitTestResult</span></h2>
+<p>WebKitHitTestResult — The target of a mouse event</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitHitTestResult.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitHitTestResult.html#WebKitHitTestResult-struct" title="WebKitHitTestResult">WebKitHitTestResult</a>;
+enum                <a class="link" href="WebKitHitTestResult.html#WebKitHitTestResultContext" title="enum WebKitHitTestResultContext">WebKitHitTestResultContext</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitHitTestResult.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitHitTestResult
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitHitTestResult.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitHitTestResult.html#WebKitHitTestResult--context" title='The "context" property'>context</a>"                  <a class="link" href="WebKitHitTestResult.html#WebKitHitTestResultContext" title="enum WebKitHitTestResultContext"><span class="type">WebKitHitTestResultContext</span></a>  : Read / Write / Construct Only
+  "<a class="link" href="WebKitHitTestResult.html#WebKitHitTestResult--image-uri" title='The "image-uri" property'>image-uri</a>"                <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only
+  "<a class="link" href="WebKitHitTestResult.html#WebKitHitTestResult--inner-node" title='The "inner-node" property'>inner-node</a>"               <span class="type">WebKitDOMNode</span>*        : Read / Write / Construct Only
+  "<a class="link" href="WebKitHitTestResult.html#WebKitHitTestResult--link-uri" title='The "link-uri" property'>link-uri</a>"                 <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only
+  "<a class="link" href="WebKitHitTestResult.html#WebKitHitTestResult--media-uri" title='The "media-uri" property'>media-uri</a>"                <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitHitTestResult.description"></a><h2>Description</h2>
+<p>
+This class holds context information about the coordinates
+specified by a GDK event.
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitHitTestResult.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitHitTestResult-struct"></a><h3>WebKitHitTestResult</h3>
+<pre class="programlisting">typedef struct _WebKitHitTestResult WebKitHitTestResult;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitHitTestResultContext"></a><h3>enum WebKitHitTestResultContext</h3>
+<pre class="programlisting">typedef enum {
+    WEBKIT_HIT_TEST_RESULT_CONTEXT_DOCUMENT   = 1 &lt;&lt; 1,
+    WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK       = 1 &lt;&lt; 2,
+    WEBKIT_HIT_TEST_RESULT_CONTEXT_IMAGE      = 1 &lt;&lt; 3,
+    WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA      = 1 &lt;&lt; 4,
+    WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION  = 1 &lt;&lt; 5,
+    WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE   = 1 &lt;&lt; 6,
+} WebKitHitTestResultContext;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="WEBKIT-HIT-TEST-RESULT-CONTEXT-DOCUMENT:CAPS"></a><span class="term"><code class="literal">WEBKIT_HIT_TEST_RESULT_CONTEXT_DOCUMENT</code></span></p></td>
+<td>anywhere in the document.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-HIT-TEST-RESULT-CONTEXT-LINK:CAPS"></a><span class="term"><code class="literal">WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK</code></span></p></td>
+<td>a hyperlink element.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-HIT-TEST-RESULT-CONTEXT-IMAGE:CAPS"></a><span class="term"><code class="literal">WEBKIT_HIT_TEST_RESULT_CONTEXT_IMAGE</code></span></p></td>
+<td>an image element.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-HIT-TEST-RESULT-CONTEXT-MEDIA:CAPS"></a><span class="term"><code class="literal">WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA</code></span></p></td>
+<td>a video or audio element.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-HIT-TEST-RESULT-CONTEXT-SELECTION:CAPS"></a><span class="term"><code class="literal">WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION</code></span></p></td>
+<td>the area is selected by
+the user.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-HIT-TEST-RESULT-CONTEXT-EDITABLE:CAPS"></a><span class="term"><code class="literal">WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE</code></span></p></td>
+<td>the area is
+editable by the user.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitHitTestResult.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="WebKitHitTestResult--context"></a><h3>The <code class="literal">"context"</code> property</h3>
+<pre class="programlisting">  "context"                  <a class="link" href="WebKitHitTestResult.html#WebKitHitTestResultContext" title="enum WebKitHitTestResultContext"><span class="type">WebKitHitTestResultContext</span></a>  : Read / Write / Construct Only</pre>
+<p>
+Flags indicating the kind of target that received the event.
+</p>
+<p>Default value: WEBKIT_HIT_TEST_RESULT_CONTEXT_DOCUMENT</p>
+<p class="since">Since 1.1.15</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitHitTestResult--image-uri"></a><h3>The <code class="literal">"image-uri"</code> property</h3>
+<pre class="programlisting">  "image-uri"                <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only</pre>
+<p>
+The URI of the image that is part of the target that received the event, if any.
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.15</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitHitTestResult--inner-node"></a><h3>The <code class="literal">"inner-node"</code> property</h3>
+<pre class="programlisting">  "inner-node"               <span class="type">WebKitDOMNode</span>*        : Read / Write / Construct Only</pre>
+<p>
+The DOM node at the coordinates where the hit test
+happened. Keep in mind that the node might not be
+representative of the information given in the context
+property, since WebKit uses a series of heuristics to figure
+out that information. One common example is inner-node having
+the text node inside the anchor (&lt;a&gt;) tag; WebKit knows the
+whole context and will put WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK
+in the 'context' property, but the user might be confused by
+the lack of any link tag in 'inner-node'.
+</p>
+<p class="since">Since 1.3.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitHitTestResult--link-uri"></a><h3>The <code class="literal">"link-uri"</code> property</h3>
+<pre class="programlisting">  "link-uri"                 <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only</pre>
+<p>
+The URI to which the target that received the event points, if any.
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.15</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitHitTestResult--media-uri"></a><h3>The <code class="literal">"media-uri"</code> property</h3>
+<pre class="programlisting">  "media-uri"                <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only</pre>
+<p>
+The URI of the media that is part of the target that received the event, if any.
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.15</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

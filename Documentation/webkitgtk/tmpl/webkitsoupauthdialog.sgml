@@ -1,0 +1,37 @@
+<!-- ##### SECTION Title ##### -->
+WebKitSoupAuthDialog
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitSoupAuthDialog ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitSoupAuthDialog::current-toplevel ##### -->
+<para>
+
+</para>
+
+@webkitsoupauthdialog: the object which received the signal.
+@arg1: 
+@Returns: 
+

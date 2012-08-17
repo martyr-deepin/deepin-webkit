@@ -1,0 +1,44 @@
+<!-- ##### SECTION Title ##### -->
+WebKitGeolocationPolicyDecision
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitGeolocationPolicyDecision ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION webkit_geolocation_policy_allow ##### -->
+<para>
+
+</para>
+
+@decision: 
+
+
+<!-- ##### FUNCTION webkit_geolocation_policy_deny ##### -->
+<para>
+
+</para>
+
+@decision: 
+
+

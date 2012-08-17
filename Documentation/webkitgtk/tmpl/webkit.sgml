@@ -1,0 +1,170 @@
+<!-- ##### SECTION Title ##### -->
+Global functions
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### FUNCTION webkit_get_default_session ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_get_default_web_database_quota ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_get_web_database_directory_path ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_get_web_plugin_database ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_remove_all_web_databases ##### -->
+<para>
+
+</para>
+
+@void: 
+
+
+<!-- ##### FUNCTION webkit_set_default_web_database_quota ##### -->
+<para>
+
+</para>
+
+@defaultQuota: 
+
+
+<!-- ##### FUNCTION webkit_set_web_database_directory_path ##### -->
+<para>
+
+</para>
+
+@path: 
+
+
+<!-- ##### FUNCTION webkit_get_favicon_database ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_get_icon_database ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_get_text_checker ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_set_text_checker ##### -->
+<para>
+
+</para>
+
+@checker: 
+
+
+<!-- ##### FUNCTION webkit_application_cache_get_database_directory_path ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_application_cache_get_maximum_size ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_application_cache_set_maximum_size ##### -->
+<para>
+
+</para>
+
+@size: 
+
+
+<!-- ##### ENUM WebKitCacheModel ##### -->
+<para>
+
+</para>
+
+@WEBKIT_CACHE_MODEL_DEFAULT: 
+@WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER: 
+@WEBKIT_CACHE_MODEL_WEB_BROWSER: 
+@WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER: 
+
+<!-- ##### FUNCTION webkit_get_cache_model ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_set_cache_model ##### -->
+<para>
+
+</para>
+
+@cache_model: 
+
+

@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitWebWindowFeatures</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitSecurityOrigin.html" title="WebKitSecurityOrigin">
+<link rel="next" href="WebKitIconDatabase.html" title="WebKitIconDatabase">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitSecurityOrigin.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitIconDatabase.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitWebWindowFeatures.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitWebWindowFeatures.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitWebWindowFeatures.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#WebKitWebWindowFeatures.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitWebWindowFeatures"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitWebWindowFeatures.top_of_page"></a>WebKitWebWindowFeatures</span></h2>
+<p>WebKitWebWindowFeatures — Window properties of a <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a></p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitWebWindowFeatures.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures-struct" title="WebKitWebWindowFeatures">WebKitWebWindowFeatures</a>;
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="WebKitWebWindowFeatures.html#webkit-web-window-features-equal" title="webkit_web_window_features_equal ()">webkit_web_window_features_equal</a>    (<em class="parameter"><code><a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> *features1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> *features2</code></em>);
+<a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="returnvalue">WebKitWebWindowFeatures</span></a> * <a class="link" href="WebKitWebWindowFeatures.html#webkit-web-window-features-new" title="webkit_web_window_features_new ()">webkit_web_window_features_new</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebWindowFeatures.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitWebWindowFeatures
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebWindowFeatures.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--fullscreen" title='The "fullscreen" property'>fullscreen</a>"               <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--height" title='The "height" property'>height</a>"                   <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--locationbar-visible" title='The "locationbar-visible" property'>locationbar-visible</a>"      <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--menubar-visible" title='The "menubar-visible" property'>menubar-visible</a>"          <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--scrollbar-visible" title='The "scrollbar-visible" property'>scrollbar-visible</a>"        <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--statusbar-visible" title='The "statusbar-visible" property'>statusbar-visible</a>"        <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--toolbar-visible" title='The "toolbar-visible" property'>toolbar-visible</a>"          <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--width" title='The "width" property'>width</a>"                    <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--x" title='The "x" property'>x</a>"                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+  "<a class="link" href="WebKitWebWindowFeatures.html#WebKitWebWindowFeatures--y" title='The "y" property'>y</a>"                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebWindowFeatures.description"></a><h2>Description</h2>
+<p>
+The content of a <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> can request to change certain
+properties of a <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>. This can include the x, y position
+of the window, the width and height but also if a toolbar,
+scrollbar, statusbar, locationbar should be visible to the user,
+the request to show the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> fullscreen.
+</p>
+<p>
+In the normal case one will use <a class="link" href="webkitgtk-webkitwebview.html#webkit-web-view-get-window-features" title="webkit_web_view_get_window_features ()"><span class="type">webkit_web_view_get_window_features</span></a>
+to get the <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> and then monitor the property
+changes. Be aware that the <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> might change
+before <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView-web-view-ready" title='The "web-view-ready" signal'><span class="type">"web-view-ready"</span></a> signal is emitted.
+To be safe listen to the notify::window-features signal of the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>
+and reconnect the signals whenever the <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> of
+a <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> changes.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/*</span><span class="comment"> Get the current WebKitWebWindowFeatures </span><span class="comment">*/</span>
+WebKitWebWindowFeatures *features = webkit_web_view_get_window_features (my_webview);
+
+<span class="comment">/*</span><span class="comment"> Connect to the property changes </span><span class="comment">*/</span>
+g_signal_connect (G_OBJECT(features), <span class="number">&quot;notify::menubar-visible&quot;</span>, G_CALLBACK(make_menu_bar_visible), <span class="number">NULL</span>);
+g_signal_connect (G_OBJECT(features), <span class="number">&quot;notify::statusbar-visible&quot;</span>, G_CALLBACK(make_status_bar_visible), <span class="number">NULL</span>);</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitWebWindowFeatures.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures-struct"></a><h3>WebKitWebWindowFeatures</h3>
+<pre class="programlisting">typedef struct _WebKitWebWindowFeatures WebKitWebWindowFeatures;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-window-features-equal"></a><h3>webkit_web_window_features_equal ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            webkit_web_window_features_equal    (<em class="parameter"><code><a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> *features1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> *features2</code></em>);</pre>
+<p>
+Decides if a <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> instance equals another, as
+in has the same values.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>features1</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> instance</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>features2</code></em> :</span></p></td>
+<td>another <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> instance</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the instances have the same values, <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+otherwise</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-window-features-new"></a><h3>webkit_web_window_features_new ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="returnvalue">WebKitWebWindowFeatures</span></a> * webkit_web_window_features_new
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> instance with default values. It must
+be manually attached to a WebView.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="WebKitWebWindowFeatures.html" title="WebKitWebWindowFeatures"><span class="type">WebKitWebWindowFeatures</span></a> instance</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0.3</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebWindowFeatures.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--fullscreen"></a><h3>The <code class="literal">"fullscreen"</code> property</h3>
+<pre class="programlisting">  "fullscreen"               <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Controls whether window will be displayed fullscreen.
+</p>
+<p>Default value: FALSE</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--height"></a><h3>The <code class="literal">"height"</code> property</h3>
+<pre class="programlisting">  "height"                   <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+The height of the window on the screen.
+</p>
+<p>Allowed values: &gt;= G_MAXULONG</p>
+<p>Default value: -1</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--locationbar-visible"></a><h3>The <code class="literal">"locationbar-visible"</code> property</h3>
+<pre class="programlisting">  "locationbar-visible"      <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Controls whether the locationbar should be visible for the window.
+</p>
+<p>Default value: TRUE</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--menubar-visible"></a><h3>The <code class="literal">"menubar-visible"</code> property</h3>
+<pre class="programlisting">  "menubar-visible"          <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Controls whether the menubar should be visible for the window.
+</p>
+<p>Default value: TRUE</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--scrollbar-visible"></a><h3>The <code class="literal">"scrollbar-visible"</code> property</h3>
+<pre class="programlisting">  "scrollbar-visible"        <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Controls whether the scrollbars should be visible for the window.
+</p>
+<p>Default value: TRUE</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--statusbar-visible"></a><h3>The <code class="literal">"statusbar-visible"</code> property</h3>
+<pre class="programlisting">  "statusbar-visible"        <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Controls whether the statusbar should be visible for the window.
+</p>
+<p>Default value: TRUE</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--toolbar-visible"></a><h3>The <code class="literal">"toolbar-visible"</code> property</h3>
+<pre class="programlisting">  "toolbar-visible"          <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Controls whether the toolbar should be visible for the window.
+</p>
+<p>Default value: TRUE</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--width"></a><h3>The <code class="literal">"width"</code> property</h3>
+<pre class="programlisting">  "width"                    <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+The width of the window on the screen.
+</p>
+<p>Allowed values: &gt;= G_MAXULONG</p>
+<p>Default value: -1</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--x"></a><h3>The <code class="literal">"x"</code> property</h3>
+<pre class="programlisting">  "x"                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+The starting x position of the window on the screen.
+</p>
+<p>Allowed values: &gt;= G_MAXULONG</p>
+<p>Default value: -1</p>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebWindowFeatures--y"></a><h3>The <code class="literal">"y"</code> property</h3>
+<pre class="programlisting">  "y"                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write / Construct</pre>
+<p>
+The starting y position of the window on the screen.
+</p>
+<p>Allowed values: &gt;= G_MAXULONG</p>
+<p>Default value: -1</p>
+<p class="since">Since 1.0.3</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebWindowFeatures.see-also"></a><h2>See Also</h2>
+<a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView-web-view-ready" title='The "web-view-ready" signal'><span class="type">"web-view-ready"</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

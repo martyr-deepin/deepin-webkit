@@ -1,0 +1,135 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebHistoryItem
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebHistoryItem ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitWebHistoryItem:alternate-title ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebHistoryItem:last-visited-time ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebHistoryItem:original-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebHistoryItem:title ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebHistoryItem:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_web_history_item_copy ##### -->
+<para>
+
+</para>
+
+@web_history_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_get_alternate_title ##### -->
+<para>
+
+</para>
+
+@web_history_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_get_last_visited_time ##### -->
+<para>
+
+</para>
+
+@web_history_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_get_original_uri ##### -->
+<para>
+
+</para>
+
+@web_history_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_get_title ##### -->
+<para>
+
+</para>
+
+@web_history_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_get_uri ##### -->
+<para>
+
+</para>
+
+@web_history_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_new_with_data ##### -->
+<para>
+
+</para>
+
+@uri: 
+@title: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_history_item_set_alternate_title ##### -->
+<para>
+
+</para>
+
+@web_history_item: 
+@title: 
+
+

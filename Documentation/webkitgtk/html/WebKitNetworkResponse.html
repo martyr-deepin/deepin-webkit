@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitNetworkResponse</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest">
+<link rel="next" href="WebKitWebInspector.html" title="WebKitWebInspector">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitNetworkRequest.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitWebInspector.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitNetworkResponse.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitNetworkResponse.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitNetworkResponse.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#WebKitNetworkResponse.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitNetworkResponse"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitNetworkResponse.top_of_page"></a>WebKitNetworkResponse</span></h2>
+<p>WebKitNetworkResponse — the response given to a network request</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitNetworkResponse.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitNetworkResponse.html#WebKitNetworkResponse-struct" title="WebKitNetworkResponse">WebKitNetworkResponse</a>;
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitNetworkResponse.html#webkit-network-response-get-uri" title="webkit_network_response_get_uri ()">webkit_network_response_get_uri</a>     (<em class="parameter"><code><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response</code></em>);
+<a href="../libsoup-2.4/SoupMessage.html"><span class="returnvalue">SoupMessage</span></a> *       <a class="link" href="WebKitNetworkResponse.html#webkit-network-response-get-message" title="webkit_network_response_get_message ()">webkit_network_response_get_message</a> (<em class="parameter"><code><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitNetworkResponse.html#webkit-network-response-set-uri" title="webkit_network_response_set_uri ()">webkit_network_response_set_uri</a>     (<em class="parameter"><code><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitNetworkResponse.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitNetworkResponse
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitNetworkResponse.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitNetworkResponse.html#WebKitNetworkResponse--message" title='The "message" property'>message</a>"                  <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a>*          : Read / Write / Construct Only
+  "<a class="link" href="WebKitNetworkResponse.html#WebKitNetworkResponse--uri" title='The "uri" property'>uri</a>"                      <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitNetworkResponse.description"></a><h2>Description</h2>
+<p>
+This class represents the network related aspects of a navigation
+response.
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitNetworkResponse.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitNetworkResponse-struct"></a><h3>WebKitNetworkResponse</h3>
+<pre class="programlisting">typedef struct _WebKitNetworkResponse WebKitNetworkResponse;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-network-response-get-uri"></a><h3>webkit_network_response_get_uri ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_network_response_get_uri     (<em class="parameter"><code><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the URI of the <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-network-response-get-message"></a><h3>webkit_network_response_get_message ()</h3>
+<pre class="programlisting"><a href="../libsoup-2.4/SoupMessage.html"><span class="returnvalue">SoupMessage</span></a> *       webkit_network_response_get_message (<em class="parameter"><code><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response</code></em>);</pre>
+<p>
+Obtains the <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> that represents the given response. Notice
+that only the response side of the HTTP conversation is
+represented.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-network-response-set-uri"></a><h3>webkit_network_response_set_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_network_response_set_uri     (<em class="parameter"><code><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>);</pre>
+<p>
+Sets the URI held and used by the given response. When the response
+has an associated <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a>, its URI will also be set by this
+call.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>an URI</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitNetworkResponse.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="WebKitNetworkResponse--message"></a><h3>The <code class="literal">"message"</code> property</h3>
+<pre class="programlisting">  "message"                  <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a>*          : Read / Write / Construct Only</pre>
+<p>
+The <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> that backs the response.
+</p>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitNetworkResponse--uri"></a><h3>The <code class="literal">"uri"</code> property</h3>
+<pre class="programlisting">  "uri"                      <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>
+The URI to which the response will be made.
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.14</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitNetworkResponse.see-also"></a><h2>See Also</h2>
+<a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

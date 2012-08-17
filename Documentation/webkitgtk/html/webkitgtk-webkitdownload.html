@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitDownload</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitWebResource.html" title="WebKitWebResource">
+<link rel="next" href="WebKitViewportAttributes.html" title="WebKitViewportAttributes">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitWebResource.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitViewportAttributes.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#webkitgtk-webkitdownload.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#webkitgtk-webkitdownload.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#webkitgtk-webkitdownload.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#webkitgtk-webkitdownload.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#webkitgtk-webkitdownload.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="webkitgtk-webkitdownload"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="webkitgtk-webkitdownload.top_of_page"></a>WebKitDownload</span></h2>
+<p>WebKitDownload — Object used to communicate with the application when downloading.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="webkitgtk-webkitdownload.synopsis"></a><h2>Synopsis</h2>
+<a name="WebKitDownload"></a><pre class="synopsis">enum                <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadError" title="enum WebKitDownloadError">WebKitDownloadError</a>;
+enum                <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadStatus" title="enum WebKitDownloadStatus">WebKitDownloadStatus</a>;
+                    <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload-struct" title="WebKitDownload">WebKitDownload</a>;
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-cancel" title="webkit_download_cancel ()">webkit_download_cancel</a>              (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-current-size" title="webkit_download_get_current_size ()">webkit_download_get_current_size</a>    (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-destination-uri" title="webkit_download_get_destination_uri ()">webkit_download_get_destination_uri</a> (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-elapsed-time" title="webkit_download_get_elapsed_time ()">webkit_download_get_elapsed_time</a>    (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="returnvalue">WebKitNetworkRequest</span></a> * <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-network-request" title="webkit_download_get_network_request ()">webkit_download_get_network_request</a>
+                                                        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="returnvalue">WebKitNetworkResponse</span></a> * <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-network-response" title="webkit_download_get_network_response ()">webkit_download_get_network_response</a>
+                                                        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-progress" title="webkit_download_get_progress ()">webkit_download_get_progress</a>        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadStatus" title="enum WebKitDownloadStatus"><span class="returnvalue">WebKitDownloadStatus</span></a> <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-status" title="webkit_download_get_status ()">webkit_download_get_status</a>         (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-suggested-filename" title="webkit_download_get_suggested_filename ()">webkit_download_get_suggested_filename</a>
+                                                        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-total-size" title="webkit_download_get_total_size ()">webkit_download_get_total_size</a>      (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-get-uri" title="webkit_download_get_uri ()">webkit_download_get_uri</a>             (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="returnvalue">WebKitDownload</span></a> *    <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-new" title="webkit_download_new ()">webkit_download_new</a>                 (<em class="parameter"><code><a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> *request</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-set-destination-uri" title="webkit_download_set_destination_uri ()">webkit_download_set_destination_uri</a> (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *destination_uri</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-webkitdownload.html#webkit-download-start" title="webkit_download_start ()">webkit_download_start</a>               (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-webkitdownload.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitDownload
+</pre>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-webkitdownload.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--current-size" title='The "current-size" property'>current-size</a>"             <a href="../glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a>               : Read
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--destination-uri" title='The "destination-uri" property'>destination-uri</a>"          <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--network-request" title='The "network-request" property'>network-request</a>"          <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a>*  : Read / Write / Construct Only
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--network-response" title='The "network-response" property'>network-response</a>"         <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a>*  : Read / Write / Construct Only
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--progress" title='The "progress" property'>progress</a>"                 <a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--status" title='The "status" property'>status</a>"                   <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadStatus" title="enum WebKitDownloadStatus"><span class="type">WebKitDownloadStatus</span></a>  : Read
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--suggested-filename" title='The "suggested-filename" property'>suggested-filename</a>"       <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload--total-size" title='The "total-size" property'>total-size</a>"               <a href="../glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a>               : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-webkitdownload.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload-error" title='The "error" signal'>error</a>"                                          : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-webkitdownload.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> carries information about a download request,
+including a <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> object. The application may use
+this object to control the download process, or to simply figure
+out what is to be downloaded, and do it itself.
+</p>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-webkitdownload.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitDownloadError"></a><h3>enum WebKitDownloadError</h3>
+<pre class="programlisting">typedef enum {
+    WEBKIT_DOWNLOAD_ERROR_CANCELLED_BY_USER,
+    WEBKIT_DOWNLOAD_ERROR_DESTINATION,
+    WEBKIT_DOWNLOAD_ERROR_NETWORK
+} WebKitDownloadError;
+</pre>
+<p>
+Enum values used to denote the various download errors.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-ERROR-CANCELLED-BY-USER:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_ERROR_CANCELLED_BY_USER</code></span></p></td>
+<td>The download failed due to user cancellation.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-ERROR-DESTINATION:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_ERROR_DESTINATION</code></span></p></td>
+<td>The download failed due to disk write failure.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-ERROR-NETWORK:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_ERROR_NETWORK</code></span></p></td>
+<td>The download failed due to a network error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownloadStatus"></a><h3>enum WebKitDownloadStatus</h3>
+<pre class="programlisting">typedef enum {
+    WEBKIT_DOWNLOAD_STATUS_ERROR = -1,
+    WEBKIT_DOWNLOAD_STATUS_CREATED = 0,
+    WEBKIT_DOWNLOAD_STATUS_STARTED,
+    WEBKIT_DOWNLOAD_STATUS_CANCELLED,
+    WEBKIT_DOWNLOAD_STATUS_FINISHED
+} WebKitDownloadStatus;
+</pre>
+<p>
+Enum values used to denote the various states of a download.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-STATUS-ERROR:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_STATUS_ERROR</code></span></p></td>
+<td>The download failed because of an error other than user cancellation.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-STATUS-CREATED:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_STATUS_CREATED</code></span></p></td>
+<td>The download has not started yet.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-STATUS-STARTED:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_STATUS_STARTED</code></span></p></td>
+<td>The download has started, but has not completed yet.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-STATUS-CANCELLED:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_STATUS_CANCELLED</code></span></p></td>
+<td>The user canceled the download.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-DOWNLOAD-STATUS-FINISHED:CAPS"></a><span class="term"><code class="literal">WEBKIT_DOWNLOAD_STATUS_FINISHED</code></span></p></td>
+<td>The download completed successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload-struct"></a><h3>WebKitDownload</h3>
+<pre class="programlisting">typedef struct _WebKitDownload WebKitDownload;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-cancel"></a><h3>webkit_download_cancel ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_download_cancel              (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Cancels the download. Calling this will not free the
+<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> object, so you still need to call
+<a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> on it, if you are the owner of a reference. Notice
+that cancelling the download provokes the emission of the
+WebKitDownload::error signal, reporting that the download was
+cancelled.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-current-size"></a><h3>webkit_download_get_current_size ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             webkit_download_get_current_size    (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Current already downloaded size.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the already downloaded size</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-destination-uri"></a><h3>webkit_download_get_destination_uri ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_download_get_destination_uri (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Obtains the URI to which the downloaded file will be written. This
+must have been set by the application before calling
+<a class="link" href="webkitgtk-webkitdownload.html#webkit-download-start" title="webkit_download_start ()"><code class="function">webkit_download_start()</code></a>, and may be <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the destination URI or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-elapsed-time"></a><h3>webkit_download_get_elapsed_time ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             webkit_download_get_elapsed_time    (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Elapsed time for the download in seconds, including any fractional
+part. If the download is finished, had an error or was cancelled
+this is the time between its start and the event.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>a <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>seconds since the download was started, as a <a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-network-request"></a><h3>webkit_download_get_network_request ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="returnvalue">WebKitNetworkRequest</span></a> * webkit_download_get_network_request
+                                                        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Retrieves the <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> object that backs the download
+process.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> instance. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-network-response"></a><h3>webkit_download_get_network_response ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="returnvalue">WebKitNetworkResponse</span></a> * webkit_download_get_network_response
+                                                        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Retrieves the <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> object that backs the download
+process.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> instance. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.16</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-progress"></a><h3>webkit_download_get_progress ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             webkit_download_get_progress        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Determines the current progress of the download.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>a <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> ranging from 0.0 to 1.0.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-status"></a><h3>webkit_download_get_status ()</h3>
+<pre class="programlisting"><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadStatus" title="enum WebKitDownloadStatus"><span class="returnvalue">WebKitDownloadStatus</span></a> webkit_download_get_status         (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Obtains the current status of the download, as a
+<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadStatus" title="enum WebKitDownloadStatus"><span class="type">WebKitDownloadStatus</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadStatus" title="enum WebKitDownloadStatus"><span class="type">WebKitDownloadStatus</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-suggested-filename"></a><h3>webkit_download_get_suggested_filename ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_download_get_suggested_filename
+                                                        (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Retrieves the filename that was suggested by the server, or the one
+derived by WebKit from the URI.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the suggested filename</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-total-size"></a><h3>webkit_download_get_total_size ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             webkit_download_get_total_size      (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Returns the expected total size of the download. This is expected
+because the server may provide incorrect or missing
+Content-Length. Notice that this may grow over time, as it will be
+always the same as current_size in the cases where current size
+surpasses it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the expected total size of the downloaded file</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-get-uri"></a><h3>webkit_download_get_uri ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_download_get_uri             (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Convenience method to retrieve the URI from the
+<a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> which is being downloaded.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the URI</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-new"></a><h3>webkit_download_new ()</h3>
+<pre class="programlisting"><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="returnvalue">WebKitDownload</span></a> *    webkit_download_new                 (<em class="parameter"><code><a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> *request</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> object for the given
+<a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>request</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-set-destination-uri"></a><h3>webkit_download_set_destination_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_download_set_destination_uri (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *destination_uri</code></em>);</pre>
+<p>
+Defines the URI that should be used to save the downloaded file to.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destination_uri</code></em> :</span></p></td>
+<td>the destination URI</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-download-start"></a><h3>webkit_download_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_download_start               (<em class="parameter"><code><a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download</code></em>);</pre>
+<p>
+Initiates the download. Notice that you must have set the
+destination-uri property before calling this method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-webkitdownload.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="WebKitDownload--current-size"></a><h3>The <code class="literal">"current-size"</code> property</h3>
+<pre class="programlisting">  "current-size"             <a href="../glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a>               : Read</pre>
+<p>
+The length of the data already downloaded
+</p>
+<p>Default value: 0</p>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload--destination-uri"></a><h3>The <code class="literal">"destination-uri"</code> property</h3>
+<pre class="programlisting">  "destination-uri"          <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>
+The URI of the save location for this download.
+</p>
+<p>Default value: ""</p>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload--network-request"></a><h3>The <code class="literal">"network-request"</code> property</h3>
+<pre class="programlisting">  "network-request"          <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a>*  : Read / Write / Construct Only</pre>
+<p>
+The <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> instance associated with the download.
+</p>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload--network-response"></a><h3>The <code class="literal">"network-response"</code> property</h3>
+<pre class="programlisting">  "network-response"         <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a>*  : Read / Write / Construct Only</pre>
+<p>
+The <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> instance associated with the download.
+</p>
+<p class="since">Since 1.1.16</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload--progress"></a><h3>The <code class="literal">"progress"</code> property</h3>
+<pre class="programlisting">  "progress"                 <a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read</pre>
+<p>
+Determines the current progress of the download. Notice that,
+although the progress changes are reported as soon as possible,
+the emission of the notify signal for this property is
+throttled, for the benefit of download managers. If you care
+about every update, use WebKitDownload:current-size.
+</p>
+<p>Allowed values: [0,1]</p>
+<p>Default value: 1</p>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload--status"></a><h3>The <code class="literal">"status"</code> property</h3>
+<pre class="programlisting">  "status"                   <a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadStatus" title="enum WebKitDownloadStatus"><span class="type">WebKitDownloadStatus</span></a>  : Read</pre>
+<p>
+Determines the current status of the download.
+</p>
+<p>Default value: WEBKIT_DOWNLOAD_STATUS_CREATED</p>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload--suggested-filename"></a><h3>The <code class="literal">"suggested-filename"</code> property</h3>
+<pre class="programlisting">  "suggested-filename"       <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read</pre>
+<p>
+The file name suggested as default when saving
+</p>
+<p>Default value: ""</p>
+<p class="since">Since 1.1.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitDownload--total-size"></a><h3>The <code class="literal">"total-size"</code> property</h3>
+<pre class="programlisting">  "total-size"               <a href="../glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a>               : Read</pre>
+<p>
+The total size of the file
+</p>
+<p>Default value: 0</p>
+<p class="since">Since 1.1.2</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-webkitdownload.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="WebKitDownload-error"></a><h3>The <code class="literal">"error"</code> signal</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownload"><span class="type">WebKitDownload</span></a> *download,
+                                                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>            error_code,
+                                                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>            error_detail,
+                                                        <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *reason,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when <em class="parameter"><code>download</code></em> is interrupted either by user action or by
+network errors, <em class="parameter"><code>error_detail</code></em> will take any value of
+<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadError" title="enum WebKitDownloadError"><span class="type">WebKitDownloadError</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>download</code></em> :</span></p></td>
+<td>the object on which the signal is emitted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error_code</code></em> :</span></p></td>
+<td>the corresponding error code</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error_detail</code></em> :</span></p></td>
+<td>detailed error code for the error, see
+<a class="link" href="webkitgtk-webkitdownload.html#WebKitDownloadError" title="enum WebKitDownloadError"><span class="type">WebKitDownloadError</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reason</code></em> :</span></p></td>
+<td>a string describing the error</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.2</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

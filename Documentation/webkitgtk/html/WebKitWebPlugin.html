@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitWebPlugin</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitHitTestResult.html" title="WebKitHitTestResult">
+<link rel="next" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitHitTestResult.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitWebPluginDatabase.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitWebPlugin.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitWebPlugin.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitWebPlugin.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#WebKitWebPlugin.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitWebPlugin"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitWebPlugin.top_of_page"></a>WebKitWebPlugin</span></h2>
+<p>WebKitWebPlugin — Represents a plugin, enabling fine-grained control</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitWebPlugin.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitWebPlugin.html#WebKitWebPlugin-struct" title="WebKitWebPlugin">WebKitWebPlugin</a>;
+                    <a class="link" href="WebKitWebPlugin.html#WebKitWebPluginMIMEType" title="WebKitWebPluginMIMEType">WebKitWebPluginMIMEType</a>;
+const <span class="returnvalue">char</span> *        <a class="link" href="WebKitWebPlugin.html#webkit-web-plugin-get-description" title="webkit_web_plugin_get_description ()">webkit_web_plugin_get_description</a>   (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="WebKitWebPlugin.html#webkit-web-plugin-get-enabled" title="webkit_web_plugin_get_enabled ()">webkit_web_plugin_get_enabled</a>       (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);
+<a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="WebKitWebPlugin.html#webkit-web-plugin-get-mimetypes" title="webkit_web_plugin_get_mimetypes ()">webkit_web_plugin_get_mimetypes</a>     (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="WebKitWebPlugin.html#webkit-web-plugin-get-name" title="webkit_web_plugin_get_name ()">webkit_web_plugin_get_name</a>          (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebPlugin.html#webkit-web-plugin-set-enabled" title="webkit_web_plugin_set_enabled ()">webkit_web_plugin_set_enabled</a>       (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="WebKitWebPlugin.html#webkit-web-plugin-get-path" title="webkit_web_plugin_get_path ()">webkit_web_plugin_get_path</a>          (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPlugin.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitWebPlugin
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPlugin.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitWebPlugin.html#WebKitWebPlugin--enabled" title='The "enabled" property'>enabled</a>"                  <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPlugin.description"></a><h2>Description</h2>
+<p>
+This object represents a single plugin, found by WebKitGTK+ while
+scanning the various usual directories. This object can be used to
+get more information about a plugin, and enable/disable it,
+allowing fine-grained control of plugins. The list of available
+plugins can be obtained from the <a class="link" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase"><span class="type">WebKitWebPluginDatabase</span></a> object.
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPlugin.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitWebPlugin-struct"></a><h3>WebKitWebPlugin</h3>
+<pre class="programlisting">typedef struct _WebKitWebPlugin WebKitWebPlugin;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebPluginMIMEType"></a><h3>WebKitWebPluginMIMEType</h3>
+<pre class="programlisting">typedef struct {
+    char* name;
+    char* description;
+    char** extensions;
+} WebKitWebPluginMIMEType;
+</pre>
+<p>
+A structure representing one of the MIME types associated with a
+plugin. A <a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of these objects will be returned by
+<a class="link" href="WebKitWebPlugin.html#webkit-web-plugin-get-mimetypes" title="webkit_web_plugin_get_mimetypes ()"><span class="type">webkit_web_plugin_get_mimetypes</span></a>, use
+<span class="type">webkit_web_plugin_mime_type_list_free</span> to free it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">char</span> *<em class="structfield"><code><a name="WebKitWebPluginMIMEType.name"></a>name</code></em>;</span></p></td>
+<td>the name of the MIME type.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">char</span> *<em class="structfield"><code><a name="WebKitWebPluginMIMEType.description"></a>description</code></em>;</span></p></td>
+<td>the description of the MIME type.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">char</span> **<em class="structfield"><code><a name="WebKitWebPluginMIMEType.extensions"></a>extensions</code></em>;</span></p></td>
+<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array with the extensions
+associated with this MIME type.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.3.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-plugin-get-description"></a><h3>webkit_web_plugin_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        webkit_web_plugin_get_description   (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the description string for <em class="parameter"><code>plugin</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.3.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-plugin-get-enabled"></a><h3>webkit_web_plugin_get_enabled ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            webkit_web_plugin_get_enabled       (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the plugin is enabled, <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.3.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-plugin-get-mimetypes"></a><h3>webkit_web_plugin_get_mimetypes ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            webkit_web_plugin_get_mimetypes     (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);</pre>
+<p>
+Returns all the <a class="link" href="WebKitWebPlugin.html#WebKitWebPluginMIMEType" title="WebKitWebPluginMIMEType"><span class="type">WebKitWebPluginMIMEType</span></a> that <em class="parameter"><code>plugin</code></em> is handling
+at the moment.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of <a class="link" href="WebKitWebPlugin.html#WebKitWebPluginMIMEType" title="WebKitWebPluginMIMEType"><span class="type">WebKitWebPluginMIMEType</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> WebKit.WebKitWebPluginMIMEType]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.3.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-plugin-get-name"></a><h3>webkit_web_plugin_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        webkit_web_plugin_get_name          (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the name string for <em class="parameter"><code>plugin</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.3.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-plugin-set-enabled"></a><h3>webkit_web_plugin_set_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_plugin_set_enabled       (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>);</pre>
+<p>
+Sets the enabled status of the <em class="parameter"><code>plugin</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enabled</code></em> :</span></p></td>
+<td>whether to enable the plugin</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.3.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-plugin-get-path"></a><h3>webkit_web_plugin_get_path ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        webkit_web_plugin_get_path          (<em class="parameter"><code><a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPlugin.html" title="WebKitWebPlugin"><span class="type">WebKitWebPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the absolute path to <em class="parameter"><code>plugin</code></em> in system filename encoding
+or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on failure to convert the filename from UTF-8.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.4.0</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPlugin.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="WebKitWebPlugin--enabled"></a><h3>The <code class="literal">"enabled"</code> property</h3>
+<pre class="programlisting">  "enabled"                  <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Whether the plugin is enabled.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPlugin.see-also"></a><h2>See Also</h2>
+<a class="link" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase"><span class="type">WebKitWebPluginDatabase</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

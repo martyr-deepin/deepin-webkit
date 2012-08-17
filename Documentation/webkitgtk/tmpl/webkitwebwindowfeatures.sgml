@@ -1,0 +1,97 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebWindowFeatures
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebWindowFeatures ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitWebWindowFeatures:fullscreen ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:height ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:locationbar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:menubar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:scrollbar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:statusbar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:toolbar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:width ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:x ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebWindowFeatures:y ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_web_window_features_equal ##### -->
+<para>
+
+</para>
+
+@features1: 
+@features2: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_window_features_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+

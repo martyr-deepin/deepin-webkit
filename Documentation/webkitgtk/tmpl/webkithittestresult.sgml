@@ -1,0 +1,65 @@
+<!-- ##### SECTION Title ##### -->
+WebKitHitTestResult
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitHitTestResult ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitHitTestResult:context ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitHitTestResult:image-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitHitTestResult:inner-node ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitHitTestResult:link-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitHitTestResult:media-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM WebKitHitTestResultContext ##### -->
+<para>
+
+</para>
+
+@WEBKIT_HIT_TEST_RESULT_CONTEXT_DOCUMENT: 
+@WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK: 
+@WEBKIT_HIT_TEST_RESULT_CONTEXT_IMAGE: 
+@WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA: 
+@WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION: 
+@WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE: 
+

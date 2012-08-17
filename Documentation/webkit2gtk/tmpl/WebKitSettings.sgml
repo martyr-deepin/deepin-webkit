@@ -1,0 +1,808 @@
+<!-- ##### SECTION Title ##### -->
+WebKitSettings
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitSettings ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitSettings:auto-load-images ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:cursive-font-family ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:default-charset ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:default-font-family ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:default-font-size ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:default-monospace-font-size ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-caret-browsing ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-developer-extras ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-dns-prefetching ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-frame-flattening ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-fullscreen ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-html5-database ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-html5-local-storage ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-hyperlink-auditing ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-java ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-javascript ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-offline-web-application-cache ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-plugins ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-private-browsing ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-resizable-text-areas ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-tabs-to-links ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-webaudio ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:enable-xss-auditor ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:fantasy-font-family ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:javascript-can-open-windows-automatically ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:load-icons-ignoring-image-load-setting ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:minimum-font-size ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:monospace-font-family ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:pictograph-font-family ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:print-backgrounds ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:sans-serif-font-family ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:serif-font-family ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSettings:zoom-text-only ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_settings_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_new_with_settings ##### -->
+<para>
+
+</para>
+
+@first_setting_name: 
+@...: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_auto_load_images ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_auto_load_images ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_frame_flattening ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_frame_flattening ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_html5_database ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_html5_database ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_html5_local_storage ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_html5_local_storage ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_hyperlink_auditing ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_hyperlink_auditing ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_java ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_java ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_javascript ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_javascript ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_offline_web_application_cache ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_offline_web_application_cache ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_plugins ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_plugins ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_xss_auditor ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_xss_auditor ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_javascript_can_open_windows_automatically ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_javascript_can_open_windows_automatically ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_load_icons_ignoring_image_load_setting ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_load_icons_ignoring_image_load_setting ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_default_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_default_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@default_font_family: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_monospace_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_monospace_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@monospace_font_family: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_serif_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_serif_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@serif_font_family: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_sans_serif_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_sans_serif_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@sans_serif_font_family: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_cursive_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_cursive_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@cursive_font_family: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_fantasy_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_fantasy_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@fantasy_font_family: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_pictograph_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_pictograph_font_family ##### -->
+<para>
+
+</para>
+
+@settings: 
+@pictograph_font_family: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_default_font_size ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_default_font_size ##### -->
+<para>
+
+</para>
+
+@settings: 
+@font_size: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_default_monospace_font_size ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_default_monospace_font_size ##### -->
+<para>
+
+</para>
+
+@settings: 
+@font_size: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_minimum_font_size ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_minimum_font_size ##### -->
+<para>
+
+</para>
+
+@settings: 
+@font_size: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_default_charset ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_default_charset ##### -->
+<para>
+
+</para>
+
+@settings: 
+@default_charset: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_private_browsing ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_private_browsing ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_developer_extras ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_developer_extras ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_resizable_text_areas ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_resizable_text_areas ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_tabs_to_links ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_tabs_to_links ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_dns_prefetching ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_dns_prefetching ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_caret_browsing ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_caret_browsing ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_fullscreen ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_fullscreen ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_print_backgrounds ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_print_backgrounds ##### -->
+<para>
+
+</para>
+
+@settings: 
+@print_backgrounds: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_enable_webaudio ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_enable_webaudio ##### -->
+<para>
+
+</para>
+
+@settings: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_settings_get_zoom_text_only ##### -->
+<para>
+
+</para>
+
+@settings: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_settings_set_zoom_text_only ##### -->
+<para>
+
+</para>
+
+@settings: 
+@zoom_text_only: 
+
+

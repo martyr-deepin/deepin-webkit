@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Global functions</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch01.html" title="Global functions">
+<link rel="prev" href="ch01.html" title="Global functions">
+<link rel="next" href="ch02.html" title="Class Overview">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#webkitgtk-Global-functions.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#webkitgtk-Global-functions.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="webkitgtk-Global-functions"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="webkitgtk-Global-functions.top_of_page"></a>Global functions</span></h2>
+<p>Global functions — Global functions controlling WebKit</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="webkitgtk-Global-functions.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><a href="../libsoup-2.4/SoupSession.html"><span class="returnvalue">SoupSession</span></a> *       <a class="link" href="webkitgtk-Global-functions.html#webkit-get-default-session" title="webkit_get_default_session ()">webkit_get_default_session</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             <a class="link" href="webkitgtk-Global-functions.html#webkit-get-default-web-database-quota" title="webkit_get_default_web_database_quota ()">webkit_get_default_web_database_quota</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="webkitgtk-Global-functions.html#webkit-get-web-database-directory-path" title="webkit_get_web_database_directory_path ()">webkit_get_web_database_directory_path</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase"><span class="returnvalue">WebKitWebPluginDatabase</span></a> * <a class="link" href="webkitgtk-Global-functions.html#webkit-get-web-plugin-database" title="webkit_get_web_plugin_database ()">webkit_get_web_plugin_database</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-Global-functions.html#webkit-remove-all-web-databases" title="webkit_remove_all_web_databases ()">webkit_remove_all_web_databases</a>     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-Global-functions.html#webkit-set-default-web-database-quota" title="webkit_set_default_web_database_quota ()">webkit_set_default_web_database_quota</a>
+                                                        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> defaultQuota</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-Global-functions.html#webkit-set-web-database-directory-path" title="webkit_set_web_database_directory_path ()">webkit_set_web_database_directory_path</a>
+                                                        (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>);
+<a class="link" href="WebKitFaviconDatabase.html" title="WebKitFaviconDatabase"><span class="returnvalue">WebKitFaviconDatabase</span></a> * <a class="link" href="webkitgtk-Global-functions.html#webkit-get-favicon-database" title="webkit_get_favicon_database ()">webkit_get_favicon_database</a>     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="WebKitIconDatabase.html" title="WebKitIconDatabase"><span class="returnvalue">WebKitIconDatabase</span></a> * <a class="link" href="webkitgtk-Global-functions.html#webkit-get-icon-database" title="webkit_get_icon_database ()">webkit_get_icon_database</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="webkitgtk-Global-functions.html#webkit-get-text-checker" title="webkit_get_text_checker ()">webkit_get_text_checker</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-Global-functions.html#webkit-set-text-checker" title="webkit_set_text_checker ()">webkit_set_text_checker</a>             (<em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *checker</code></em>);
+
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="webkitgtk-Global-functions.html#webkit-application-cache-get-database-directory-path" title="webkit_application_cache_get_database_directory_path ()">webkit_application_cache_get_database_directory_path</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+unsigned long <span class="returnvalue">long</span>  <a class="link" href="webkitgtk-Global-functions.html#webkit-application-cache-get-maximum-size" title="webkit_application_cache_get_maximum_size ()">webkit_application_cache_get_maximum_size</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-Global-functions.html#webkit-application-cache-set-maximum-size" title="webkit_application_cache_set_maximum_size ()">webkit_application_cache_set_maximum_size</a>
+                                                        (<em class="parameter"><code><span class="type">unsigned long long </span> size</code></em>);
+
+enum                <a class="link" href="webkitgtk-Global-functions.html#WebKitCacheModel" title="enum WebKitCacheModel">WebKitCacheModel</a>;
+<a class="link" href="webkitgtk-Global-functions.html#WebKitCacheModel" title="enum WebKitCacheModel"><span class="returnvalue">WebKitCacheModel</span></a>    <a class="link" href="webkitgtk-Global-functions.html#webkit-get-cache-model" title="webkit_get_cache_model ()">webkit_get_cache_model</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="webkitgtk-Global-functions.html#webkit-set-cache-model" title="webkit_set_cache_model ()">webkit_set_cache_model</a>              (<em class="parameter"><code><a class="link" href="webkitgtk-Global-functions.html#WebKitCacheModel" title="enum WebKitCacheModel"><span class="type">WebKitCacheModel</span></a> cache_model</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-Global-functions.description"></a><h2>Description</h2>
+<p>
+WebKit manages many resources which are not related to specific
+views. These functions relate to cross-view limits, such as cache
+sizes, database quotas, and the HTTP session management.
+</p>
+</div>
+<div class="refsect1">
+<a name="webkitgtk-Global-functions.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="webkit-get-default-session"></a><h3>webkit_get_default_session ()</h3>
+<pre class="programlisting"><a href="../libsoup-2.4/SoupSession.html"><span class="returnvalue">SoupSession</span></a> *       webkit_get_default_session          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Retrieves the default <a href="../libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a> used by all web views.
+Note that the session features are added by WebKit on demand,
+so if you insert your own <a href="../libsoup-2.4/SoupCookieJar.html"><span class="type">SoupCookieJar</span></a> before any network
+traffic occurs, WebKit will use it instead of the default.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the default <a href="../libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-get-default-web-database-quota"></a><h3>webkit_get_default_web_database_quota ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             webkit_get_default_web_database_quota
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the default quota for Web Database databases. By default
+this value is 5MB.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current default database quota in bytes</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-get-web-database-directory-path"></a><h3>webkit_get_web_database_directory_path ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_get_web_database_directory_path
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the current path to the directory WebKit will write Web 
+Database databases. By default this path will be in the user data
+directory.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current database directory path</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-get-web-plugin-database"></a><h3>webkit_get_web_plugin_database ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase"><span class="returnvalue">WebKitWebPluginDatabase</span></a> * webkit_get_web_plugin_database
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the current <a class="link" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase"><span class="type">WebKitWebPluginDatabase</span></a> with information about
+all the plugins WebKit knows about in this instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current <a class="link" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase"><span class="type">WebKitWebPluginDatabase</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.3.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-remove-all-web-databases"></a><h3>webkit_remove_all_web_databases ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_remove_all_web_databases     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Removes all web databases from the current database directory path.
+</p>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-set-default-web-database-quota"></a><h3>webkit_set_default_web_database_quota ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_set_default_web_database_quota
+                                                        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> defaultQuota</code></em>);</pre>
+<p>
+Sets the default quota for Web Database databases.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>defaultQuota</code></em> :</span></p></td>
+<td>the new default database quota</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-set-web-database-directory-path"></a><h3>webkit_set_web_database_directory_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_set_web_database_directory_path
+                                                        (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>);</pre>
+<p>
+Sets the current path to the directory WebKit will write Web 
+Database databases.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>the new database directory path</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-get-favicon-database"></a><h3>webkit_get_favicon_database ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitFaviconDatabase.html" title="WebKitFaviconDatabase"><span class="returnvalue">WebKitFaviconDatabase</span></a> * webkit_get_favicon_database     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the <a class="link" href="WebKitFaviconDatabase.html" title="WebKitFaviconDatabase"><span class="type">WebKitFaviconDatabase</span></a> providing access to website
+icons.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current <a class="link" href="WebKitFaviconDatabase.html" title="WebKitFaviconDatabase"><span class="type">WebKitFaviconDatabase</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-get-icon-database"></a><h3>webkit_get_icon_database ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitIconDatabase.html" title="WebKitIconDatabase"><span class="returnvalue">WebKitIconDatabase</span></a> * webkit_get_icon_database           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">webkit_get_icon_database</code> has been deprecated since version 1.8 and should not be used in newly-written code. Use <a class="link" href="webkitgtk-Global-functions.html#webkit-get-favicon-database" title="webkit_get_favicon_database ()"><code class="function">webkit_get_favicon_database()</code></a> instead</p>
+</div>
+<p>
+Returns the <a class="link" href="WebKitIconDatabase.html" title="WebKitIconDatabase"><span class="type">WebKitIconDatabase</span></a> providing access to website icons.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current <a class="link" href="WebKitIconDatabase.html" title="WebKitIconDatabase"><span class="type">WebKitIconDatabase</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.3.13</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-get-text-checker"></a><h3>webkit_get_text_checker ()</h3>
+<pre class="programlisting"><a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           webkit_get_text_checker             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="WebKitSpellChecker.html" title="WebKitSpellChecker"><span class="type">WebKitSpellChecker</span></a> used by WebKit, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if spell
+checking is not enabled</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.5.1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-set-text-checker"></a><h3>webkit_set_text_checker ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_set_text_checker             (<em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *checker</code></em>);</pre>
+<p>
+Sets <em class="parameter"><code>checker</code></em> as the spell checker to be used by WebKit. The API
+accepts GObject since in the future we might accept objects
+implementing multiple interfaces (for example, spell checking and
+grammar checking).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>checker</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitSpellChecker.html" title="WebKitSpellChecker"><span class="type">WebKitSpellChecker</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.5.1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-application-cache-get-database-directory-path"></a><h3>webkit_application_cache_get_database_directory_path ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_application_cache_get_database_directory_path
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the path to the directory WebKit will write web application
+cache databases to. By default this path is set to
+$XDG_CACHE_HOME/webkitgtk/applications and cannot be modified.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the application cache database directory path</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.3.13</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-application-cache-get-maximum-size"></a><h3>webkit_application_cache_get_maximum_size ()</h3>
+<pre class="programlisting">unsigned long <span class="returnvalue">long</span>  webkit_application_cache_get_maximum_size
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the maximum size of the cache storage.
+By default it is set to UINT_MAX i.e. no quota.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current application cache maximum storage size</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.3.13</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-application-cache-set-maximum-size"></a><h3>webkit_application_cache_set_maximum_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_application_cache_set_maximum_size
+                                                        (<em class="parameter"><code><span class="type">unsigned long long </span> size</code></em>);</pre>
+<p>
+Sets new application cache maximum storage size.
+Changing the application cache storage size will clear the cache
+and rebuild cache storage.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>the new web application cache maximum storage size</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.3.13</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitCacheModel"></a><h3>enum WebKitCacheModel</h3>
+<pre class="programlisting">typedef enum {
+    WEBKIT_CACHE_MODEL_DEFAULT,
+    WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER,
+    WEBKIT_CACHE_MODEL_WEB_BROWSER,
+    WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER,
+} WebKitCacheModel;
+</pre>
+<p>
+Enum values used for determining the webview cache model.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="WEBKIT-CACHE-MODEL-DEFAULT:CAPS"></a><span class="term"><code class="literal">WEBKIT_CACHE_MODEL_DEFAULT</code></span></p></td>
+<td>The default cache model. This is
+  WEBKIT_CACHE_MODEL_WEB_BROWSER.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-CACHE-MODEL-DOCUMENT-VIEWER:CAPS"></a><span class="term"><code class="literal">WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER</code></span></p></td>
+<td>Disable the cache completely, which
+  substantially reduces memory usage. Useful for applications that only
+  access a single local file, with no navigation to other pages. No remote
+  resources will be cached.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-CACHE-MODEL-WEB-BROWSER:CAPS"></a><span class="term"><code class="literal">WEBKIT_CACHE_MODEL_WEB_BROWSER</code></span></p></td>
+<td>Improve document load speed substantially
+  by caching a very large number of resources and previously viewed content.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-CACHE-MODEL-DOCUMENT-BROWSER:CAPS"></a><span class="term"><code class="literal">WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER</code></span></p></td>
+<td>A cache model optimized for viewing
+  a series of local files -- for example, a documentation viewer or a website
+  designer. WebKit will cache a moderate number of resources.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-get-cache-model"></a><h3>webkit_get_cache_model ()</h3>
+<pre class="programlisting"><a class="link" href="webkitgtk-Global-functions.html#WebKitCacheModel" title="enum WebKitCacheModel"><span class="returnvalue">WebKitCacheModel</span></a>    webkit_get_cache_model              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the current cache model. For more information about this
+value check the documentation of the function
+<a class="link" href="webkitgtk-Global-functions.html#webkit-set-cache-model" title="webkit_set_cache_model ()"><code class="function">webkit_set_cache_model()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current <a class="link" href="webkitgtk-Global-functions.html#WebKitCacheModel" title="enum WebKitCacheModel"><span class="type">WebKitCacheModel</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-set-cache-model"></a><h3>webkit_set_cache_model ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_set_cache_model              (<em class="parameter"><code><a class="link" href="webkitgtk-Global-functions.html#WebKitCacheModel" title="enum WebKitCacheModel"><span class="type">WebKitCacheModel</span></a> cache_model</code></em>);</pre>
+<p>
+Specifies a usage model for WebViews, which WebKit will use to
+determine its caching behavior. All web views follow the cache
+model. This cache model determines the RAM and disk space to use
+for caching previously viewed content .
+</p>
+<p>
+Research indicates that users tend to browse within clusters of
+documents that hold resources in common, and to revisit previously
+visited documents. WebKit and the frameworks below it include
+built-in caches that take advantage of these patterns,
+substantially improving document load speed in browsing
+situations. The WebKit cache model controls the behaviors of all of
+these caches, including various WebCore caches.
+</p>
+<p>
+Browsers can improve document load speed substantially by
+specifying WEBKIT_CACHE_MODEL_WEB_BROWSER. Applications without a
+browsing interface can reduce memory usage substantially by
+specifying WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER. Default value is
+WEBKIT_CACHE_MODEL_WEB_BROWSER.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>cache_model</code></em> :</span></p></td>
+<td>a <a class="link" href="webkitgtk-Global-functions.html#WebKitCacheModel" title="enum WebKitCacheModel"><span class="type">WebKitCacheModel</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.18</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebContext
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebContext ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitWebContext::download-started ##### -->
+<para>
+
+</para>
+
+@webkitwebcontext: the object which received the signal.
+@arg1: 
+
+<!-- ##### ENUM WebKitCacheModel ##### -->
+<para>
+
+</para>
+
+@WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER: 
+@WEBKIT_CACHE_MODEL_WEB_BROWSER: 
+@WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER: 
+
+<!-- ##### FUNCTION webkit_web_context_get_default ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_context_get_cache_model ##### -->
+<para>
+
+</para>
+
+@context: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_context_set_cache_model ##### -->
+<para>
+
+</para>
+
+@context: 
+@cache_model: 
+
+
+<!-- ##### FUNCTION webkit_web_context_download_uri ##### -->
+<para>
+
+</para>
+
+@context: 
+@uri: 
+@Returns: 
+
+

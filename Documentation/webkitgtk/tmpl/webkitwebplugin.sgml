@@ -1,0 +1,96 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebPlugin
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebPlugin ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitWebPlugin:enabled ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT WebKitWebPluginMIMEType ##### -->
+<para>
+
+</para>
+
+@name: 
+@description: 
+@extensions: 
+
+<!-- ##### FUNCTION webkit_web_plugin_get_description ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_get_enabled ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_get_mimetypes ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_get_name ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_set_enabled ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@enabled: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_get_path ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+

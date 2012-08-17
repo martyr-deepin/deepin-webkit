@@ -1,0 +1,57 @@
+<!-- ##### SECTION Title ##### -->
+WebKitBackForwardListItem
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitBackForwardListItem ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_item_get_title ##### -->
+<para>
+
+</para>
+
+@list_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_item_get_uri ##### -->
+<para>
+
+</para>
+
+@list_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_item_get_original_uri ##### -->
+<para>
+
+</para>
+
+@list_item: 
+@Returns: 
+
+

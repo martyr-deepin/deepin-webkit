@@ -1,0 +1,63 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebPluginDatabase
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebPluginDatabase ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION webkit_web_plugin_database_get_plugin_for_mimetype ##### -->
+<para>
+
+</para>
+
+@database: 
+@mime_type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_database_get_plugins ##### -->
+<para>
+
+</para>
+
+@database: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_database_plugins_list_free ##### -->
+<para>
+
+</para>
+
+@list: 
+
+
+<!-- ##### FUNCTION webkit_web_plugin_database_refresh ##### -->
+<para>
+
+</para>
+
+@database: 
+
+

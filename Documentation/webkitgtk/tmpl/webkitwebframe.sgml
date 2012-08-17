@@ -1,0 +1,374 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebFrame
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### ENUM WebKitLoadStatus ##### -->
+<para>
+
+</para>
+
+@WEBKIT_LOAD_PROVISIONAL: 
+@WEBKIT_LOAD_COMMITTED: 
+@WEBKIT_LOAD_FINISHED: 
+@WEBKIT_LOAD_FIRST_VISUALLY_NON_EMPTY_LAYOUT: 
+@WEBKIT_LOAD_FAILED: 
+
+<!-- ##### STRUCT WebKitWebFrame ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitWebFrame::cleared ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebFrame::hovering-over-link ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebFrame::load-committed ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebFrame::load-done ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebFrame::resource-content-length-received ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebFrame::resource-load-failed ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebFrame::resource-load-finished ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebFrame::resource-request-starting ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### SIGNAL WebKitWebFrame::resource-response-received ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebFrame::scrollbars-policy-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebFrame::title-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebframe: the object which received the signal.
+@arg1: 
+
+<!-- ##### ARG WebKitWebFrame:horizontal-scrollbar-policy ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebFrame:load-status ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebFrame:name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebFrame:title ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebFrame:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebFrame:vertical-scrollbar-policy ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_web_frame_find_frame ##### -->
+<para>
+
+</para>
+
+@frame: 
+@name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_data_source ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_global_context ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_horizontal_scrollbar_policy ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_load_status ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_name ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_network_response ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_parent ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_provisional_data_source ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_security_origin ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_title ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_uri ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_vertical_scrollbar_policy ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_get_web_view ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_load_alternate_string ##### -->
+<para>
+
+</para>
+
+@frame: 
+@content: 
+@base_url: 
+@unreachable_url: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_load_request ##### -->
+<para>
+
+</para>
+
+@frame: 
+@request: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_load_string ##### -->
+<para>
+
+</para>
+
+@frame: 
+@content: 
+@mime_type: 
+@encoding: 
+@base_uri: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_load_uri ##### -->
+<para>
+
+</para>
+
+@frame: 
+@uri: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_new ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_print ##### -->
+<para>
+
+</para>
+
+@frame: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_print_full ##### -->
+<para>
+
+</para>
+
+@frame: 
+@operation: 
+@action: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_reload ##### -->
+<para>
+
+</para>
+
+@frame: 
+
+
+<!-- ##### FUNCTION webkit_web_frame_stop_loading ##### -->
+<para>
+
+</para>
+
+@frame: 
+
+

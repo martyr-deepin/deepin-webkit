@@ -1,0 +1,167 @@
+<!-- ##### SECTION Title ##### -->
+WebKitFindController
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitFindController ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitFindController::counted-matches ##### -->
+<para>
+
+</para>
+
+@webkitfindcontroller: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitFindController::failed-to-find-text ##### -->
+<para>
+
+</para>
+
+@webkitfindcontroller: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitFindController::found-text ##### -->
+<para>
+
+</para>
+
+@webkitfindcontroller: the object which received the signal.
+@arg1: 
+
+<!-- ##### ARG WebKitFindController:max-match-count ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitFindController:options ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitFindController:text ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitFindController:web-view ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM WebKitFindOptions ##### -->
+<para>
+
+</para>
+
+@WEBKIT_FIND_OPTIONS_NONE: 
+@WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE: 
+@WEBKIT_FIND_OPTIONS_AT_WORD_STARTS: 
+@WEBKIT_FIND_OPTIONS_TREAT_MEDIAL_CAPITAL_AS_WORD_START: 
+@WEBKIT_FIND_OPTIONS_BACKWARDS: 
+@WEBKIT_FIND_OPTIONS_WRAP_AROUND: 
+
+<!-- ##### FUNCTION webkit_find_controller_search ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+@search_text: 
+@find_options: 
+@max_match_count: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_search_finish ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_search_next ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_search_previous ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_get_search_text ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_count_matches ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+@search_text: 
+@find_options: 
+@max_match_count: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_get_options ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_get_max_match_count ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_find_controller_get_web_view ##### -->
+<para>
+
+</para>
+
+@find_controller: 
+@Returns: 
+
+

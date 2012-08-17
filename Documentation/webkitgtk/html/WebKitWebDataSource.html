@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitWebDataSource</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitWebDatabase.html" title="WebKitWebDatabase">
+<link rel="next" href="WebKitWebResource.html" title="WebKitWebResource">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitWebDatabase.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitWebResource.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitWebDataSource.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitWebDataSource.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitWebDataSource.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitWebDataSource"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitWebDataSource.top_of_page"></a>WebKitWebDataSource</span></h2>
+<p>WebKitWebDataSource — Encapsulates the content to be displayed in a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitWebDataSource.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitWebDataSource.html#WebKitWebDataSource-struct" title="WebKitWebDataSource">WebKitWebDataSource</a>;
+<a href="../glib/glib-Strings.html#GString"><span class="returnvalue">GString</span></a> *           <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-data" title="webkit_web_data_source_get_data ()">webkit_web_data_source_get_data</a>     (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-encoding" title="webkit_web_data_source_get_encoding ()">webkit_web_data_source_get_encoding</a> (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+<a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="returnvalue">WebKitNetworkRequest</span></a> * <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-initial-request" title="webkit_web_data_source_get_initial_request ()">webkit_web_data_source_get_initial_request</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+<a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="returnvalue">WebKitWebResource</span></a> * <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-main-resource" title="webkit_web_data_source_get_main_resource ()">webkit_web_data_source_get_main_resource</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+<a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="returnvalue">WebKitNetworkRequest</span></a> * <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-request" title="webkit_web_data_source_get_request ()">webkit_web_data_source_get_request</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+<a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-subresources" title="webkit_web_data_source_get_subresources ()">webkit_web_data_source_get_subresources</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-unreachable-uri" title="webkit_web_data_source_get_unreachable_uri ()">webkit_web_data_source_get_unreachable_uri</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-get-web-frame" title="webkit_web_data_source_get_web_frame ()">webkit_web_data_source_get_web_frame</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-is-loading" title="webkit_web_data_source_is_loading ()">webkit_web_data_source_is_loading</a>   (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);
+<a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="returnvalue">WebKitWebDataSource</span></a> * <a class="link" href="WebKitWebDataSource.html#webkit-web-data-source-new" title="webkit_web_data_source_new ()">webkit_web_data_source_new</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebDataSource.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitWebDataSource
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebDataSource.description"></a><h2>Description</h2>
+<p>
+Data source encapsulates the content of a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>. A
+<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> has a main resource and subresources and the data source
+provides access to these resources. When a request gets loaded initially,
+it is set to a provisional state. The application can request for the
+request that initiated the load by asking for the provisional data source
+and invoking the webkit_web_data_source_get_initial_request method of
+<a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>. This data source may not have enough data and some
+methods may return empty values. To get a "full" data source with the data
+and resources loaded, you need to get the non-provisional data source
+through <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>'s webkit_web_frame_get_data_source method. This
+data source will have the data after everything was loaded. Make sure that
+the data source was finished loading before using any of its methods. You
+can do this via webkit_web_data_source_is_loading.
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitWebDataSource.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitWebDataSource-struct"></a><h3>WebKitWebDataSource</h3>
+<pre class="programlisting">typedef struct _WebKitWebDataSource WebKitWebDataSource;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-data"></a><h3>webkit_web_data_source_get_data ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Strings.html#GString"><span class="returnvalue">GString</span></a> *           webkit_web_data_source_get_data     (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Returns the raw data that represents the the frame's content.The data will
+be incomplete until the data has finished loading. Returns <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the web
+frame hasn't loaded any data. Use webkit_web_data_source_is_loading to test
+if data source is in the process of loading.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> which contains the raw
+data that represents the <em class="parameter"><code>data_source</code></em> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the <em class="parameter"><code>data_source</code></em>
+hasn't loaded any data. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-encoding"></a><h3>webkit_web_data_source_get_encoding ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_data_source_get_encoding (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Returns the text encoding name as set in the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>, or if not, the
+text encoding of the response.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the encoding name of the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> or of the response.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-initial-request"></a><h3>webkit_web_data_source_get_initial_request ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="returnvalue">WebKitNetworkRequest</span></a> * webkit_web_data_source_get_initial_request
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Returns a reference to the original request that was used to load the web
+content. The <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> returned by this method is the request
+prior to the "committed" load state. See webkit_web_data_source_get_request
+for getting the "committed" request.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the original <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-main-resource"></a><h3>webkit_web_data_source_get_main_resource ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="returnvalue">WebKitWebResource</span></a> * webkit_web_data_source_get_main_resource
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Returns the main resource of the <em class="parameter"><code>data_source</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+representing the main resource of the <em class="parameter"><code>data_source</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-request"></a><h3>webkit_web_data_source_get_request ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="returnvalue">WebKitNetworkRequest</span></a> * webkit_web_data_source_get_request
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Returns a <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> that was used to create this
+<a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>. The <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> returned by this method is
+the request that was "committed", and hence, different from the request you
+get from the webkit_web_data_source_get_initial_request method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> that
+created the <em class="parameter"><code>data_source</code></em> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the <em class="parameter"><code>data_source</code></em> is not
+attached to the frame or the frame hasn't been loaded. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-subresources"></a><h3>webkit_web_data_source_get_subresources ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             webkit_web_data_source_get_subresources
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Gives you a <a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> objects that compose the
+<a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> to which this <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> is attached.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> objects; the objects are owned by
+WebKit, but the GList must be freed. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> WebKitWebResource][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.15</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-unreachable-uri"></a><h3>webkit_web_data_source_get_unreachable_uri ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_data_source_get_unreachable_uri
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Return the unreachable URI of <em class="parameter"><code>data_source</code></em>. The <em class="parameter"><code>data_source</code></em> will have an
+unreachable URL if it was created using <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>'s
+webkit_web_frame_load_alternate_html_string method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the unreachable URL of <em class="parameter"><code>data_source</code></em> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no unreachable URL.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-get-web-frame"></a><h3>webkit_web_data_source_get_web_frame ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    webkit_web_data_source_get_web_frame
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Returns the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> that represents this data source
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> that represents
+the <em class="parameter"><code>data_source</code></em>. The <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> is owned by WebKit and should
+not be freed or destroyed.  This will return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
+<em class="parameter"><code>data_source</code></em> is not attached to a frame. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-is-loading"></a><h3>webkit_web_data_source_is_loading ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            webkit_web_data_source_is_loading   (<em class="parameter"><code><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> *data_source</code></em>);</pre>
+<p>
+Determines whether the data source is in the process of loading its content.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_source</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the <em class="parameter"><code>data_source</code></em> is still loading, <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-data-source-new"></a><h3>webkit_web_data_source_new ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="returnvalue">WebKitWebDataSource</span></a> * webkit_web_data_source_new        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> instance. The URL of the
+<a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> will be set to "about:blank".
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>.</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebDataSource.see-also"></a><h2>See Also</h2>
+<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

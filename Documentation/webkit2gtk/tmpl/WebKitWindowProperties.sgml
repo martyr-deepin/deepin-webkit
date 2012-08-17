@@ -1,0 +1,142 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWindowProperties
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWindowProperties ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitWindowProperties:fullscreen ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWindowProperties:geometry ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWindowProperties:locationbar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWindowProperties:menubar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWindowProperties:resizable ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWindowProperties:scrollbars-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWindowProperties:statusbar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWindowProperties:toolbar-visible ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_window_properties_get_geometry ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@geometry: 
+
+
+<!-- ##### FUNCTION webkit_window_properties_get_toolbar_visible ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_window_properties_get_statusbar_visible ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_window_properties_get_scrollbars_visible ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_window_properties_get_menubar_visible ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_window_properties_get_locationbar_visible ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_window_properties_get_resizable ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_window_properties_get_fullscreen ##### -->
+<para>
+
+</para>
+
+@window_properties: 
+@Returns: 
+
+

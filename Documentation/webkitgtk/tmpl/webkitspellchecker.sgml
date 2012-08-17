@@ -1,0 +1,87 @@
+<!-- ##### SECTION Title ##### -->
+WebKitSpellChecker
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitSpellChecker ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION webkit_spell_checker_check_spelling_of_string ##### -->
+<para>
+
+</para>
+
+@checker: 
+@string: 
+@misspelling_location: 
+@misspelling_length: 
+
+
+<!-- ##### FUNCTION webkit_spell_checker_get_guesses_for_word ##### -->
+<para>
+
+</para>
+
+@checker: 
+@word: 
+@context: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_spell_checker_update_spell_checking_languages ##### -->
+<para>
+
+</para>
+
+@checker: 
+@languages: 
+
+
+<!-- ##### FUNCTION webkit_spell_checker_get_autocorrect_suggestions_for_misspelled_word ##### -->
+<para>
+
+</para>
+
+@checker: 
+@word: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_spell_checker_learn_word ##### -->
+<para>
+
+</para>
+
+@checker: 
+@word: 
+
+
+<!-- ##### FUNCTION webkit_spell_checker_ignore_word ##### -->
+<para>
+
+</para>
+
+@checker: 
+@word: 
+
+

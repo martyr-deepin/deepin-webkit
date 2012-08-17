@@ -1,0 +1,120 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebDatabase
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebDatabase ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitWebDatabase:display-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebDatabase:expected-size ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebDatabase:filename ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebDatabase:name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebDatabase:security-origin ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebDatabase:size ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_web_database_get_display_name ##### -->
+<para>
+
+</para>
+
+@webDatabase: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_database_get_expected_size ##### -->
+<para>
+
+</para>
+
+@webDatabase: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_database_get_filename ##### -->
+<para>
+
+</para>
+
+@webDatabase: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_database_get_name ##### -->
+<para>
+
+</para>
+
+@webDatabase: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_database_get_security_origin ##### -->
+<para>
+
+</para>
+
+@webDatabase: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_database_get_size ##### -->
+<para>
+
+</para>
+
+@webDatabase: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_database_remove ##### -->
+<para>
+
+</para>
+
+@webDatabase: 
+
+

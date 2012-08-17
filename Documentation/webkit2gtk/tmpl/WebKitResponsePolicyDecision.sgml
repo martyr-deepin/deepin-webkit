@@ -1,0 +1,58 @@
+<!-- ##### SECTION Title ##### -->
+WebKitResponsePolicyDecision
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitResponsePolicyDecision ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitResponsePolicyDecision:request ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitResponsePolicyDecision:response ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_response_policy_decision_get_request ##### -->
+<para>
+
+</para>
+
+@decision: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_response_policy_decision_get_response ##### -->
+<para>
+
+</para>
+
+@decision: 
+@Returns: 
+
+

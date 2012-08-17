@@ -1,0 +1,72 @@
+<!-- ##### SECTION Title ##### -->
+WebKitURIResponse
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitURIResponse ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitURIResponse:content-length ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitURIResponse:status-code ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitURIResponse:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_uri_response_get_uri ##### -->
+<para>
+
+</para>
+
+@response: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_uri_response_get_status_code ##### -->
+<para>
+
+</para>
+
+@response: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_uri_response_get_content_length ##### -->
+<para>
+
+</para>
+
+@response: 
+@Returns: 
+
+

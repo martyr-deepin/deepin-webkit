@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitWebResource</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitWebDataSource.html" title="WebKitWebDataSource">
+<link rel="next" href="webkitgtk-webkitdownload.html" title="WebKitDownload">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitWebDataSource.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="webkitgtk-webkitdownload.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitWebResource.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitWebResource.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitWebResource.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#WebKitWebResource.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#WebKitWebResource.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitWebResource"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitWebResource.top_of_page"></a>WebKitWebResource</span></h2>
+<p>WebKitWebResource — Represents a downloaded URI.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitWebResource.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitWebResource.html#WebKitWebResource-struct" title="WebKitWebResource">WebKitWebResource</a>;
+<a href="../glib/glib-Strings.html#GString"><span class="returnvalue">GString</span></a> *           <a class="link" href="WebKitWebResource.html#webkit-web-resource-get-data" title="webkit_web_resource_get_data ()">webkit_web_resource_get_data</a>        (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebResource.html#webkit-web-resource-get-encoding" title="webkit_web_resource_get_encoding ()">webkit_web_resource_get_encoding</a>    (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebResource.html#webkit-web-resource-get-frame-name" title="webkit_web_resource_get_frame_name ()">webkit_web_resource_get_frame_name</a>  (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebResource.html#webkit-web-resource-get-mime-type" title="webkit_web_resource_get_mime_type ()">webkit_web_resource_get_mime_type</a>   (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebResource.html#webkit-web-resource-get-uri" title="webkit_web_resource_get_uri ()">webkit_web_resource_get_uri</a>         (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);
+<a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="returnvalue">WebKitWebResource</span></a> * <a class="link" href="WebKitWebResource.html#webkit-web-resource-new" title="webkit_web_resource_new ()">webkit_web_resource_new</a>             (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> size</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *encoding</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *frame_name</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitWebResource
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource--encoding" title='The "encoding" property'>encoding</a>"                 <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource--frame-name" title='The "frame-name" property'>frame-name</a>"               <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource--mime-type" title='The "mime-type" property'>mime-type</a>"                <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource--uri" title='The "uri" property'>uri</a>"                      <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource-content-length-received" title='The "content-length-received" signal'>content-length-received</a>"                        : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource-load-failed" title='The "load-failed" signal'>load-failed</a>"                                    : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource-load-finished" title='The "load-finished" signal'>load-finished</a>"                                  : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebResource.html#WebKitWebResource-response-received" title='The "response-received" signal'>response-received</a>"                              : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.description"></a><h2>Description</h2>
+<p>
+A web resource encapsulates the data of the download as well as the URI,
+MIME type and frame name of the resource.
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitWebResource-struct"></a><h3>WebKitWebResource</h3>
+<pre class="programlisting">typedef struct _WebKitWebResource WebKitWebResource;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-resource-get-data"></a><h3>webkit_web_resource_get_data ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Strings.html#GString"><span class="returnvalue">GString</span></a> *           webkit_web_resource_get_data        (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);</pre>
+<p>
+Returns the data of the <em class="parameter"><code>webResource</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> containing the character
+data of the <em class="parameter"><code>webResource</code></em>.  The string is owned by WebKit and should
+not be freed or destroyed. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-resource-get-encoding"></a><h3>webkit_web_resource_get_encoding ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_resource_get_encoding    (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the encoding name of the resource</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-resource-get-frame-name"></a><h3>webkit_web_resource_get_frame_name ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_resource_get_frame_name  (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the frame name of the resource.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-resource-get-mime-type"></a><h3>webkit_web_resource_get_mime_type ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_resource_get_mime_type   (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the MIME type of the resource</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-resource-get-uri"></a><h3>webkit_web_resource_get_uri ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_resource_get_uri         (<em class="parameter"><code><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the URI of the resource</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-resource-new"></a><h3>webkit_web_resource_new ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="returnvalue">WebKitWebResource</span></a> * webkit_web_resource_new             (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> size</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *encoding</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *frame_name</code></em>);</pre>
+<p>
+Returns a new <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>. The <em class="parameter"><code>encoding</code></em> can be <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. The
+<em class="parameter"><code>frame_name</code></em> argument can be used if the resource represents contents of an
+entire HTML frame, otherwise pass <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>the data to initialize the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>the length of <em class="parameter"><code>data</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>the URI of the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
+<td>the MIME type of the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encoding</code></em> :</span></p></td>
+<td>the text encoding name of the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame_name</code></em> :</span></p></td>
+<td>the frame name of the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="WebKitWebResource--encoding"></a><h3>The <code class="literal">"encoding"</code> property</h3>
+<pre class="programlisting">  "encoding"                 <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read</pre>
+<p>
+The encoding name to which the web resource was encoded in.
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebResource--frame-name"></a><h3>The <code class="literal">"frame-name"</code> property</h3>
+<pre class="programlisting">  "frame-name"               <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read</pre>
+<p>
+The frame name for the web resource.
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebResource--mime-type"></a><h3>The <code class="literal">"mime-type"</code> property</h3>
+<pre class="programlisting">  "mime-type"                <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read</pre>
+<p>
+The MIME type of the web resource.
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebResource--uri"></a><h3>The <code class="literal">"uri"</code> property</h3>
+<pre class="programlisting">  "uri"                      <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only</pre>
+<p>
+The URI of the web resource
+</p>
+<p>Default value: NULL</p>
+<p class="since">Since 1.1.14</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="WebKitWebResource-content-length-received"></a><h3>The <code class="literal">"content-length-received"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource,
+                                                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>               length_received,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)            : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when new resource data has been received. The
+<em class="parameter"><code>length_received</code></em> variable stores the amount of bytes received
+since the last time this signal was emitted. This is useful to
+provide progress information about the resource load operation.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> that was loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length_received</code></em> :</span></p></td>
+<td>the amount of data received since the last signal emission</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebResource-load-failed"></a><h3>The <code class="literal">"load-failed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           error,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Invoked when the <em class="parameter"><code>web_resource</code></em> failed to load
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> that was loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>the <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> that was triggered</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebResource-load-finished"></a><h3>The <code class="literal">"load-finished"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when all the data for the resource was loaded
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> being loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebResource-response-received"></a><h3>The <code class="literal">"response-received"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>     *web_resource,
+                                                        <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>               user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when the response is received from the server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> being loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> that was received</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebResource.see-also"></a><h2>See Also</h2>
+<a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

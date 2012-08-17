@@ -1,0 +1,142 @@
+<!-- ##### SECTION Title ##### -->
+WebKitDownload
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitDownload ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitDownload::created-destination ##### -->
+<para>
+
+</para>
+
+@webkitdownload: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitDownload::decide-destination ##### -->
+<para>
+
+</para>
+
+@webkitdownload: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitDownload::failed ##### -->
+<para>
+
+</para>
+
+@webkitdownload: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitDownload::finished ##### -->
+<para>
+
+</para>
+
+@webkitdownload: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitDownload::received-data ##### -->
+<para>
+
+</para>
+
+@webkitdownload: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### ARG WebKitDownload:destination ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:estimated-progress ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:response ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_download_get_destination ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_set_destination ##### -->
+<para>
+
+</para>
+
+@download: 
+@uri: 
+
+
+<!-- ##### FUNCTION webkit_download_get_response ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_cancel ##### -->
+<para>
+
+</para>
+
+@download: 
+
+
+<!-- ##### FUNCTION webkit_download_get_estimated_progress ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_elapsed_time ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+

@@ -1,0 +1,54 @@
+<!-- ##### SECTION Title ##### -->
+WebKitPolicyDecision
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitPolicyDecision ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION webkit_policy_decision_download ##### -->
+<para>
+
+</para>
+
+@decision: 
+
+
+<!-- ##### FUNCTION webkit_policy_decision_ignore ##### -->
+<para>
+
+</para>
+
+@decision: 
+
+
+<!-- ##### FUNCTION webkit_policy_decision_use ##### -->
+<para>
+
+</para>
+
+@decision: 
+
+

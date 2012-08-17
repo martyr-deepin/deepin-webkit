@@ -1,0 +1,53 @@
+<!-- ##### SECTION Title ##### -->
+WebKitURIRequest
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitURIRequest ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitURIRequest:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_uri_request_new ##### -->
+<para>
+
+</para>
+
+@uri: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_uri_request_get_uri ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+

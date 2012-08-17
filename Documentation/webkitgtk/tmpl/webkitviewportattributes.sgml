@@ -1,0 +1,106 @@
+<!-- ##### SECTION Title ##### -->
+WebKitViewportAttributes
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitViewportAttributes ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitViewportAttributes:available-height ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:available-width ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:desktop-width ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:device-dpi ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:device-height ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:device-pixel-ratio ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:device-width ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:height ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:initial-scale-factor ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:maximum-scale-factor ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:minimum-scale-factor ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:user-scalable ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:valid ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitViewportAttributes:width ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_viewport_attributes_recompute ##### -->
+<para>
+
+</para>
+
+@viewportAttributes: 
+
+

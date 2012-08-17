@@ -1,0 +1,1230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitWebFrame</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="webkitgtk-webkitwebview.html" title="WebKitWebView">
+<link rel="next" href="WebKitWebSettings.html" title="WebKitWebSettings">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="webkitgtk-webkitwebview.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitWebSettings.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitWebFrame.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitWebFrame.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitWebFrame.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#WebKitWebFrame.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#WebKitWebFrame.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitWebFrame"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitWebFrame.top_of_page"></a>WebKitWebFrame</span></h2>
+<p>WebKitWebFrame — The content of a <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a></p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitWebFrame.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="WebKitWebFrame.html#WebKitLoadStatus" title="enum WebKitLoadStatus">WebKitLoadStatus</a>;
+                    <a class="link" href="WebKitWebFrame.html#WebKitWebFrame-struct" title="WebKitWebFrame">WebKitWebFrame</a>;
+<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    <a class="link" href="WebKitWebFrame.html#webkit-web-frame-find-frame" title="webkit_web_frame_find_frame ()">webkit_web_frame_find_frame</a>         (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);
+<a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="returnvalue">WebKitWebDataSource</span></a> * <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-data-source" title="webkit_web_frame_get_data_source ()">webkit_web_frame_get_data_source</a>  (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<span class="returnvalue">JSGlobalContextRef</span>  <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-global-context" title="webkit_web_frame_get_global_context ()">webkit_web_frame_get_global_context</a> (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="returnvalue">GtkPolicyType</span></a>       <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-horizontal-scrollbar-policy" title="webkit_web_frame_get_horizontal_scrollbar_policy ()">webkit_web_frame_get_horizontal_scrollbar_policy</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a class="link" href="WebKitWebFrame.html#WebKitLoadStatus" title="enum WebKitLoadStatus"><span class="returnvalue">WebKitLoadStatus</span></a>    <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-load-status" title="webkit_web_frame_get_load_status ()">webkit_web_frame_get_load_status</a>    (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-name" title="webkit_web_frame_get_name ()">webkit_web_frame_get_name</a>           (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="returnvalue">WebKitNetworkResponse</span></a> * <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-network-response" title="webkit_web_frame_get_network_response ()">webkit_web_frame_get_network_response</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-parent" title="webkit_web_frame_get_parent ()">webkit_web_frame_get_parent</a>         (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="returnvalue">WebKitWebDataSource</span></a> * <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-provisional-data-source" title="webkit_web_frame_get_provisional_data_source ()">webkit_web_frame_get_provisional_data_source</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a class="link" href="WebKitSecurityOrigin.html" title="WebKitSecurityOrigin"><span class="returnvalue">WebKitSecurityOrigin</span></a> * <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-security-origin" title="webkit_web_frame_get_security_origin ()">webkit_web_frame_get_security_origin</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-title" title="webkit_web_frame_get_title ()">webkit_web_frame_get_title</a>          (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-uri" title="webkit_web_frame_get_uri ()">webkit_web_frame_get_uri</a>            (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="returnvalue">GtkPolicyType</span></a>       <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-vertical-scrollbar-policy" title="webkit_web_frame_get_vertical_scrollbar_policy ()">webkit_web_frame_get_vertical_scrollbar_policy</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="returnvalue">WebKitWebView</span></a> *     <a class="link" href="WebKitWebFrame.html#webkit-web-frame-get-web-view" title="webkit_web_frame_get_web_view ()">webkit_web_frame_get_web_view</a>       (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebFrame.html#webkit-web-frame-load-alternate-string" title="webkit_web_frame_load_alternate_string ()">webkit_web_frame_load_alternate_string</a>
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *base_url</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *unreachable_url</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebFrame.html#webkit-web-frame-load-request" title="webkit_web_frame_load_request ()">webkit_web_frame_load_request</a>       (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> *request</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebFrame.html#webkit-web-frame-load-string" title="webkit_web_frame_load_string ()">webkit_web_frame_load_string</a>        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *encoding</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *base_uri</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebFrame.html#webkit-web-frame-load-uri" title="webkit_web_frame_load_uri ()">webkit_web_frame_load_uri</a>           (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>);
+<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    <a class="link" href="WebKitWebFrame.html#webkit-web-frame-new" title="webkit_web_frame_new ()">webkit_web_frame_new</a>                (<em class="parameter"><code><a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> *web_view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebFrame.html#webkit-web-frame-print" title="webkit_web_frame_print ()">webkit_web_frame_print</a>              (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperationResult"><span class="returnvalue">GtkPrintOperationResult</span></a> <a class="link" href="WebKitWebFrame.html#webkit-web-frame-print-full" title="webkit_web_frame_print_full ()">webkit_web_frame_print_full</a>     (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperation"><span class="type">GtkPrintOperation</span></a> *operation</code></em>,
+                                                         <em class="parameter"><code><a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperationAction"><span class="type">GtkPrintOperationAction</span></a> action</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebFrame.html#webkit-web-frame-reload" title="webkit_web_frame_reload ()">webkit_web_frame_reload</a>             (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebFrame.html#webkit-web-frame-stop-loading" title="webkit_web_frame_stop_loading ()">webkit_web_frame_stop_loading</a>       (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebFrame.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitWebFrame
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebFrame.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame--horizontal-scrollbar-policy" title='The "horizontal-scrollbar-policy" property'>horizontal-scrollbar-policy</a>" <a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="type">GtkPolicyType</span></a>         : Read
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame--load-status" title='The "load-status" property'>load-status</a>"              <a class="link" href="WebKitWebFrame.html#WebKitLoadStatus" title="enum WebKitLoadStatus"><span class="type">WebKitLoadStatus</span></a>      : Read
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame--name" title='The "name" property'>name</a>"                     <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame--title" title='The "title" property'>title</a>"                    <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame--uri" title='The "uri" property'>uri</a>"                      <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame--vertical-scrollbar-policy" title='The "vertical-scrollbar-policy" property'>vertical-scrollbar-policy</a>" <a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="type">GtkPolicyType</span></a>         : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebFrame.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-cleared" title='The "cleared" signal'>cleared</a>"                                        : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-hovering-over-link" title='The "hovering-over-link" signal'>hovering-over-link</a>"                             : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-load-committed" title='The "load-committed" signal'>load-committed</a>"                                 : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-load-done" title='The "load-done" signal'>load-done</a>"                                      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-resource-content-length-received" title='The "resource-content-length-received" signal'>resource-content-length-received</a>"               : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-resource-load-failed" title='The "resource-load-failed" signal'>resource-load-failed</a>"                           : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-resource-load-finished" title='The "resource-load-finished" signal'>resource-load-finished</a>"                         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-resource-request-starting" title='The "resource-request-starting" signal'>resource-request-starting</a>"                      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-resource-response-received" title='The "resource-response-received" signal'>resource-response-received</a>"                     : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-scrollbars-policy-changed" title='The "scrollbars-policy-changed" signal'>scrollbars-policy-changed</a>"                      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
+  "<a class="link" href="WebKitWebFrame.html#WebKitWebFrame-title-changed" title='The "title-changed" signal'>title-changed</a>"                                  : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebFrame.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> contains a main <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>. A <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+contains the content of one URI. The URI and name of the frame can
+be retrieved, the load status and progress can be observed using the
+signals and can be controlled using the methods of the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>.
+A <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> can have any number of children and one child can
+be found by using <a class="link" href="WebKitWebFrame.html#webkit-web-frame-find-frame" title="webkit_web_frame_find_frame ()"><span class="type">webkit_web_frame_find_frame</span></a>.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/*</span><span class="comment"> Get the frame from the &lt;a class=&quot;link&quot; href=&quot;webkitgtk-webkitwebview.html#WebKitWebView&quot;&gt;WebKitWebView&lt;/a&gt; </span><span class="comment">*/</span>
+WebKitWebFrame *frame = webkit_web_view_get_main_frame (WEBKIT_WEB_VIEW(my_view));
+g_print (<span class="number">&quot;The URI of this frame is '</span><span class="symbol">%s</span><span class="number">'&quot;</span>, webkit_web_frame_get_uri (frame));</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitWebFrame.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitLoadStatus"></a><h3>enum WebKitLoadStatus</h3>
+<pre class="programlisting">typedef enum {
+    WEBKIT_LOAD_PROVISIONAL,
+    WEBKIT_LOAD_COMMITTED,
+    WEBKIT_LOAD_FINISHED,
+    WEBKIT_LOAD_FIRST_VISUALLY_NON_EMPTY_LAYOUT,
+    WEBKIT_LOAD_FAILED
+} WebKitLoadStatus;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="WEBKIT-LOAD-PROVISIONAL:CAPS"></a><span class="term"><code class="literal">WEBKIT_LOAD_PROVISIONAL</code></span></p></td>
+<td>No data has been received yet, empty
+structures have been allocated to perform the load; the load may
+still fail for transport issues such as not being able to resolve a
+name, or connect to a port.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-LOAD-COMMITTED:CAPS"></a><span class="term"><code class="literal">WEBKIT_LOAD_COMMITTED</code></span></p></td>
+<td>The first data chunk has arrived, meaning
+that the necessary transport requirements are stabilished, and the
+load is being performed.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-LOAD-FINISHED:CAPS"></a><span class="term"><code class="literal">WEBKIT_LOAD_FINISHED</code></span></p></td>
+<td>This state means that everything that was
+required to display the page has been loaded.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-LOAD-FIRST-VISUALLY-NON-EMPTY-LAYOUT:CAPS"></a><span class="term"><code class="literal">WEBKIT_LOAD_FIRST_VISUALLY_NON_EMPTY_LAYOUT</code></span></p></td>
+<td>The first layout with
+actual visible content happened; one or more layouts may have
+happened before that caused nothing to be visible on the screen,
+because the data available at the time was not significant enough.
+</td>
+</tr>
+<tr>
+<td><p><a name="WEBKIT-LOAD-FAILED:CAPS"></a><span class="term"><code class="literal">WEBKIT_LOAD_FAILED</code></span></p></td>
+<td>This state means that some error occurred
+during the page load that prevented it from being completed. You
+can connect to the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView-load-error" title='The "load-error" signal'><span class="type">"load-error"</span></a> signal if you want to
+know precisely what kind of error occurred.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-struct"></a><h3>WebKitWebFrame</h3>
+<pre class="programlisting">typedef struct _WebKitWebFrame WebKitWebFrame;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-find-frame"></a><h3>webkit_web_frame_find_frame ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    webkit_web_frame_find_frame         (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+<p>
+For pre-defined names, returns <em class="parameter"><code>frame</code></em> if <em class="parameter"><code>name</code></em> is "_self" or "_current",
+returns <em class="parameter"><code>frame</code></em>'s parent frame if <em class="parameter"><code>name</code></em> is "_parent", and returns the main
+frame if <em class="parameter"><code>name</code></em> is "_top". Also returns <em class="parameter"><code>frame</code></em> if it is the main frame and
+<em class="parameter"><code>name</code></em> is either "_parent" or "_top". For other names, this function returns
+the first frame that matches <em class="parameter"><code>name</code></em>. This function searches <em class="parameter"><code>frame</code></em> and its
+descendents first, then <em class="parameter"><code>frame</code></em>'s parent and its children moving up the
+hierarchy until a match is found. If no match is found in <em class="parameter"><code>frame</code></em>'s
+hierarchy, this function will search for a matching frame in other main
+frame hierarchies. Returns <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no match is found.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the frame to be found</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the found <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case none is found. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-data-source"></a><h3>webkit_web_frame_get_data_source ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="returnvalue">WebKitWebDataSource</span></a> * webkit_web_frame_get_data_source  (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns the committed data source.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the committed <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-global-context"></a><h3>webkit_web_frame_get_global_context ()</h3>
+<pre class="programlisting"><span class="returnvalue">JSGlobalContextRef</span>  webkit_web_frame_get_global_context (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Gets the global JavaScript execution context. Use this function to bridge
+between the WebKit and JavaScriptCore APIs.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the global JavaScript context. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-horizontal-scrollbar-policy"></a><h3>webkit_web_frame_get_horizontal_scrollbar_policy ()</h3>
+<pre class="programlisting"><a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="returnvalue">GtkPolicyType</span></a>       webkit_web_frame_get_horizontal_scrollbar_policy
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-load-status"></a><h3>webkit_web_frame_get_load_status ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebFrame.html#WebKitLoadStatus" title="enum WebKitLoadStatus"><span class="returnvalue">WebKitLoadStatus</span></a>    webkit_web_frame_get_load_status    (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Determines the current status of the load.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a class="link" href="WebKitWebFrame.html#WebKitLoadStatus" title="enum WebKitLoadStatus"><span class="type">WebKitLoadStatus</span></a> specifying the status of the current load.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.7</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-name"></a><h3>webkit_web_frame_get_name ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_frame_get_name           (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns the <em class="parameter"><code>frame</code></em>'s name
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the name of <em class="parameter"><code>frame</code></em>. This method will return NULL if
+the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> is invalid or an empty string if it is not backed
+by a live WebCore frame.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-network-response"></a><h3>webkit_web_frame_get_network_response ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="returnvalue">WebKitNetworkResponse</span></a> * webkit_web_frame_get_network_response
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns a <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> object representing the response
+that was given to the request for the given frame, or NULL if the
+frame was not created by a load. You must unref the object when you
+are done with it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> object. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-parent"></a><h3>webkit_web_frame_get_parent ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    webkit_web_frame_get_parent         (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns the <em class="parameter"><code>frame</code></em>'s parent frame, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it has none.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the parent <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case there is none. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-provisional-data-source"></a><h3>webkit_web_frame_get_provisional_data_source ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="returnvalue">WebKitWebDataSource</span></a> * webkit_web_frame_get_provisional_data_source
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+You use the webkit_web_frame_load_request method to initiate a request that
+creates a provisional data source. The provisional data source will
+transition to a committed data source once any data has been received. Use
+webkit_web_frame_get_data_source to get the committed data source.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the provisional <a class="link" href="WebKitWebDataSource.html" title="WebKitWebDataSource"><span class="type">WebKitWebDataSource</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if a load
+request is not in progress. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-security-origin"></a><h3>webkit_web_frame_get_security_origin ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitSecurityOrigin.html" title="WebKitSecurityOrigin"><span class="returnvalue">WebKitSecurityOrigin</span></a> * webkit_web_frame_get_security_origin
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns the <em class="parameter"><code>frame</code></em>'s security origin.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the security origin of <em class="parameter"><code>frame</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-title"></a><h3>webkit_web_frame_get_title ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_frame_get_title          (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns the <em class="parameter"><code>frame</code></em>'s document title
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the title of <em class="parameter"><code>frame</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-uri"></a><h3>webkit_web_frame_get_uri ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       webkit_web_frame_get_uri            (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns the current URI of the contents displayed by the <em class="parameter"><code>frame</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the URI of <em class="parameter"><code>frame</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-vertical-scrollbar-policy"></a><h3>webkit_web_frame_get_vertical_scrollbar_policy ()</h3>
+<pre class="programlisting"><a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="returnvalue">GtkPolicyType</span></a>       webkit_web_frame_get_vertical_scrollbar_policy
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-get-web-view"></a><h3>webkit_web_frame_get_web_view ()</h3>
+<pre class="programlisting"><a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="returnvalue">WebKitWebView</span></a> *     webkit_web_frame_get_web_view       (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Returns the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> that manages this <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>.
+</p>
+<p>
+The <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> returned manages the entire hierarchy of <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+objects that contains <em class="parameter"><code>frame</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> that manages <em class="parameter"><code>frame</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-load-alternate-string"></a><h3>webkit_web_frame_load_alternate_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_frame_load_alternate_string
+                                                        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *base_url</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *unreachable_url</code></em>);</pre>
+<p>
+Request loading of an alternate content for a URL that is unreachable.
+Using this method will preserve the back-forward list. The URI passed in
+<em class="parameter"><code>base_url</code></em> has to be an absolute URI.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content</code></em> :</span></p></td>
+<td>the alternate content to display as the main page of the <em class="parameter"><code>frame</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>base_url</code></em> :</span></p></td>
+<td>the base URI for relative locations</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>unreachable_url</code></em> :</span></p></td>
+<td>the URL for the alternate page content</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.6</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-load-request"></a><h3>webkit_web_frame_load_request ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_frame_load_request       (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> *request</code></em>);</pre>
+<p>
+Connects to a given URI by initiating an asynchronous client request.
+</p>
+<p>
+Creates a provisional data source that will transition to a committed data
+source once any data has been received. Use <a class="link" href="WebKitWebFrame.html#webkit-web-frame-stop-loading" title="webkit_web_frame_stop_loading ()"><code class="function">webkit_web_frame_stop_loading()</code></a> to
+stop the load. This function is typically invoked on the main frame.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>request</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-load-string"></a><h3>webkit_web_frame_load_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_frame_load_string        (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *encoding</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *base_uri</code></em>);</pre>
+<p>
+Requests loading of the given <em class="parameter"><code>content</code></em> with the specified <em class="parameter"><code>mime_type</code></em>,
+<em class="parameter"><code>encoding</code></em> and <em class="parameter"><code>base_uri</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>mime_type</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, "text/html" is assumed.
+</p>
+<p>
+If <em class="parameter"><code>encoding</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, "UTF-8" is assumed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content</code></em> :</span></p></td>
+<td>an URI string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
+<td>the MIME type, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encoding</code></em> :</span></p></td>
+<td>the encoding, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>base_uri</code></em> :</span></p></td>
+<td>the base URI for relative locations</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-load-uri"></a><h3>webkit_web_frame_load_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_frame_load_uri           (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>);</pre>
+<p>
+Requests loading of the specified URI string.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>an URI string</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-new"></a><h3>webkit_web_frame_new ()</h3>
+<pre class="programlisting"><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="returnvalue">WebKitWebFrame</span></a> *    webkit_web_frame_new                (<em class="parameter"><code><a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a> *web_view</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">webkit_web_frame_new</code> has been deprecated since version 1.0.2 and should not be used in newly-written code. <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> can only be used to inspect existing
+frames.</p>
+</div>
+<p>
+Creates a new <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> initialized with a controlling <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_view</code></em> :</span></p></td>
+<td>the controlling <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-print"></a><h3>webkit_web_frame_print ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_frame_print              (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Prints the given <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>, by presenting a print dialog to the
+user. If you need more control over the printing process, see
+<a class="link" href="WebKitWebFrame.html#webkit-web-frame-print-full" title="webkit_web_frame_print_full ()"><code class="function">webkit_web_frame_print_full()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.1.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-print-full"></a><h3>webkit_web_frame_print_full ()</h3>
+<pre class="programlisting"><a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperationResult"><span class="returnvalue">GtkPrintOperationResult</span></a> webkit_web_frame_print_full     (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperation"><span class="type">GtkPrintOperation</span></a> *operation</code></em>,
+                                                         <em class="parameter"><code><a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperationAction"><span class="type">GtkPrintOperationAction</span></a> action</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Prints the given <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>, using the given <a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperation"><span class="type">GtkPrintOperation</span></a>
+and <a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperationAction"><span class="type">GtkPrintOperationAction</span></a>. This function wraps a call to
+<a href="../gtk3/gtk3-High-level-Printing-API.html#gtk-print-operation-run"><code class="function">gtk_print_operation_run()</code></a> for printing the contents of the
+<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> to be printed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>operation</code></em> :</span></p></td>
+<td>the <a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperation"><span class="type">GtkPrintOperation</span></a> to be carried</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
+<td>the <a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperationAction"><span class="type">GtkPrintOperationAction</span></a> to be performed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+<a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error return</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a href="../gtk3/gtk3-High-level-Printing-API.html#GtkPrintOperationResult"><span class="type">GtkPrintOperationResult</span></a> specifying the result of this operation.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-reload"></a><h3>webkit_web_frame_reload ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_frame_reload             (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Reloads the initial request.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-frame-stop-loading"></a><h3>webkit_web_frame_stop_loading ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_frame_stop_loading       (<em class="parameter"><code><a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame</code></em>);</pre>
+<p>
+Stops any pending loads on <em class="parameter"><code>frame</code></em>'s data source, and those of its children.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebFrame.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="WebKitWebFrame--horizontal-scrollbar-policy"></a><h3>The <code class="literal">"horizontal-scrollbar-policy"</code> property</h3>
+<pre class="programlisting">  "horizontal-scrollbar-policy" <a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="type">GtkPolicyType</span></a>         : Read</pre>
+<p>
+Determines the current policy for the horizontal scrollbar of
+the frame. For the main frame, make sure to set the same policy
+on the scrollable widget containing the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>, unless
+you know what you are doing.
+</p>
+<p>Default value: GTK_POLICY_AUTOMATIC</p>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame--load-status"></a><h3>The <code class="literal">"load-status"</code> property</h3>
+<pre class="programlisting">  "load-status"              <a class="link" href="WebKitWebFrame.html#WebKitLoadStatus" title="enum WebKitLoadStatus"><span class="type">WebKitLoadStatus</span></a>      : Read</pre>
+<p>
+Determines the current status of the load.
+</p>
+<p>Default value: WEBKIT_LOAD_FINISHED</p>
+<p class="since">Since 1.1.7</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame--name"></a><h3>The <code class="literal">"name"</code> property</h3>
+<pre class="programlisting">  "name"                     <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read</pre>
+<p>The name of the frame.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame--title"></a><h3>The <code class="literal">"title"</code> property</h3>
+<pre class="programlisting">  "title"                    <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read</pre>
+<p>The document title of the frame.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame--uri"></a><h3>The <code class="literal">"uri"</code> property</h3>
+<pre class="programlisting">  "uri"                      <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read</pre>
+<p>The current URI of the contents displayed by the frame.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame--vertical-scrollbar-policy"></a><h3>The <code class="literal">"vertical-scrollbar-policy"</code> property</h3>
+<pre class="programlisting">  "vertical-scrollbar-policy" <a href="../gtk3/gtk3-Standard-Enumerations.html#GtkPolicyType"><span class="type">GtkPolicyType</span></a>         : Read</pre>
+<p>
+Determines the current policy for the vertical scrollbar of
+the frame. For the main frame, make sure to set the same policy
+on the scrollable widget containing the <a class="link" href="webkitgtk-webkitwebview.html#WebKitWebView"><span class="type">WebKitWebView</span></a>, unless
+you know what you are doing.
+</p>
+<p>Default value: GTK_POLICY_AUTOMATIC</p>
+<p class="since">Since 1.1.14</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitWebFrame.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="WebKitWebFrame-cleared"></a><h3>The <code class="literal">"cleared"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *webkitwebframe,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)           : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>webkitwebframe</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-hovering-over-link"></a><h3>The <code class="literal">"hovering-over-link"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *webkitwebframe,
+                                                        <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *arg1,
+                                                        <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *arg2,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)           : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>webkitwebframe</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-load-committed"></a><h3>The <code class="literal">"load-committed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *web_frame,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">WebKitWebFrame::load-committed</code> is deprecated and should not be used in newly-written code. Use the "load-status" property instead.</p>
+</div>
+<p>
+Emitted when frame loading is done.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_frame</code></em> :</span></p></td>
+<td>the object on which the signal is emitted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-load-done"></a><h3>The <code class="literal">"load-done"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *web_frame,
+                                                        <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>        arg1,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">WebKitWebFrame::load-done</code> is deprecated and should not be used in newly-written code. Use the "load-status" property instead, and/or
+WebKitWebView::load-error to be notified of load errors</p>
+</div>
+<p>
+Emitted when frame loading is done.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_frame</code></em> :</span></p></td>
+<td>the object on which the signal is emitted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-resource-content-length-received"></a><h3>The <code class="literal">"resource-content-length-received"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>    *web_frame,
+                                                        <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource,
+                                                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>               length_received,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)            : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when new resource data has been received. The
+<em class="parameter"><code>length_received</code></em> variable stores the amount of bytes received
+since the last time this signal was emitted. This is useful to
+provide progress information about the resource load operation.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_frame</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> the response was received for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> that was loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length_received</code></em> :</span></p></td>
+<td>the amount of data received since the last signal emission</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-resource-load-failed"></a><h3>The <code class="literal">"resource-load-failed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>    *web_frame,
+                                                        <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           error,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Invoked when a resource failed to load.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_frame</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> the response was received for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> that was loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>the <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> that was triggered</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-resource-load-finished"></a><h3>The <code class="literal">"resource-load-finished"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>    *web_frame,
+                                                        <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> *web_resource,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when all the data for the resource was loaded.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_frame</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> the response was received for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> being loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-resource-request-starting"></a><h3>The <code class="literal">"resource-request-starting"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>        *web_frame,
+                                                        <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>     *web_resource,
+                                                        <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a>  *request,
+                                                        <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>               user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when a request is about to be sent. You can modify the
+request while handling this signal. You can set the URI in the
+<a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> object itself, and add/remove/replace
+headers using the <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> object it carries, if it is
+present. See <a class="link" href="WebKitNetworkRequest.html#webkit-network-request-get-message" title="webkit_network_request_get_message ()"><code class="function">webkit_network_request_get_message()</code></a>. Setting the
+request URI to "about:blank" will effectively cause the request
+to load nothing, and can be used to disable the loading of
+specific resources.
+</p>
+<p>
+Notice that information about an eventual redirect is available
+in <em class="parameter"><code>response</code></em>'s <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a>, not in the <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> carried by
+the <em class="parameter"><code>request</code></em>. If <em class="parameter"><code>response</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then this is not a
+redirected request.
+</p>
+<p>
+The <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> object will be the same throughout all
+the lifetime of the resource, but the contents may change
+between signal emissions.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_frame</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> whose load dispatched this request</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>an empty <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>request</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitNetworkRequest.html" title="WebKitNetworkRequest"><span class="type">WebKitNetworkRequest</span></a> that will be dispatched</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> representing the redirect
+response, if any</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-resource-response-received"></a><h3>The <code class="literal">"resource-response-received"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a>        *web_frame,
+                                                        <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a>     *web_resource,
+                                                        <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> *response,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>               user_data)         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted when the response is received from the server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_frame</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> the response was received for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_resource</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitWebResource.html" title="WebKitWebResource"><span class="type">WebKitWebResource</span></a> being loaded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em> :</span></p></td>
+<td>the <a class="link" href="WebKitNetworkResponse.html" title="WebKitNetworkResponse"><span class="type">WebKitNetworkResponse</span></a> that was received.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.7.5</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-scrollbars-policy-changed"></a><h3>The <code class="literal">"scrollbars-policy-changed"</code> signal</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *web_view,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
+<p>
+Signal emitted when policy for one or both of the scrollbars of
+the view has changed. The default handler will apply the new
+policy to the container that holds the <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> if it is
+a <a href="../gtk3/GtkScrolledWindow.html"><span class="type">GtkScrolledWindow</span></a> and the frame is the main frame. If you do
+not want this to be handled automatically, you need to handle
+this signal.
+</p>
+<p>
+The exception to this rule is that policies to disable the
+scrollbars are applied as <a href="../gtk3/gtk3-Standard-Enumerations.html#GTK-POLICY-AUTOMATIC:CAPS"><code class="literal">GTK_POLICY_AUTOMATIC</code></a> instead, since
+the size request of the widget would force browser windows to
+not be resizable.
+</p>
+<p>
+You can obtain the new policies from the
+WebKitWebFrame:horizontal-scrollbar-policy and
+WebKitWebFrame:vertical-scrollbar-policy properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>web_view</code></em> :</span></p></td>
+<td>the object which received the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to stop other handlers from being invoked for the
+event. <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> to propagate the event further.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WebKitWebFrame-title-changed"></a><h3>The <code class="literal">"title-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> *frame,
+                                                        <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *title,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">WebKitWebFrame::title-changed</code> has been deprecated since version 1.1.18 and should not be used in newly-written code. Use "notify::title" instead.</p>
+</div>
+<p>
+When a <a class="link" href="WebKitWebFrame.html" title="WebKitWebFrame"><span class="type">WebKitWebFrame</span></a> changes the document title this signal is emitted.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>the object on which the signal is emitted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>the new title</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

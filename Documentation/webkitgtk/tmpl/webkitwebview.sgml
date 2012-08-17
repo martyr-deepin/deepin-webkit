@@ -1,0 +1,1335 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebView
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### ENUM WebKitNavigationResponse ##### -->
+<para>
+
+</para>
+
+@WEBKIT_NAVIGATION_RESPONSE_ACCEPT: 
+@WEBKIT_NAVIGATION_RESPONSE_IGNORE: 
+@WEBKIT_NAVIGATION_RESPONSE_DOWNLOAD: 
+
+<!-- ##### ENUM WebKitWebViewTargetInfo ##### -->
+<para>
+
+</para>
+
+@WEBKIT_WEB_VIEW_TARGET_INFO_HTML: 
+@WEBKIT_WEB_VIEW_TARGET_INFO_TEXT: 
+@WEBKIT_WEB_VIEW_TARGET_INFO_IMAGE: 
+@WEBKIT_WEB_VIEW_TARGET_INFO_URI_LIST: 
+@WEBKIT_WEB_VIEW_TARGET_INFO_NETSCAPE_URL: 
+
+<!-- ##### ENUM WebKitWebViewViewMode ##### -->
+<para>
+
+</para>
+
+@WEBKIT_WEB_VIEW_VIEW_MODE_WINDOWED: 
+@WEBKIT_WEB_VIEW_VIEW_MODE_FLOATING: 
+@WEBKIT_WEB_VIEW_VIEW_MODE_FULLSCREEN: 
+@WEBKIT_WEB_VIEW_VIEW_MODE_MAXIMIZED: 
+@WEBKIT_WEB_VIEW_VIEW_MODE_MINIMIZED: 
+
+<!-- ##### STRUCT WebKitWebView ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitWebView::close-web-view ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::console-message ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::copy-clipboard ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::create-plugin-widget ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::create-web-view ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::cut-clipboard ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::database-quota-exceeded ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebView::document-load-finished ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::download-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::editing-began ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::editing-ended ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::frame-created ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::geolocation-policy-decision-cancelled ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::geolocation-policy-decision-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::hovering-over-link ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebView::icon-loaded ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::load-committed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::load-error ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::load-finished ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::load-progress-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::load-started ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::mime-type-policy-decision-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::move-cursor ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::navigation-policy-decision-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::navigation-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::new-window-policy-decision-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::onload-event ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::paste-clipboard ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::populate-popup ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::print-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::redo ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::resource-content-length-received ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### SIGNAL WebKitWebView::resource-load-failed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### SIGNAL WebKitWebView::resource-load-finished ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebView::resource-request-starting ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+
+<!-- ##### SIGNAL WebKitWebView::resource-response-received ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### SIGNAL WebKitWebView::script-alert ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::script-confirm ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::script-prompt ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::select-all ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::selection-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::should-apply-style ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::should-begin-editing ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::should-change-selected-range ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::should-delete-range ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::should-end-editing ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::should-insert-node ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::should-insert-text ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::should-show-delete-interface-for-element ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::status-bar-text-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::title-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebView::undo ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::user-changed-contents ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::viewport-attributes-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::viewport-attributes-recompute-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::web-view-ready ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::window-object-cleared ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### ARG WebKitWebView:copy-target-list ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:custom-encoding ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:editable ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:encoding ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:full-content-zoom ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:icon-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:im-context ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:load-status ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:paste-target-list ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:progress ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:self-scrolling ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:settings ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:title ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:transparent ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:view-mode ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:viewport-attributes ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:web-inspector ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:window-features ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:zoom-level ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_web_view_can_copy_clipboard ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_cut_clipboard ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_go_back ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_go_back_or_forward ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@steps: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_go_forward ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_paste_clipboard ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_redo ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_show_mime_type ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@mime_type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_undo ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_copy_clipboard ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_cut_clipboard ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_delete_selection ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_execute_script ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@script: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_back_forward_list ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_copy_target_list ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_custom_encoding ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_dom_document ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_editable ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_encoding ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_focused_frame ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_full_content_zoom ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_hit_test_result ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@event: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_icon_pixbuf ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_icon_uri ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_inspector ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_load_status ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_main_frame ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_paste_target_list ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_progress ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_settings ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_title ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_transparent ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_uri ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_view_mode ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_view_source_mode ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_viewport_attributes ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_zoom_level ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_go_back ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_go_back_or_forward ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@steps: 
+
+
+<!-- ##### FUNCTION webkit_web_view_go_forward ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_go_to_back_forward_item ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_has_selection ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_html_string ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@content: 
+@base_uri: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_request ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@request: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_string ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@content: 
+@mime_type: 
+@encoding: 
+@base_uri: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_uri ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@uri: 
+
+
+<!-- ##### FUNCTION webkit_web_view_mark_text_matches ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@string: 
+@case_sensitive: 
+@limit: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_move_cursor ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@step: 
+@count: 
+
+
+<!-- ##### FUNCTION webkit_web_view_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_open ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@uri: 
+
+
+<!-- ##### FUNCTION webkit_web_view_paste_clipboard ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_redo ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_reload ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_reload_bypass_cache ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_search_text ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@text: 
+@case_sensitive: 
+@forward: 
+@wrap: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_select_all ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_custom_encoding ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@encoding: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_editable ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@flag: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_full_content_zoom ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@full_content_zoom: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_highlight_text_matches ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@highlight: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_maintains_back_forward_list ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@flag: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_settings ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@settings: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_transparent ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@flag: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_view_mode ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@mode: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_view_source_mode ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@view_source_mode: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_zoom_level ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@zoom_level: 
+
+
+<!-- ##### FUNCTION webkit_web_view_stop_loading ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_try_get_favicon_pixbuf ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@width: 
+@height: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_undo ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_unmark_text_matches ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_zoom_in ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_zoom_out ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_window_features ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+

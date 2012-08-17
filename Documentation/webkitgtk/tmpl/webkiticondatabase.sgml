@@ -1,0 +1,97 @@
+<!-- ##### SECTION Title ##### -->
+WebKitIconDatabase
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitIconDatabase ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitIconDatabase::icon-loaded ##### -->
+<para>
+
+</para>
+
+@webkiticondatabase: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### ARG WebKitIconDatabase:path ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_icon_database_clear ##### -->
+<para>
+
+</para>
+
+@database: 
+
+
+<!-- ##### FUNCTION webkit_icon_database_get_icon_pixbuf ##### -->
+<para>
+
+</para>
+
+@database: 
+@page_uri: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_icon_database_get_icon_uri ##### -->
+<para>
+
+</para>
+
+@database: 
+@page_uri: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_icon_database_get_path ##### -->
+<para>
+
+</para>
+
+@database: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_icon_database_get_type ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_icon_database_set_path ##### -->
+<para>
+
+</para>
+
+@database: 
+@path: 
+
+

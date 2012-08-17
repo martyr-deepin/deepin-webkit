@@ -1,0 +1,475 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebView
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebView ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitWebView::close ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::create ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::decide-policy ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::load-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL WebKitWebView::load-failed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::mouse-target-changed ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### SIGNAL WebKitWebView::print-requested ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::ready-to-show ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebView::script-alert ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::script-confirm ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebView::script-prompt ##### -->
+<para>
+
+</para>
+
+@webkitwebview: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### ARG WebKitWebView:estimated-load-progress ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:title ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:web-context ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebView:zoom-level ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM WebKitLoadEvent ##### -->
+<para>
+
+</para>
+
+@WEBKIT_LOAD_STARTED: 
+@WEBKIT_LOAD_REDIRECTED: 
+@WEBKIT_LOAD_COMMITTED: 
+@WEBKIT_LOAD_FINISHED: 
+
+<!-- ##### ENUM WebKitPolicyDecisionType ##### -->
+<para>
+
+</para>
+
+@WEBKIT_POLICY_DECISION_TYPE_NAVIGATION_ACTION: 
+@WEBKIT_POLICY_DECISION_TYPE_NEW_WINDOW_ACTION: 
+@WEBKIT_POLICY_DECISION_TYPE_RESPONSE: 
+
+<!-- ##### MACRO WEBKIT_EDITING_COMMAND_CUT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_EDITING_COMMAND_COPY ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_EDITING_COMMAND_PASTE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION webkit_web_view_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_new_with_context ##### -->
+<para>
+
+</para>
+
+@context: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_context ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_uri ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@uri: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_html ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@content: 
+@base_uri: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_plain_text ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@plain_text: 
+
+
+<!-- ##### FUNCTION webkit_web_view_load_request ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@request: 
+
+
+<!-- ##### FUNCTION webkit_web_view_replace_content ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@content: 
+@content_uri: 
+@base_uri: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_go_back ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_go_back ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_go_forward ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_go_forward ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_title ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_reload ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_reload_bypass_cache ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_stop_loading ##### -->
+<para>
+
+</para>
+
+@web_view: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_estimated_load_progress ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_custom_charset ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_custom_charset ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@charset: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_back_forward_list ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_go_to_back_forward_list_item ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@list_item: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_uri ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_settings ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@settings: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_settings ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_window_properties ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_set_zoom_level ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@zoom_level: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_zoom_level ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_execute_editing_command ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@command: 
+@callback: 
+@user_data: 
+
+
+<!-- ##### FUNCTION webkit_web_view_can_execute_editing_command_finish ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@result: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_view_execute_editing_command ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@command: 
+
+
+<!-- ##### FUNCTION webkit_web_view_get_find_controller ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+

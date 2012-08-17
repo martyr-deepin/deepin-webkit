@@ -1,0 +1,65 @@
+<!-- ##### SECTION Title ##### -->
+WebKitNetworkResponse
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitNetworkResponse ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitNetworkResponse:message ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitNetworkResponse:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_network_response_get_uri ##### -->
+<para>
+
+</para>
+
+@response: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_network_response_get_message ##### -->
+<para>
+
+</para>
+
+@response: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_network_response_set_uri ##### -->
+<para>
+
+</para>
+
+@response: 
+@uri: 
+
+

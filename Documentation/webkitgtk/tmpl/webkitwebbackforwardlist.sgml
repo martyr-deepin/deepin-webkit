@@ -1,0 +1,182 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebBackForwardList
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebBackForwardList ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_add_item ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@history_item: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_clear ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_contains_item ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@history_item: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_back_item ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_back_length ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_back_list_with_limit ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@limit: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_current_item ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_forward_item ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_forward_length ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_forward_list_with_limit ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@limit: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_limit ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_get_nth_item ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@index: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_go_back ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_go_forward ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_go_to_item ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@history_item: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_new_with_web_view ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_back_forward_list_set_limit ##### -->
+<para>
+
+</para>
+
+@web_back_forward_list: 
+@limit: 
+
+

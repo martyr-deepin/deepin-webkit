@@ -1,0 +1,123 @@
+<!-- ##### SECTION Title ##### -->
+WebKitBackForwardList
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitBackForwardList ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitBackForwardList::changed ##### -->
+<para>
+
+</para>
+
+@webkitbackforwardlist: the object which received the signal.
+@arg1: 
+@arg2: 
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_length ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_current_item ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_back_item ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_forward_item ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_nth_item ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@index: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_back_list ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_back_list_with_limit ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@limit: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_forward_list ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_back_forward_list_get_forward_list_with_limit ##### -->
+<para>
+
+</para>
+
+@back_forward_list: 
+@limit: 
+@Returns: 
+
+

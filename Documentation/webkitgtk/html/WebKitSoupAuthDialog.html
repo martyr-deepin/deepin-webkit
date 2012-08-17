@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitSoupAuthDialog</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitWebPluginDatabase.html" title="WebKitWebPluginDatabase">
+<link rel="next" href="WebKitSecurityOrigin.html" title="WebKitSecurityOrigin">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitWebPluginDatabase.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitSecurityOrigin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitSoupAuthDialog.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitSoupAuthDialog.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitSoupAuthDialog.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#WebKitSoupAuthDialog.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#WebKitSoupAuthDialog.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitSoupAuthDialog"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitSoupAuthDialog.top_of_page"></a>WebKitSoupAuthDialog</span></h2>
+<p>WebKitSoupAuthDialog — A <a href="../libsoup-2.4/SoupSessionFeature.html"><span class="type">SoupSessionFeature</span></a> to provide a simple
+authentication dialog for HTTP basic auth support.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitSoupAuthDialog.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitSoupAuthDialog.html#WebKitSoupAuthDialog-struct" title="WebKitSoupAuthDialog">WebKitSoupAuthDialog</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitSoupAuthDialog.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitSoupAuthDialog
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitSoupAuthDialog.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+WebKitSoupAuthDialog implements
+ <a href="../libsoup-2.4/SoupSessionFeature.html">SoupSessionFeature</a>.</p>
+</div>
+<div class="refsect1">
+<a name="WebKitSoupAuthDialog.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="WebKitSoupAuthDialog.html#WebKitSoupAuthDialog-current-toplevel" title='The "current-toplevel" signal'>current-toplevel</a>"                               : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitSoupAuthDialog.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="WebKitSoupAuthDialog.html" title="WebKitSoupAuthDialog"><span class="type">WebKitSoupAuthDialog</span></a> is a <a href="../libsoup-2.4/SoupSessionFeature.html"><span class="type">SoupSessionFeature</span></a> that you can attach to your
+<a href="../libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a> to provide a simple authentication dialog while
+handling HTTP basic auth.
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitSoupAuthDialog.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitSoupAuthDialog-struct"></a><h3>WebKitSoupAuthDialog</h3>
+<pre class="programlisting">typedef struct _WebKitSoupAuthDialog WebKitSoupAuthDialog;</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="WebKitSoupAuthDialog.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="WebKitSoupAuthDialog-current-toplevel"></a><h3>The <code class="literal">"current-toplevel"</code> signal</h3>
+<pre class="programlisting"><a href="../gtk3/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a>*          user_function                      (<a class="link" href="WebKitSoupAuthDialog.html" title="WebKitSoupAuthDialog"><span class="type">WebKitSoupAuthDialog</span></a> *authDialog,
+                                                        <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a>          *message,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              user_data)       : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+This signal is emitted by the <em class="parameter"><code>authDialog</code></em> when it needs to know
+the current toplevel widget in order to correctly set the
+transiency for the authentication dialog.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>authDialog</code></em> :</span></p></td>
+<td>the object on which the signal is emitted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>the <a href="../libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> being used in the authentication process</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current toplevel <a href="../gtk3/GtkWidget.html"><span class="type">GtkWidget</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there's none. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.1.1</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

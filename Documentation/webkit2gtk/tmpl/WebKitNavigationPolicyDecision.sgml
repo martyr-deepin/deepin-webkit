@@ -1,0 +1,112 @@
+<!-- ##### SECTION Title ##### -->
+WebKitNavigationPolicyDecision
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitNavigationPolicyDecision ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitNavigationPolicyDecision:frame-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitNavigationPolicyDecision:modifiers ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitNavigationPolicyDecision:mouse-button ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitNavigationPolicyDecision:navigation-type ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitNavigationPolicyDecision:request ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM WebKitNavigationType ##### -->
+<para>
+
+</para>
+
+@WEBKIT_NAVIGATION_TYPE_LINK_CLICKED: 
+@WEBKIT_NAVIGATION_TYPE_FORM_SUBMITTED: 
+@WEBKIT_NAVIGATION_TYPE_BACK_FORWARD: 
+@WEBKIT_NAVIGATION_TYPE_RELOAD: 
+@WEBKIT_NAVIGATION_TYPE_FORM_RESUBMITTED: 
+@WEBKIT_NAVIGATION_TYPE_OTHER: 
+
+<!-- ##### FUNCTION webkit_navigation_policy_decision_get_frame_name ##### -->
+<para>
+
+</para>
+
+@decision: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_navigation_policy_decision_get_modifiers ##### -->
+<para>
+
+</para>
+
+@decision: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_navigation_policy_decision_get_mouse_button ##### -->
+<para>
+
+</para>
+
+@decision: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_navigation_policy_decision_get_navigation_type ##### -->
+<para>
+
+</para>
+
+@decision: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_navigation_policy_decision_get_request ##### -->
+<para>
+
+</para>
+
+@decision: 
+@Returns: 
+
+

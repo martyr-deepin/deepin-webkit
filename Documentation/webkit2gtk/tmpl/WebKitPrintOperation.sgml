@@ -1,0 +1,123 @@
+<!-- ##### SECTION Title ##### -->
+WebKitPrintOperation
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitPrintOperation ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitPrintOperation::finished ##### -->
+<para>
+
+</para>
+
+@webkitprintoperation: the object which received the signal.
+
+<!-- ##### ARG WebKitPrintOperation:page-setup ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitPrintOperation:print-settings ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitPrintOperation:web-view ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM WebKitPrintOperationResponse ##### -->
+<para>
+
+</para>
+
+@WEBKIT_PRINT_OPERATION_RESPONSE_PRINT: 
+@WEBKIT_PRINT_OPERATION_RESPONSE_CANCEL: 
+
+<!-- ##### FUNCTION webkit_print_operation_new ##### -->
+<para>
+
+</para>
+
+@web_view: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_print_operation_get_print_settings ##### -->
+<para>
+
+</para>
+
+@print_operation: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_print_operation_set_print_settings ##### -->
+<para>
+
+</para>
+
+@print_operation: 
+@print_settings: 
+
+
+<!-- ##### FUNCTION webkit_print_operation_get_page_setup ##### -->
+<para>
+
+</para>
+
+@print_operation: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_print_operation_set_page_setup ##### -->
+<para>
+
+</para>
+
+@print_operation: 
+@page_setup: 
+
+
+<!-- ##### FUNCTION webkit_print_operation_run_dialog ##### -->
+<para>
+
+</para>
+
+@print_operation: 
+@parent: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_print_operation_print ##### -->
+<para>
+
+</para>
+
+@print_operation: 
+
+

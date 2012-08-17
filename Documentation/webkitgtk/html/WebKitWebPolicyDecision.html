@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKitWebPolicyDecision</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="WebKitGTK+ Reference Manual">
+<link rel="up" href="ch02.html" title="Class Overview">
+<link rel="prev" href="WebKitWebNavigationAction.html" title="WebKitWebNavigationAction">
+<link rel="next" href="WebKitGeolocationPolicyDecision.html" title="WebKitGeolocationPolicyDecision">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="WebKitWebNavigationAction.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">WebKitGTK+ Reference Manual</th>
+<td><a accesskey="n" href="WebKitGeolocationPolicyDecision.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#WebKitWebPolicyDecision.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#WebKitWebPolicyDecision.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#WebKitWebPolicyDecision.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="WebKitWebPolicyDecision"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="WebKitWebPolicyDecision.top_of_page"></a>WebKitWebPolicyDecision</span></h2>
+<p>WebKitWebPolicyDecision — Liason between WebKit and the application regarding asynchronous policy decisions</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="WebKitWebPolicyDecision.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="WebKitWebPolicyDecision.html#WebKitWebPolicyDecision-struct" title="WebKitWebPolicyDecision">WebKitWebPolicyDecision</a>;
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebPolicyDecision.html#webkit-web-policy-decision-download" title="webkit_web_policy_decision_download ()">webkit_web_policy_decision_download</a> (<em class="parameter"><code><a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a> *decision</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebPolicyDecision.html#webkit-web-policy-decision-ignore" title="webkit_web_policy_decision_ignore ()">webkit_web_policy_decision_ignore</a>   (<em class="parameter"><code><a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a> *decision</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="WebKitWebPolicyDecision.html#webkit-web-policy-decision-use" title="webkit_web_policy_decision_use ()">webkit_web_policy_decision_use</a>      (<em class="parameter"><code><a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a> *decision</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPolicyDecision.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----WebKitWebPolicyDecision
+</pre>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPolicyDecision.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a> objects are given to the application on
+signal emissions that deal with policy decisions, such as if a new
+window should be opened, or if a given navigation should be
+allowed. The application uses it to tell the engine what to do.
+</p>
+</div>
+<div class="refsect1">
+<a name="WebKitWebPolicyDecision.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="WebKitWebPolicyDecision-struct"></a><h3>WebKitWebPolicyDecision</h3>
+<pre class="programlisting">typedef struct _WebKitWebPolicyDecision WebKitWebPolicyDecision;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-policy-decision-download"></a><h3>webkit_web_policy_decision_download ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_policy_decision_download (<em class="parameter"><code><a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a> *decision</code></em>);</pre>
+<p>
+Will send the DOWNLOAD decision to the policy implementer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>decision</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-policy-decision-ignore"></a><h3>webkit_web_policy_decision_ignore ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_policy_decision_ignore   (<em class="parameter"><code><a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a> *decision</code></em>);</pre>
+<p>
+Will send the IGNORE decision to the policy implementer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>decision</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0.3</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="webkit-web-policy-decision-use"></a><h3>webkit_web_policy_decision_use ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                webkit_web_policy_decision_use      (<em class="parameter"><code><a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a> *decision</code></em>);</pre>
+<p>
+Will send the USE decision to the policy implementer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>decision</code></em> :</span></p></td>
+<td>a <a class="link" href="WebKitWebPolicyDecision.html" title="WebKitWebPolicyDecision"><span class="type">WebKitWebPolicyDecision</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0.3</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

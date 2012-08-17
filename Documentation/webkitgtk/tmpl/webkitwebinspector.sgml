@@ -1,0 +1,149 @@
+<!-- ##### SECTION Title ##### -->
+WebKitWebInspector
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitWebInspector ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitWebInspector::attach-window ##### -->
+<para>
+
+</para>
+
+@webkitwebinspector: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebInspector::close-window ##### -->
+<para>
+
+</para>
+
+@webkitwebinspector: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebInspector::detach-window ##### -->
+<para>
+
+</para>
+
+@webkitwebinspector: the object which received the signal.
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebInspector::finished ##### -->
+<para>
+
+</para>
+
+@webkitwebinspector: the object which received the signal.
+
+<!-- ##### SIGNAL WebKitWebInspector::inspect-web-view ##### -->
+<para>
+
+</para>
+
+@webkitwebinspector: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL WebKitWebInspector::show-window ##### -->
+<para>
+
+</para>
+
+@webkitwebinspector: the object which received the signal.
+@Returns: 
+
+<!-- ##### ARG WebKitWebInspector:inspected-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebInspector:javascript-profiling-enabled ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebInspector:timeline-profiling-enabled ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitWebInspector:web-view ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_web_inspector_get_inspected_uri ##### -->
+<para>
+
+</para>
+
+@web_inspector: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_inspector_get_web_view ##### -->
+<para>
+
+</para>
+
+@web_inspector: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_web_inspector_inspect_coordinates ##### -->
+<para>
+
+</para>
+
+@web_inspector: 
+@x: 
+@y: 
+
+
+<!-- ##### FUNCTION webkit_web_inspector_show ##### -->
+<para>
+
+</para>
+
+@web_inspector: 
+
+
+<!-- ##### FUNCTION webkit_web_inspector_close ##### -->
+<para>
+
+</para>
+
+@web_inspector: 
+
+
+<!-- ##### FUNCTION webkit_web_inspector_inspect_node ##### -->
+<para>
+
+</para>
+
+@web_inspector: 
+@node: 
+
+

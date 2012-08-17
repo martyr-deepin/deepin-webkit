@@ -1,0 +1,223 @@
+<!-- ##### SECTION Title ##### -->
+WebKitDownload
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### ENUM WebKitDownloadError ##### -->
+<para>
+
+</para>
+
+@WEBKIT_DOWNLOAD_ERROR_CANCELLED_BY_USER: 
+@WEBKIT_DOWNLOAD_ERROR_DESTINATION: 
+@WEBKIT_DOWNLOAD_ERROR_NETWORK: 
+
+<!-- ##### ENUM WebKitDownloadStatus ##### -->
+<para>
+
+</para>
+
+@WEBKIT_DOWNLOAD_STATUS_ERROR: 
+@WEBKIT_DOWNLOAD_STATUS_CREATED: 
+@WEBKIT_DOWNLOAD_STATUS_STARTED: 
+@WEBKIT_DOWNLOAD_STATUS_CANCELLED: 
+@WEBKIT_DOWNLOAD_STATUS_FINISHED: 
+
+<!-- ##### STRUCT WebKitDownload ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitDownload::error ##### -->
+<para>
+
+</para>
+
+@webkitdownload: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@Returns: 
+
+<!-- ##### ARG WebKitDownload:current-size ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:destination-uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:network-request ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:network-response ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:progress ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:status ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:suggested-filename ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitDownload:total-size ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_download_cancel ##### -->
+<para>
+
+</para>
+
+@download: 
+
+
+<!-- ##### FUNCTION webkit_download_get_current_size ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_destination_uri ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_elapsed_time ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_network_request ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_network_response ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_progress ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_status ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_suggested_filename ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_total_size ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_get_uri ##### -->
+<para>
+
+</para>
+
+@download: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_new ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_set_destination_uri ##### -->
+<para>
+
+</para>
+
+@download: 
+@destination_uri: 
+
+
+<!-- ##### FUNCTION webkit_download_start ##### -->
+<para>
+
+</para>
+
+@download: 
+
+

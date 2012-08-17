@@ -1,0 +1,131 @@
+<!-- ##### SECTION Title ##### -->
+WebKitError
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO WEBKIT_NETWORK_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_PLUGIN_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_POLICY_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEBKIT_DOWNLOAD_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM WebKitNetworkError ##### -->
+<para>
+
+</para>
+
+@WEBKIT_NETWORK_ERROR_FAILED: 
+@WEBKIT_NETWORK_ERROR_TRANSPORT: 
+@WEBKIT_NETWORK_ERROR_UNKNOWN_PROTOCOL: 
+@WEBKIT_NETWORK_ERROR_CANCELLED: 
+@WEBKIT_NETWORK_ERROR_FILE_DOES_NOT_EXIST: 
+
+<!-- ##### ENUM WebKitPluginError ##### -->
+<para>
+
+</para>
+
+@WEBKIT_PLUGIN_ERROR_FAILED: 
+@WEBKIT_PLUGIN_ERROR_CANNOT_FIND_PLUGIN: 
+@WEBKIT_PLUGIN_ERROR_CANNOT_LOAD_PLUGIN: 
+@WEBKIT_PLUGIN_ERROR_JAVA_UNAVAILABLE: 
+@WEBKIT_PLUGIN_ERROR_CONNECTION_CANCELLED: 
+@WEBKIT_PLUGIN_ERROR_WILL_HANDLE_LOAD: 
+
+<!-- ##### ENUM WebKitPolicyError ##### -->
+<para>
+
+</para>
+
+@WEBKIT_POLICY_ERROR_FAILED: 
+@WEBKIT_POLICY_ERROR_CANNOT_SHOW_MIME_TYPE: 
+@WEBKIT_POLICY_ERROR_CANNOT_SHOW_URI: 
+@WEBKIT_POLICY_ERROR_FRAME_LOAD_INTERRUPTED_BY_POLICY_CHANGE: 
+@WEBKIT_POLICY_ERROR_CANNOT_USE_RESTRICTED_PORT: 
+
+<!-- ##### ENUM WebKitDownloadError ##### -->
+<para>
+
+</para>
+
+@WEBKIT_DOWNLOAD_ERROR_NETWORK: 
+@WEBKIT_DOWNLOAD_ERROR_CANCELLED_BY_USER: 
+@WEBKIT_DOWNLOAD_ERROR_DESTINATION: 
+
+<!-- ##### FUNCTION webkit_network_error_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_plugin_error_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_policy_error_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_download_error_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+

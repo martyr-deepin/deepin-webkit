@@ -1,0 +1,123 @@
+<!-- ##### SECTION Title ##### -->
+WebKitFaviconDatabase
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitFaviconDatabase ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL WebKitFaviconDatabase::icon-loaded ##### -->
+<para>
+
+</para>
+
+@webkitfavicondatabase: the object which received the signal.
+@arg1: 
+
+<!-- ##### ARG WebKitFaviconDatabase:path ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_favicon_database_clear ##### -->
+<para>
+
+</para>
+
+@database: 
+
+
+<!-- ##### FUNCTION webkit_favicon_database_get_favicon_pixbuf ##### -->
+<para>
+
+</para>
+
+@database: 
+@page_uri: 
+@width: 
+@height: 
+@cancellable: 
+@callback: 
+@user_data: 
+
+
+<!-- ##### FUNCTION webkit_favicon_database_get_favicon_pixbuf_finish ##### -->
+<para>
+
+</para>
+
+@database: 
+@result: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_favicon_database_get_favicon_uri ##### -->
+<para>
+
+</para>
+
+@database: 
+@page_uri: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_favicon_database_get_path ##### -->
+<para>
+
+</para>
+
+@database: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_favicon_database_get_type ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_favicon_database_set_path ##### -->
+<para>
+
+</para>
+
+@database: 
+@path: 
+
+
+<!-- ##### FUNCTION webkit_favicon_database_try_get_favicon_pixbuf ##### -->
+<para>
+
+</para>
+
+@database: 
+@page_uri: 
+@width: 
+@height: 
+@Returns: 
+
+

@@ -1,0 +1,125 @@
+<!-- ##### SECTION Title ##### -->
+WebKitSecurityOrigin
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitSecurityOrigin ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitSecurityOrigin:host ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSecurityOrigin:port ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSecurityOrigin:protocol ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSecurityOrigin:web-database-quota ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitSecurityOrigin:web-database-usage ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_security_origin_get_all_web_databases ##### -->
+<para>
+
+</para>
+
+@securityOrigin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_security_origin_get_host ##### -->
+<para>
+
+</para>
+
+@securityOrigin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_security_origin_get_port ##### -->
+<para>
+
+</para>
+
+@securityOrigin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_security_origin_get_protocol ##### -->
+<para>
+
+</para>
+
+@securityOrigin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_security_origin_get_type ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_security_origin_get_web_database_quota ##### -->
+<para>
+
+</para>
+
+@securityOrigin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_security_origin_get_web_database_usage ##### -->
+<para>
+
+</para>
+
+@securityOrigin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_security_origin_set_web_database_quota ##### -->
+<para>
+
+</para>
+
+@securityOrigin: 
+@quota: 
+
+

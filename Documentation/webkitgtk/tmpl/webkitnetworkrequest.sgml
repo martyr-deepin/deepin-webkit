@@ -1,0 +1,74 @@
+<!-- ##### SECTION Title ##### -->
+WebKitNetworkRequest
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT WebKitNetworkRequest ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG WebKitNetworkRequest:message ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG WebKitNetworkRequest:uri ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION webkit_network_request_new ##### -->
+<para>
+
+</para>
+
+@uri: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_network_request_get_uri ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_network_request_get_message ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+
+<!-- ##### FUNCTION webkit_network_request_set_uri ##### -->
+<para>
+
+</para>
+
+@request: 
+@uri: 
+
+
