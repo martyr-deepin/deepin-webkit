@@ -166,6 +166,8 @@ const char* InspectorClient::inspectorFilesPath()
     else
         m_inspectorFilesPath.set(g_build_filename(sharedResourcesPath().data(), "webinspector", NULL));
 
+    printf("sdir:%s\n", m_inspectorFilesPath.get());
+
     return m_inspectorFilesPath.get();
 }
 
