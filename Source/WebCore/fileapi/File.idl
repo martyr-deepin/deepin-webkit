@@ -38,6 +38,9 @@ module html {
         readonly attribute DOMString webkitRelativePath;
 #endif
 
+        // used by deepin-desktop DND operation.
+        readonly attribute DOMString path;
+
         // FIXME: obsolete attributes. To be removed.
         readonly attribute DOMString fileName;
         readonly attribute unsigned long long fileSize;
