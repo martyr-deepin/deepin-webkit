@@ -1,0 +1,3 @@
+Source/WebKit/gtk/webkit.pc.in     的修改
+
+deepin-webkit 只使用GTK3
