@@ -1,44 +1,44 @@
 include $(srcdir)/Source/JavaScriptCore/GNUmakefile.list.am
 
 lib_LTLIBRARIES += \
-	libjavascriptcoregtk-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la
+	libjavascriptcoredeepin-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la
 
 # We are going to make everything public for now. When
 # https://bugs.webkit.org/show_bug.cgi?id=27551 is fixed we'll able to
 # simply rely on the usual symbol visibility flags.
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_LDFLAGS = \
+libjavascriptcoredeepin@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_LDFLAGS = \
 	-version-info @LIBWEBKITGTK_VERSION@ \
 	$(no_undefined)
 
-nodist_EXTRA_libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_SOURCES = \
+nodist_EXTRA_libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_SOURCES = \
 	$(javascriptcore_built_nosources)
 
-nodist_libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_SOURCES = \
+nodist_libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_SOURCES = \
 	$(javascriptcore_built_sources)
 
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_ladir = $(libdeepinwebkitincludedir)/JavaScriptCore
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_HEADERS = $(javascriptcore_h_api)
+libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_ladir = $(libdeepinwebkitincludedir)/JavaScriptCore
+libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_HEADERS = $(javascriptcore_h_api)
 
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_SOURCES = \
+libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_SOURCES = \
 	$(javascriptcore_sources)
 
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_LIBADD = \
+libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_LIBADD = \
 	-lpthread \
 	libWTF.la \
 	$(UNICODE_LIBS) \
 	$(GLIB_LIBS) \
 	$(WINMM_LIBS)
 
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CXXFLAGS = \
+libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CXXFLAGS = \
 	$(global_cxxflags) \
-	$(libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CFLAGS)
+	$(libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CFLAGS)
 
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CFLAGS = \
+libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CFLAGS = \
 	-fstrict-aliasing \
 	-O3 \
 	$(javascriptcore_cflags)
 
-libjavascriptcoregtk_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CPPFLAGS = \
+libjavascriptcoredeepin_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_CPPFLAGS = \
 	$(global_cppflags) \
 	$(javascriptcore_cppflags)
 
@@ -78,7 +78,7 @@ javascriptcore_cflags += \
 	$(GLIB_CFLAGS) \
 	$(UNICODE_CFLAGS)
 
-pkgconfig_DATA += Source/JavaScriptCore/javascriptcoregtk-@WEBKITGTK_API_VERSION@.pc
+pkgconfig_DATA += Source/JavaScriptCore/javascriptcoredeepin-@WEBKITGTK_API_VERSION@.pc
 
 $(shell mkdir -p DerivedSources/JavaScriptCore)
 
@@ -114,7 +114,7 @@ Programs_minidom_CFLAGS = \
 	$(GLOBALDEPS_CFLAGS)
 
 Programs_minidom_LDADD = \
-	libjavascriptcoregtk-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
+	libjavascriptcoredeepin-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	$(WINMM_LIBS) \
 	-lm \
 	-lpthread \
@@ -143,7 +143,7 @@ Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_CXXFLAGS = \
 
 Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_LDADD = \
 	-lpthread \
-	libjavascriptcoregtk-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
+	libjavascriptcoredeepin-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	$(WINMM_LIBS)
 
 EXTRA_DIST += \
@@ -165,4 +165,4 @@ CLEANFILES += \
 	Programs/minidom
 
 DISTCLEANFILES += \
-	$(top_builddir)/Source/JavaScriptCore/javascriptcoregtk-@WEBKITGTK_API_VERSION@.pc
+	$(top_builddir)/Source/JavaScriptCore/javascriptcoredeepin-@WEBKITGTK_API_VERSION@.pc

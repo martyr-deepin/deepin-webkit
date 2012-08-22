@@ -97,6 +97,7 @@ install-stamp: build-stamp
 
 ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
 	$(MAKE) -C build-3.0 install DESTDIR="$(CURDIR)"/debian/tmp-3.0
+
 	[ ! -d debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec ] && install -d -m 755 debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec || true
 	build-3.0/libtool --mode=install install -m 755 build-3.0/Programs/GtkLauncher "$(CURDIR)"/debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec/GtkLauncher
 	chrpath -d debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec/GtkLauncher
@@ -131,6 +132,7 @@ binary-arch: build install
 	dh_testroot
 	dh_installdocs -a
 	dh_installchangelogs -a
+
 ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
 	dh_install -plibdeepin_webkit-3.0-0 --sourcedir=debian/tmp-3.0
 	dh_install -plibdeepin_webkit-3.0-dev --sourcedir=debian/tmp-3.0
