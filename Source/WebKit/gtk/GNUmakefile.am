@@ -80,7 +80,7 @@ libdeepin_webkit_@WEBKITGTK_API_MAJOR_VERSION@_@WEBKITGTK_API_MINOR_VERSION@_la_
 	-lpthread \
 	libWebCore.la \
 	libWebCoreGtk.la \
-	libjavascriptcoregtk-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
+	libjavascriptcoredeepin-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	$(webcore_ldflags) \
 	$(CAIRO_LIBS) \
 	$(CLUTTER_LIBS) \
@@ -287,7 +287,7 @@ $(WEBKIT_GIRSOURCES): $(G_IR_SCANNER) $(JSCORE_GIRSOURCES) libdeepin_webkit-@WEB
 	     --include=JSCore-@WEBKITGTK_API_VERSION@ \
 	     --include=Soup-2.4 \
 	     --library=webkitgtk-@WEBKITGTK_API_VERSION@ \
-	     --library=javascriptcoregtk-@WEBKITGTK_API_VERSION@ \
+	     --library=javascriptcoredeepin-@WEBKITGTK_API_VERSION@ \
 	     --libtool="$(LIBTOOL)" \
 	     --pkg=gobject-2.0 \
 	     --pkg=gtk+-@GTK_API_VERSION@ \
@@ -421,7 +421,7 @@ webkit_tests_cflags = \
 	$(XT_LIBS)
 
 webkit_tests_ldadd = \
-	libjavascriptcoregtk-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
+	libjavascriptcoredeepin-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	libdeepin_webkit-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	$(GTK_LIBS) \
 	$(GLIB_LIBS) \

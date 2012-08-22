@@ -234,8 +234,8 @@ EXTRA_DIST += \
 	$(srcdir)/Source/WebKit/LICENSE
 
 # Include module makefiles
-#include Source/WTF/GNUmakefile.am
-#include Source/JavaScriptCore/GNUmakefile.am
+include Source/WTF/GNUmakefile.am
+include Source/JavaScriptCore/GNUmakefile.am
 include Source/WebCore/GNUmakefile.am
 include Source/WebKit/gtk/GNUmakefile.am
 include Source/WebCore/bindings/gobject/GNUmakefile.am
