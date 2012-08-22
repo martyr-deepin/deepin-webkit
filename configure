@@ -7402,8 +7402,8 @@ esac
 
 
 
-macro_version='2.4'
-macro_revision='1.3293'
+macro_version='2.4.2'
+macro_revision='1.3337'
 
 
 
@@ -23988,7 +23988,7 @@ ac_config_files="$ac_config_files GNUmakefile"
 ac_config_files="$ac_config_files Source/WebKit/gtk/webkit/webkitversion.h"
 
 
-ac_config_files="$ac_config_files Source/WebKit/gtk/${WEBKITGTK_PC_NAME}-${WEBKITGTK_API_VERSION}.pc:Source/WebKit/gtk/webkit.pc.in Source/WebKit/gtk/JSCore-${WEBKITGTK_API_VERSION}.gir:Source/WebKit/gtk/JSCore.gir.in Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoregtk.pc.in"
+ac_config_files="$ac_config_files Source/WebKit/gtk/${WEBKITGTK_PC_NAME}-${WEBKITGTK_API_VERSION}.pc:Source/WebKit/gtk/webkit.pc.in Source/WebKit/gtk/JSCore-${WEBKITGTK_API_VERSION}.gir:Source/WebKit/gtk/JSCore.gir.in Source/JavaScriptCore/javascriptcoredeepin-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoredeepin.pc.in"
 
 
 
@@ -25468,7 +25468,7 @@ do
     "Source/WebKit/gtk/webkit/webkitversion.h") CONFIG_FILES="$CONFIG_FILES Source/WebKit/gtk/webkit/webkitversion.h" ;;
     "Source/WebKit/gtk/${WEBKITGTK_PC_NAME}-${WEBKITGTK_API_VERSION}.pc") CONFIG_FILES="$CONFIG_FILES Source/WebKit/gtk/${WEBKITGTK_PC_NAME}-${WEBKITGTK_API_VERSION}.pc:Source/WebKit/gtk/webkit.pc.in" ;;
     "Source/WebKit/gtk/JSCore-${WEBKITGTK_API_VERSION}.gir") CONFIG_FILES="$CONFIG_FILES Source/WebKit/gtk/JSCore-${WEBKITGTK_API_VERSION}.gir:Source/WebKit/gtk/JSCore.gir.in" ;;
-    "Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc") CONFIG_FILES="$CONFIG_FILES Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoregtk.pc.in" ;;
+    "Source/JavaScriptCore/javascriptcoredeepin-${WEBKITGTK_API_VERSION}.pc") CONFIG_FILES="$CONFIG_FILES Source/JavaScriptCore/javascriptcoredeepin-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoredeepin.pc.in" ;;
     "Source/WebKit2/webkit2gtk-${WEBKITGTK_API_VERSION}.pc") CONFIG_FILES="$CONFIG_FILES Source/WebKit2/webkit2gtk-${WEBKITGTK_API_VERSION}.pc:Source/WebKit2/webkit2gtk.pc.in" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
@@ -26969,7 +26969,7 @@ _LT_EOF
  ;;
     "Source/WebKit/gtk/JSCore-${WEBKITGTK_API_VERSION}.gir":F) WEBKITGTK_API_VERSION=$WEBKITGTK_API_VERSION,WEBKITGTK_PC_NAME=$WEBKITGTK_PC_NAME
  ;;
-    "Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc":F) WEBKITGTK_API_VERSION=$WEBKITGTK_API_VERSION,WEBKITGTK_PC_NAME=$WEBKITGTK_PC_NAME
+    "Source/JavaScriptCore/javascriptcoredeepin-${WEBKITGTK_API_VERSION}.pc":F) WEBKITGTK_API_VERSION=$WEBKITGTK_API_VERSION,WEBKITGTK_PC_NAME=$WEBKITGTK_PC_NAME
  ;;
     "Source/WebKit2/webkit2gtk-${WEBKITGTK_API_VERSION}.pc":F) WEBKITGTK_API_VERSION=$WEBKITGTK_API_VERSION,WEBKITGTK_PC_NAME=$WEBKITGTK_PC_NAME
      ;;

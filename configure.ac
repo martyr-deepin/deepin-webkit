@@ -1389,7 +1389,7 @@ Source/WebKit/gtk/webkit/webkitversion.h
 AC_CONFIG_FILES([
 Source/WebKit/gtk/${WEBKITGTK_PC_NAME}-${WEBKITGTK_API_VERSION}.pc:Source/WebKit/gtk/webkit.pc.in
 Source/WebKit/gtk/JSCore-${WEBKITGTK_API_VERSION}.gir:Source/WebKit/gtk/JSCore.gir.in
-Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoregtk.pc.in
+Source/JavaScriptCore/javascriptcoredeepin-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoredeepin.pc.in
 ]
 ,[WEBKITGTK_API_VERSION=$WEBKITGTK_API_VERSION,WEBKITGTK_PC_NAME=$WEBKITGTK_PC_NAME]
 )
