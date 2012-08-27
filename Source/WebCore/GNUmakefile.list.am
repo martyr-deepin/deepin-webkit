@@ -1,3 +1,5 @@
+include $(srcdir)/Source/WebCore/deepin/GNUmakefile.am
+
 webcore_built_sources += \
 	DerivedSources/WebCore/CSSGrammar.cpp \
 	DerivedSources/WebCore/CSSGrammar.h \

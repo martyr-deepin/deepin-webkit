@@ -87,6 +87,7 @@ webcore_cppflags += \
 	-I$(srcdir)/Source/WebCore/workers \
 	-I$(srcdir)/Source/WebCore/xml \
 	-I$(srcdir)/Source/WebCore/xml/parser \
+	-I$(srcdir)/Source/WebCore/deepin \
 	-I$(top_builddir)/WebCore/bindings/js \
 	-I$(top_builddir)/DerivedSources/WebCore \
 	-I$(top_builddir)/DerivedSources \
@@ -779,7 +780,8 @@ IDL_PATH := \
     $(WebCore)/webaudio \
     $(WebCore)/websockets \
     $(WebCore)/workers \
-    $(WebCore)/xml
+    $(WebCore)/xml \
+	$(WebCore)/deepin
 
 vpath %.idl $(IDL_PATH)
 

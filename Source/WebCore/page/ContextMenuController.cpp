@@ -106,6 +106,7 @@ void ContextMenuController::handleContextMenuEvent(Event* event)
     if (!m_contextMenu)
         return;
 
+    printf("handle context menu item %p\n", event->target());
     populate();
 
     showContextMenu(event);

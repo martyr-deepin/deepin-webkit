@@ -1,0 +1,5 @@
+module deepin {
+    interface GI {
+        readonly attribute DOMString name;
+    };
+}

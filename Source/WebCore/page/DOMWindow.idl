@@ -552,6 +552,8 @@ module window {
         attribute FileListConstructor FileList;
         attribute BlobConstructor Blob;
 
+        attribute GIConstructor GI;
+
         attribute NodeFilterConstructor NodeFilter;
         attribute RangeConstructor Range;
         attribute RangeExceptionConstructor RangeException;
