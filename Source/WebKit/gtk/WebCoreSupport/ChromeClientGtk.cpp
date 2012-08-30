@@ -25,6 +25,8 @@
 #include "config.h"
 #include "ChromeClientGtk.h"
 
+#include "RenderLayer.h"
+#include "RenderView.h"
 #include "Chrome.h"
 #include "Console.h"
 #include "DumpRenderTreeSupportGtk.h"
@@ -73,6 +75,9 @@
 
 using namespace WebCore;
 
+namespace WebCore {
+    void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv);
+}
 namespace WebKit {
 
 ChromeClient::ChromeClient(WebKitWebView* webView)
@@ -498,6 +503,7 @@ static void coalesceRectsIfPossible(const IntRect& clipRect, Vector<IntRect>& re
     rects.append(clipRect);
 }
 
+
 static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegion)
 {
     if (!webView->priv->backingStore)
@@ -510,7 +516,6 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
     GraphicsContext gc(backingStoreContext.get());
     for (size_t i = 0; i < rects.size(); i++) {
         const IntRect& rect = rects[i];
-
         gc.save();
         gc.clip(rect);
         if (webView->priv->transparent)
@@ -519,10 +524,49 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
         gc.restore();
     }
 
+
     gc.save();
     gc.clip(dirtyRegion.bounds());
     frame->page()->inspectorController()->drawHighlight(gc);
     gc.restore();
+
+
+    HashSet<const RenderLayer*>& vs = frame->view()->getForwardLayers();
+    if (vs.size() > 0) {
+        RefPtr<cairo_t> forwardContext = adoptRef(cairo_create(webView->priv->backingStore->forwardSurface()));
+        //RefPtr<cairo_t> forwardContext = adoptRef(gdk_cairo_create(webView->priv->forwardWindow));
+        GraphicsContext ggc(forwardContext.get());
+        HashSet<const RenderLayer*>::iterator it = vs.begin();
+
+        Color color = frame->view()->documentBackgroundColor();
+        ColorSpace space = ggc.fillColorSpace();
+
+        rects.clear();
+        for (; it != vs.end(); ++it) {
+            const RenderLayer* layer = *it;
+            //printf("(%d,%d,%d,%d)\n", rect.x(), rect.y(), rect.width(), rect.height());
+            IntRect rect = layer->absoluteBoundingBox();
+            frame->view()->setNodeToDraw(layer->renderer()->node());
+            rect.move(-frame->view()->scrollOffsetForFixedPosition());
+            ggc.save();
+            ggc.clip(rect);
+            if (webView->priv->transparent) {
+                ggc.clearRect(rect);
+            } else {
+                ggc.setFillColor(color, space);
+                ggc.fillRect(rect);
+            }
+
+            frame->view()->paint(&ggc, rect);
+
+            ggc.restore();
+
+            rects.append(rect);
+        }
+
+        frame->view()->setNodeToDraw(0);
+        forward_region_changed(frame->page(), rects);
+    }
 }
 
 void ChromeClient::invalidateWidgetRect(const IntRect& rect)
@@ -534,9 +578,13 @@ void ChromeClient::invalidateWidgetRect(const IntRect& rect)
         return;
     }
 #endif
-    gtk_widget_queue_draw_area(GTK_WIDGET(m_webView),
-                               rect.x(), rect.y(),
-                               rect.width(), rect.height());
+    //gtk_widget_queue_draw_area(GTK_WIDGET(m_webView),
+                               //rect.x(), rect.y(),
+                               //rect.width(), rect.height());
+
+    GdkRectangle r = {rect.x(), rect.y(), rect.width(), rect.height()};
+    gdk_window_invalidate_rect(m_webView->priv->forwardWindow, &r, false);
+    gdk_window_invalidate_rect(gtk_widget_get_window(GTK_WIDGET(m_webView)), &r, true);
 }
 
 void ChromeClient::performAllPendingScrolls()

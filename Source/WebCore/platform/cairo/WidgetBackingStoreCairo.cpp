@@ -19,7 +19,7 @@
 
 #include "config.h"
 #include "WidgetBackingStore.h"
-
+ad123
 #include "CairoUtilities.h"
 #include "RefPtrCairo.h"
 #include <cairo/cairo.h>
@@ -32,6 +32,8 @@ namespace WebCore {
 
 static PassRefPtr<cairo_surface_t> createSurfaceForBackingStore(PlatformWidget widget, const IntSize& size)
 {
+    printf("Creating back store surface.....\n");
+
 #if PLATFORM(GTK)
     return gdk_window_create_similar_surface(gtk_widget_get_window(widget),
                                              CAIRO_CONTENT_COLOR_ALPHA,
@@ -40,6 +42,7 @@ static PassRefPtr<cairo_surface_t> createSurfaceForBackingStore(PlatformWidget w
     return adoptRef(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, size.width(), size.height()));
 #endif
 }
+
 
 class WidgetBackingStorePrivate {
     WTF_MAKE_NONCOPYABLE(WidgetBackingStorePrivate);
@@ -82,6 +85,7 @@ WidgetBackingStore::~WidgetBackingStore()
 
 cairo_surface_t* WidgetBackingStore::cairoSurface()
 {
+    printf("get back store surface.....\n");
     return m_private->m_surface.get();
 }
 

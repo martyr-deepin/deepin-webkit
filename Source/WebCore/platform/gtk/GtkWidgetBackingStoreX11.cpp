@@ -35,8 +35,11 @@ class WidgetBackingStorePrivate {
 public:
     Display* m_display;
     Pixmap m_pixmap;
+    Pixmap m_f_pixmap;
     GC m_gc;
+    GC m_f_gc;
     RefPtr<cairo_surface_t> m_surface;
+    RefPtr<cairo_surface_t> m_f_surface;
 
     static PassOwnPtr<WidgetBackingStorePrivate> create(GtkWidget* widget, const IntSize& size)
     {
@@ -46,7 +49,9 @@ public:
     ~WidgetBackingStorePrivate()
     {
         XFreePixmap(m_display, m_pixmap);
+        XFreePixmap(m_display, m_f_pixmap);
         XFreeGC(m_display, m_gc);
+        XFreeGC(m_display, m_f_gc);
     }
 
 private:
@@ -62,16 +67,25 @@ private:
                                  GDK_WINDOW_XID(gdk_screen_get_root_window(screen)),
                                  size.width(), size.height(),
                                  gdk_visual_get_depth(visual));
+        m_f_pixmap = XCreatePixmap(m_display,
+                                 GDK_WINDOW_XID(gdk_screen_get_root_window(screen)),
+                                 size.width(), size.height(),
+                                 gdk_visual_get_depth(visual));
+
         m_gc = XCreateGC(m_display, m_pixmap, 0, 0);
+        m_f_gc = XCreateGC(m_display, m_f_pixmap, 0, 0);
 
         m_surface = adoptRef(cairo_xlib_surface_create(m_display, m_pixmap,
                                                        GDK_VISUAL_XVISUAL(visual),
                                                        size.width(), size.height()));
+        m_f_surface = adoptRef(cairo_xlib_surface_create(m_display, m_f_pixmap,
+                    GDK_VISUAL_XVISUAL(visual), size.width(), size.height()));
     }
 };
 
 PassOwnPtr<WidgetBackingStore> WidgetBackingStore::create(GtkWidget* widget, const IntSize& size)
 {
+    printf("Creating backstore\n");
     return adoptPtr(new WidgetBackingStore(widget, size));
 }
 
@@ -89,6 +103,10 @@ cairo_surface_t* WidgetBackingStore::cairoSurface()
 {
     return m_private->m_surface.get();
 }
+cairo_surface_t* WidgetBackingStore::forwardSurface()
+{
+    return m_private->m_f_surface.get();
+}
 
 void WidgetBackingStore::scroll(const IntRect& scrollRect, const IntSize& scrollOffset)
 {
@@ -103,7 +121,15 @@ void WidgetBackingStore::scroll(const IntRect& scrollRect, const IntSize& scroll
               targetRect.x() - scrollOffset.width(), targetRect.y() - scrollOffset.height(),
               targetRect.width(), targetRect.height(),
               targetRect.x(), targetRect.y());
+
+    XCopyArea(m_private->m_display, m_private->m_f_pixmap, m_private->m_f_pixmap, m_private->m_f_gc, 
+              targetRect.x() - scrollOffset.width(), targetRect.y() - scrollOffset.height(),
+              targetRect.width(), targetRect.height(),
+              targetRect.x(), targetRect.y());
     cairo_surface_mark_dirty_rectangle(m_private->m_surface.get(),
+                                       targetRect.x(), targetRect.y(),
+                                       targetRect.width(), targetRect.height());
+    cairo_surface_mark_dirty_rectangle(m_private->m_f_surface.get(),
                                        targetRect.x(), targetRect.y(),
                                        targetRect.width(), targetRect.height());
 }

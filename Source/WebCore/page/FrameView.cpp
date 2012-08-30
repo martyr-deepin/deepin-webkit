@@ -144,6 +144,7 @@ FrameView::FrameView(Frame* frame)
     , m_shouldAutoSize(false)
     , m_inAutoSize(false)
 {
+    printf("Frame View create\n");
     init();
 
     // FIXME: Can m_frame ever be null here?
@@ -175,8 +176,12 @@ PassRefPtr<FrameView> FrameView::create(Frame* frame, const IntSize& initialSize
     return view.release();
 }
 
+void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv);
 FrameView::~FrameView()
 {
+    Vector<IntRect> dump;
+    forward_region_changed(frame()->page(), dump);
+
     if (m_postLayoutTasksTimer.isActive()) {
         m_postLayoutTasksTimer.stop();
         m_actionScheduler->clear();
@@ -3385,6 +3390,53 @@ AXObjectCache* FrameView::axObjectCache() const
     if (frame() && frame()->document() && frame()->document()->axObjectCacheExists())
         return frame()->document()->axObjectCache();
     return 0;
+}
+
+//Vector<IntRect> FrameView::getForwardRegion()
+//{
+    //Vector<IntRect> rects;
+
+    //HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
+    //for (; it != m_forward_layers.end(); ++it) {
+        //IntRect r = (*it)->absoluteBoundingBox();
+        //r.move(-scrollOffsetForFixedPosition());
+        //rects.append(r);
+    //}
+
+    //return rects;
+//}
+//
+
+void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv);
+
+void FrameView::addForwardLayer(const RenderLayer* l) 
+{ 
+    m_forward_layers.add(l); 
+
+
+    //Vector<IntRect> rects;
+    //HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
+    //for (; it != m_forward_layers.end(); ++it) {
+        //IntRect r = (*it)->absoluteBoundingBox();
+        //printf("addForwardLayer: (%d,%d,%d,%d)\n", r.x(), r.y(), r.width(), r.height());
+        //r.move(-scrollOffsetForFixedPosition());
+        //rects.append(r);
+    //}
+    //forward_region_changed(frame()->page(), rects);
+}
+void FrameView::tryRemoveForwardLayer(const RenderLayer* l)
+{ 
+    m_forward_layers.remove(l); 
+
+
+    //Vector<IntRect> rects;
+    //HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
+    //for (; it != m_forward_layers.end(); ++it) {
+        //IntRect r = (*it)->absoluteBoundingBox();
+        //r.move(-scrollOffsetForFixedPosition());
+        //rects.append(r);
+    //}
+    //forward_region_changed(frame()->page(), rects);
 }
     
 } // namespace WebCore

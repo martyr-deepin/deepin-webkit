@@ -693,7 +693,9 @@ private:
     // Both updates the status, and returns true if descendants of this have 3d.
     bool update3DTransformedDescendantStatus();
 
+    public:
     Node* enclosingElement() const;
+    private:
 
     void createReflection();
     void removeReflection();

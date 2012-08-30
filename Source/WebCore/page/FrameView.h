@@ -502,6 +502,14 @@ private:
     static double s_initialDeferredRepaintDelayDuringLoading;
     static double s_maxDeferredRepaintDelayDuringLoading;
     static double s_deferredRepaintDelayIncrementDuringLoading;
+
+
+    HashSet<const RenderLayer*> m_forward_layers;
+public:
+    HashSet<const RenderLayer*>& getForwardLayers() { return m_forward_layers;}
+    void addForwardLayer(const RenderLayer* l);
+    void tryRemoveForwardLayer(const RenderLayer* l);
+
 };
 
 inline void FrameView::incrementVisuallyNonEmptyCharacterCount(unsigned count)

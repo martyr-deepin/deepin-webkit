@@ -1,5 +1,5 @@
-dom_binding_idls += \
-	$(WebCore)/deepin/GI.idl
+#dom_binding_idls += \
+	#$(WebCore)/deepin/GI.idl
 
-webcore_sources += \
-	Source/WebCore/deepin/GI.cpp
+#webcore_sources += \
+	#Source/WebCore/deepin/GI.cpp

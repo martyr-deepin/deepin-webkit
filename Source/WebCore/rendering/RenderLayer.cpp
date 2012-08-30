@@ -205,8 +205,10 @@ RenderLayer::~RenderLayer()
     }
 
     if (Frame* frame = renderer()->frame()) {
-        if (FrameView* frameView = frame->view())
+        if (FrameView* frameView = frame->view()) {
             frameView->removeScrollableArea(this);
+            frameView->tryRemoveForwardLayer(this);
+        }
     }
 
     destroyScrollbar(HorizontalScrollbar);
@@ -4366,6 +4368,11 @@ void RenderLayer::styleChanged(StyleDifference, const RenderStyle* oldStyle)
 
     if (Frame* frame = renderer()->frame()) {
         if (FrameView* frameView = frame->view()) {
+            if (zIndex() > 0)
+                frameView->addForwardLayer(this);
+            else
+                frameView->tryRemoveForwardLayer(this);
+
             if (scrollsOverflow())
                 frameView->addScrollableArea(this);
             else

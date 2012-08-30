@@ -628,29 +628,26 @@ static void webkit_web_view_set_property(GObject* object, guint prop_id, const G
     }
 }
 
-#ifdef GTK_API_VERSION_2
-static gboolean webkit_web_view_expose_event(GtkWidget* widget, GdkEventExpose* event)
+static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfigure *event, gpointer user_data)
 {
-    int rectCount;
-    GOwnPtr<GdkRectangle> rects;
-    gdk_region_get_rectangles(event->region, &rects.outPtr(), &rectCount);
-
-    RefPtr<cairo_t> cr = adoptRef(gdk_cairo_create(event->window));
-    for (int i = 0; i < rectCount; i++) {
-        copyRectFromCairoSurfaceToContext(WEBKIT_WEB_VIEW(widget)->priv->backingStore->cairoSurface(),
-                                          cr.get(), IntSize(), IntRect(rects.get()[i]));
-    }
-
-    // Chaining up to the parent forces child widgets to be drawn.
-    GTK_WIDGET_CLASS(webkit_web_view_parent_class)->expose_event(widget, event);
-    return FALSE;
+    GdkWindow* window = GDK_WINDOW(user_data);
+    gpointer webView = NULL;
+    gdk_window_get_user_data(window, &webView);
+    int x, y;
+    gdk_window_get_origin(window, &x, &y);
+    gdk_window_move_resize(WEBKIT_WEB_VIEW(webView)->priv->forwardWindow,
+            x, y, gdk_window_get_width(window), gdk_window_get_height(window));
+    printf("forward window move to (%d,%d,%d,%d)\n", event->x, event->y, event->width, event->height);
+    return false;
 }
-#else
+
 static gboolean webkit_web_view_draw(GtkWidget* widget, cairo_t* cr)
 {
     GdkRectangle clipRect;
-    if (!gdk_cairo_get_clip_rectangle(cr, &clipRect))
+    if (!gdk_cairo_get_clip_rectangle(cr, &clipRect)) {
+        g_assert_not_reached();
         return FALSE;
+    }
 
     WebKitWebViewPrivate* priv = WEBKIT_WEB_VIEW(widget)->priv;
 #if USE(TEXTURE_MAPPER_GL)
@@ -661,21 +658,29 @@ static gboolean webkit_web_view_draw(GtkWidget* widget, cairo_t* cr)
     cairo_rectangle_list_t* rectList = cairo_copy_clip_rectangle_list(cr);
     if (rectList->status || !rectList->num_rectangles) {
         cairo_rectangle_list_destroy(rectList);
+        g_assert_not_reached();
         return FALSE;
     }
 
-    Vector<IntRect> rects;
-    for (int i = 0; i < rectList->num_rectangles; i++) {
-        copyRectFromCairoSurfaceToContext(priv->backingStore->cairoSurface(), cr, IntSize(),
-                                          enclosingIntRect(FloatRect(rectList->rectangles[i])));
+    if (gtk_cairo_should_draw_window(cr, priv->forwardWindow)) {
+        for (int i = 0; i < rectList->num_rectangles; i++) {
+            IntRect  r = enclosingIntRect(FloatRect(rectList->rectangles[i]));
+            copyRectFromCairoSurfaceToContext(priv->backingStore->forwardSurface(), cr, IntSize(), r);
+        }
+        cairo_rectangle_list_destroy(rectList);
+        return TRUE;
+    } else {
+        for (int i = 0; i < rectList->num_rectangles; i++) {
+            copyRectFromCairoSurfaceToContext(priv->backingStore->cairoSurface(), cr, IntSize(),
+                    enclosingIntRect(FloatRect(rectList->rectangles[i])));
+        }
+        cairo_rectangle_list_destroy(rectList);
+        // Chaining up to the parent forces child widgets to be drawn.
+        GTK_WIDGET_CLASS(webkit_web_view_parent_class)->draw(widget, cr);
+        return FALSE;
     }
-    cairo_rectangle_list_destroy(rectList);
 
-    // Chaining up to the parent forces child widgets to be drawn.
-    GTK_WIDGET_CLASS(webkit_web_view_parent_class)->draw(widget, cr);
-    return FALSE;
 }
-#endif // GTK_API_VERSION_2
 
 static gboolean webkit_web_view_key_press_event(GtkWidget* widget, GdkEventKey* event)
 {
@@ -891,11 +896,14 @@ static void resizeWebViewFromAllocation(WebKitWebView* webView, GtkAllocation* a
 #endif
 }
 
+
 static void webkit_web_view_size_allocate(GtkWidget* widget, GtkAllocation* allocation)
 {
     GTK_WIDGET_CLASS(webkit_web_view_parent_class)->size_allocate(widget, allocation);
 
     WebKitWebView* webView = WEBKIT_WEB_VIEW(widget);
+
+
     if (!gtk_widget_get_mapped(widget)) {
         webView->priv->needsResizeOnMap = true;
         return;
@@ -1012,11 +1020,26 @@ static void webkit_web_view_realize(GtkWidget* widget)
                             | GDK_BUTTON2_MOTION_MASK
                             | GDK_BUTTON3_MOTION_MASK;
 
+    attributes.event_mask = GDK_ALL_EVENTS_MASK;
     gint attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
 #ifdef GTK_API_VERSION_2
     attributes_mask |= GDK_WA_COLORMAP;
 #endif
     GdkWindow* window = gdk_window_new(gtk_widget_get_parent_window(widget), &attributes, attributes_mask);
+
+    attributes.window_type = GDK_WINDOW_TOPLEVEL;
+    attributes.x = 0;
+    attributes.y = 0;
+    //attributes.event_mask = GDK_ALL_EVENTS_MASK & ~GDK_STRUCTURE_MASK;
+    GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
+    priv->forwardWindow = fw;
+    //cairo_rectangle_int_t rr = {0, 0, 300, 300};
+    //cairo_region_t* region = cairo_region_create_rectangle(&rr);
+    //gdk_window_shape_combine_region(fw, region, 0, 0);
+    //gdk_window_show(fw);
+    gdk_window_set_decorations(fw, GdkWMDecoration(0));
+    gdk_window_set_user_data(fw, widget);
+    gdk_window_set_keep_above(fw, true);
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER_GL)
     priv->hasNativeWindow = gdk_window_ensure_native(window);
@@ -1036,6 +1059,7 @@ static void webkit_web_view_realize(GtkWidget* widget)
 #endif
 
     gtk_im_context_set_client_window(priv->imContext.get(), window);
+
 }
 
 #ifdef GTK_API_VERSION_2
@@ -5132,6 +5156,61 @@ WebKitWebView* kit(WebCore::Page* corePage)
     ASSERT(corePage->chrome());
     WebKit::ChromeClient* client = static_cast<WebKit::ChromeClient*>(corePage->chrome()->client());
     return client ? static_cast<WebKitWebView*>(client->webView()) : 0;
+}
+
+}
+namespace WebCore {
+
+void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
+{
+    bool show = false;
+    WebKitWebView *webView = WebKit::kit(page);
+    GdkWindow* window = webView->priv->forwardWindow;
+
+    static unsigned long sig_id = 0;
+    if (sig_id == 0) {
+        gpointer widget = NULL;
+        gdk_window_get_user_data(window, &widget);
+        GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(widget));
+        GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
+        sig_id = g_signal_connect(toplevel, "configure-event", G_CALLBACK(webkit_web_view_configure_event),webViewWindow);
+
+        int x, y;
+        gdk_window_get_origin(webViewWindow, &x, &y);
+        printf(".......(%d,%d,%d,%d)\n", x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
+        gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
+    }
+
+    cairo_region_t* region = cairo_region_create();
+
+    for (int i = 0; i < rv.size(); i++) {
+        const IntRect& r = rv.at(i);
+        cairo_rectangle_int_t cr = {r.x(), r.y(), r.width(), r.height()};
+        if (cr.x < 0) {
+            cr.width += cr.x;
+            cr.x = 0;
+        }
+        if (cr.y < 0) {
+            cr.height += cr.y;
+            cr.y = 0;
+        }
+        if (cr.width < 0 || cr.height < 0)
+            continue;
+        //cairo_rectangle_int_t cr = cairo_rectangle_int_t(r);
+        cairo_region_union_rectangle(region, &cr);
+        show = true;
+        printf("%d region:(%d,%d,%d,%d)\n", random(), cr.x, cr.y, cr.width, cr.height);
+    }
+    printf("----------------\n");
+
+
+    if (show) {
+        gdk_window_show(window);
+        gdk_window_shape_combine_region(window, region, 0, 0);
+    } else {
+        gdk_window_hide(window);
+    }
+    cairo_region_destroy(region);
 }
 
 }

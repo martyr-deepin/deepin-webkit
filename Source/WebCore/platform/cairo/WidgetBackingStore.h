@@ -52,6 +52,7 @@ public:
 
     ~WidgetBackingStore();
     cairo_surface_t* cairoSurface();
+    cairo_surface_t* forwardSurface();
     void scroll(const IntRect& scrollRect, const IntSize& scrollOffset);
     const IntSize& size() { return m_size; }
 

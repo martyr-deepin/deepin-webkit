@@ -106,7 +106,7 @@ void ContextMenuController::handleContextMenuEvent(Event* event)
     if (!m_contextMenu)
         return;
 
-    printf("handle context menu item %p\n", event->target());
+    printf("handle context menu item %s\n", event->target()->toNode()->nodeName().characters());
     populate();
 
     showContextMenu(event);
@@ -119,6 +119,7 @@ static PassOwnPtr<ContextMenuItem> separatorItem()
 
 void ContextMenuController::showContextMenu(Event* event, PassRefPtr<ContextMenuProvider> menuProvider)
 {
+    printf("showContextMenu(p1, p2)\n");
     m_menuProvider = menuProvider;
 
     m_contextMenu = createContextMenu(event);
@@ -156,6 +157,7 @@ PassOwnPtr<ContextMenu> ContextMenuController::createContextMenu(Event* event)
 
 void ContextMenuController::showContextMenu(Event* event)
 {
+    printf("showContextMenu(p1)\n");
 #if ENABLE(INSPECTOR)
     if (m_page->inspectorController()->enabled())
         addInspectElementItem();
@@ -186,16 +188,19 @@ void ContextMenuController::contextMenuItemSelected(ContextMenuItem* item)
     ASSERT(item->type() == ActionType || item->type() == CheckableActionType);
 
     if (item->action() >= ContextMenuItemBaseApplicationTag) {
+        printf("BaseApplicationTag\n");
         m_client->contextMenuItemSelected(item, m_contextMenu.get());
         return;
     }
 
     if (item->action() >= ContextMenuItemBaseCustomTag) {
         ASSERT(m_menuProvider);
+        printf("BaseCustomTag\n");
         m_menuProvider->contextMenuItemSelected(item);
         return;
     }
 
+    printf("ItemSelected!\n");
     Frame* frame = m_hitTestResult.innerNonSharedNode()->document()->frame();
     if (!frame)
         return;
@@ -629,6 +634,7 @@ static bool selectionContainsPossibleWord(Frame* frame)
 
 void ContextMenuController::populate()
 {
+    printf("populate .....\n");
     ContextMenuItem OpenLinkItem(ActionType, ContextMenuItemTagOpenLink, contextMenuItemTagOpenLink());
     ContextMenuItem OpenLinkInNewWindowItem(ActionType, ContextMenuItemTagOpenLinkInNewWindow, 
         contextMenuItemTagOpenLinkInNewWindow());
