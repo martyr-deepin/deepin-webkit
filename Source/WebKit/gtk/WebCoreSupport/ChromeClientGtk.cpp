@@ -531,41 +531,32 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
     gc.restore();
 
 
-    HashSet<const RenderLayer*>& vs = frame->view()->getForwardLayers();
+    const Vector<const RenderLayer*>& vs = frame->view()->getForwardLayers();
     if (vs.size() > 0) {
         RefPtr<cairo_t> forwardContext = adoptRef(cairo_create(webView->priv->backingStore->forwardSurface()));
-        //RefPtr<cairo_t> forwardContext = adoptRef(gdk_cairo_create(webView->priv->forwardWindow));
         GraphicsContext ggc(forwardContext.get());
-        HashSet<const RenderLayer*>::iterator it = vs.begin();
+        const Vector<const RenderLayer*>::const_iterator it = vs.begin();
 
         Color color = frame->view()->documentBackgroundColor();
         ColorSpace space = ggc.fillColorSpace();
 
-        rects.clear();
-        for (; it != vs.end(); ++it) {
-            const RenderLayer* layer = *it;
+        for (int i=0; i < vs.size(); i++) {
+            const RenderLayer* layer = vs.at(i);
             //printf("(%d,%d,%d,%d)\n", rect.x(), rect.y(), rect.width(), rect.height());
             IntRect rect = layer->absoluteBoundingBox();
             frame->view()->setNodeToDraw(layer->renderer()->node());
             rect.move(-frame->view()->scrollOffsetForFixedPosition());
+
             ggc.save();
             ggc.clip(rect);
-            if (webView->priv->transparent) {
-                ggc.clearRect(rect);
-            } else {
-                ggc.setFillColor(color, space);
-                ggc.fillRect(rect);
-            }
-
+            ggc.clearRect(rect);
             frame->view()->paint(&ggc, rect);
 
             ggc.restore();
-
-            rects.append(rect);
         }
 
         frame->view()->setNodeToDraw(0);
-        forward_region_changed(frame->page(), rects);
+        //forward_region_changed(frame->page(), frame->view()->getForwardRegion());
     }
 }
 

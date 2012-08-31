@@ -68,6 +68,7 @@
 #include <wtf/CurrentTime.h>
 #include <wtf/TemporaryChange.h>
 #include <wtf/UnusedParam.h>
+#include <algorithm>
 
 #if USE(ACCELERATED_COMPOSITING)
 #include "RenderLayerCompositor.h"
@@ -177,10 +178,11 @@ PassRefPtr<FrameView> FrameView::create(Frame* frame, const IntSize& initialSize
 }
 
 void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv);
+void destroy_forward_region(WebCore::Page* page);
 FrameView::~FrameView()
 {
-    Vector<IntRect> dump;
-    forward_region_changed(frame()->page(), dump);
+    printf("destroy frameview\n");
+    destroy_forward_region(frame()->page());
 
     if (m_postLayoutTasksTimer.isActive()) {
         m_postLayoutTasksTimer.stop();
@@ -1187,6 +1189,7 @@ void FrameView::layout(bool allowSubtree)
         return;
 
     page->chrome()->client()->layoutUpdated(frame());
+    forward_region_changed(m_frame->page(), getForwardRegion());
 }
 
 RenderBox* FrameView::embeddedContentBox() const
@@ -2091,6 +2094,7 @@ bool FrameView::needsLayout() const
 
 void FrameView::setNeedsLayout()
 {
+    printf("Needs Layout\n");
     if (m_deferSetNeedsLayouts) {
         m_setNeedsLayoutWasDeferred = true;
         return;
@@ -2526,6 +2530,8 @@ void FrameView::scrollTo(const IntSize& newOffset)
     if (offset != scrollOffset())
         scrollPositionChanged();
     frame()->loader()->client()->didChangeScrollOffset();
+
+    forward_region_changed(m_frame->page(), m_frame->view()->getForwardRegion());
 }
 
 void FrameView::invalidateScrollbarRect(Scrollbar* scrollbar, const IntRect& rect)
@@ -3392,26 +3398,57 @@ AXObjectCache* FrameView::axObjectCache() const
     return 0;
 }
 
-//Vector<IntRect> FrameView::getForwardRegion()
-//{
-    //Vector<IntRect> rects;
+Vector<IntRect> FrameView::getForwardRegion()
+{
+    Vector<IntRect> rects;
 
-    //HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
-    //for (; it != m_forward_layers.end(); ++it) {
-        //IntRect r = (*it)->absoluteBoundingBox();
-        //r.move(-scrollOffsetForFixedPosition());
-        //rects.append(r);
-    //}
+    HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
+    for (; it != m_forward_layers.end(); ++it) {
+        IntRect r = (*it)->absoluteBoundingBox();
+        r.move(-scrollOffsetForFixedPosition());
 
-    //return rects;
-//}
-//
+        int x = r.x();
+        int y = r.y();
+        int width = r.width();
+        int height = r.height();
 
-void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv);
+        if (x < 0) {
+            width += x;
+            x = 0;
+        }
+        if (y < 0) {
+            height += y;
+            y = 0;
+        }
+        if (width < 0 || height < 0) {
+            //tryRemoveForwardLayer(*it);
+            //continue;
+        }
+        rects.append(IntRect(x, y, width, height));
+    }
+    return rects;
+}
+
+static
+bool layer_comp(const RenderLayer* l1, const RenderLayer* l2)
+{
+    return l1->zIndex() <  l2->zIndex();
+}
+
+Vector<const RenderLayer*> FrameView::getForwardLayers()
+{
+    Vector<const RenderLayer*> layers(m_forward_layers.size());
+
+    copyToVector(m_forward_layers, layers);
+    std::sort(layers.begin(), layers.end(), layer_comp);
+    return layers;
+}
+
 
 void FrameView::addForwardLayer(const RenderLayer* l) 
 { 
     m_forward_layers.add(l); 
+    //forward_region_changed(m_frame->page(), getForwardRegion());
 
 
     //Vector<IntRect> rects;
@@ -3422,11 +3459,12 @@ void FrameView::addForwardLayer(const RenderLayer* l)
         //r.move(-scrollOffsetForFixedPosition());
         //rects.append(r);
     //}
-    //forward_region_changed(frame()->page(), rects);
+    forward_region_changed(m_frame->page(), getForwardRegion());
 }
 void FrameView::tryRemoveForwardLayer(const RenderLayer* l)
 { 
     m_forward_layers.remove(l); 
+    //forward_region_changed(m_frame->page(), getForwardRegion());
 
 
     //Vector<IntRect> rects;
@@ -3436,7 +3474,6 @@ void FrameView::tryRemoveForwardLayer(const RenderLayer* l)
         //r.move(-scrollOffsetForFixedPosition());
         //rects.append(r);
     //}
-    //forward_region_changed(frame()->page(), rects);
 }
     
 } // namespace WebCore

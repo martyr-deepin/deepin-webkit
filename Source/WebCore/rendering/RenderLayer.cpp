@@ -199,6 +199,7 @@ RenderLayer::RenderLayer(RenderBoxModelObject* renderer)
 
 RenderLayer::~RenderLayer()
 {
+    //printf("%p RenderLayer destroy.....\n", this);
     if (inResizeMode() && !renderer()->documentBeingDestroyed()) {
         if (Frame* frame = renderer()->frame())
             frame->eventHandler()->resizeLayerDestroyed();
@@ -2616,9 +2617,14 @@ bool RenderLayer::hitTestOverflowControls(HitTestResult& result, const IntPoint&
     return false;
 }
 
+void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv);
 bool RenderLayer::scroll(ScrollDirection direction, ScrollGranularity granularity, float multiplier)
 {
-    return ScrollableArea::scroll(direction, granularity, multiplier);
+    bool r = ScrollableArea::scroll(direction, granularity, multiplier);
+    Frame* frame = enclosingElement()->document()->frame();
+    forward_region_changed(frame->page(), frame->view()->getForwardRegion());
+    return r;
+    //return ScrollableArea::scroll(direction, granularity, multiplier);
 }
 
 void RenderLayer::paint(GraphicsContext* context, const LayoutRect& damageRect, PaintBehavior paintBehavior, RenderObject* paintingRoot, RenderRegion* region, PaintLayerFlags paintFlags)
@@ -4216,6 +4222,12 @@ void RenderLayer::collectLayers(bool includeHiddenLayers, Vector<RenderLayer*>*&
         
         // Append ourselves at the end of the appropriate buffer.
         buffer->append(this);
+
+        if (zIndex() > 0)
+            renderer()->frame()->view()->addForwardLayer(this);
+        else
+            renderer()->frame()->view()->tryRemoveForwardLayer(this);
+
     }
 
     // Recur into our children to collect more layers, but only if we don't establish
@@ -4368,10 +4380,10 @@ void RenderLayer::styleChanged(StyleDifference, const RenderStyle* oldStyle)
 
     if (Frame* frame = renderer()->frame()) {
         if (FrameView* frameView = frame->view()) {
-            if (zIndex() > 0)
-                frameView->addForwardLayer(this);
-            else
-                frameView->tryRemoveForwardLayer(this);
+            //if (zIndex() > 0)
+                //frameView->addForwardLayer(this);
+            //else
+                //frameView->tryRemoveForwardLayer(this);
 
             if (scrollsOverflow())
                 frameView->addScrollableArea(this);

@@ -506,7 +506,8 @@ private:
 
     HashSet<const RenderLayer*> m_forward_layers;
 public:
-    HashSet<const RenderLayer*>& getForwardLayers() { return m_forward_layers;}
+    Vector<IntRect> getForwardRegion();
+    Vector<const RenderLayer*> getForwardLayers();
     void addForwardLayer(const RenderLayer* l);
     void tryRemoveForwardLayer(const RenderLayer* l);
 

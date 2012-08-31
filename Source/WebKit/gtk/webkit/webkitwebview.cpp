@@ -637,7 +637,7 @@ static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfi
     gdk_window_get_origin(window, &x, &y);
     gdk_window_move_resize(WEBKIT_WEB_VIEW(webView)->priv->forwardWindow,
             x, y, gdk_window_get_width(window), gdk_window_get_height(window));
-    printf("forward window move to (%d,%d,%d,%d)\n", event->x, event->y, event->width, event->height);
+    //printf("forward window move to (%d,%d,%d,%d)\n", event->x, event->y, event->width, event->height);
     return false;
 }
 
@@ -668,7 +668,6 @@ static gboolean webkit_web_view_draw(GtkWidget* widget, cairo_t* cr)
             copyRectFromCairoSurfaceToContext(priv->backingStore->forwardSurface(), cr, IntSize(), r);
         }
         cairo_rectangle_list_destroy(rectList);
-        return TRUE;
     } else {
         for (int i = 0; i < rectList->num_rectangles; i++) {
             copyRectFromCairoSurfaceToContext(priv->backingStore->cairoSurface(), cr, IntSize(),
@@ -676,9 +675,9 @@ static gboolean webkit_web_view_draw(GtkWidget* widget, cairo_t* cr)
         }
         cairo_rectangle_list_destroy(rectList);
         // Chaining up to the parent forces child widgets to be drawn.
-        GTK_WIDGET_CLASS(webkit_web_view_parent_class)->draw(widget, cr);
-        return FALSE;
     }
+    GTK_WIDGET_CLASS(webkit_web_view_parent_class)->draw(widget, cr);
+    return FALSE;
 
 }
 
@@ -983,8 +982,10 @@ static gboolean webkit_web_view_focus_out_event(GtkWidget* widget, GdkEventFocus
     return GTK_WIDGET_CLASS(webkit_web_view_parent_class)->focus_out_event(widget, event);
 }
 
+
 static void webkit_web_view_realize(GtkWidget* widget)
 {
+    printf("webview realizing..\n");
     WebKitWebViewPrivate* priv = WEBKIT_WEB_VIEW(widget)->priv;
 
     gtk_widget_set_realized(widget, TRUE);
@@ -1004,9 +1005,6 @@ static void webkit_web_view_realize(GtkWidget* widget)
     attributes.height = allocation.height;
     attributes.wclass = GDK_INPUT_OUTPUT;
     attributes.visual = gtk_widget_get_visual(widget);
-#ifdef GTK_API_VERSION_2
-    attributes.colormap = gtk_widget_get_colormap(widget);
-#endif
     attributes.event_mask = GDK_VISIBILITY_NOTIFY_MASK
                             | GDK_EXPOSURE_MASK
                             | GDK_BUTTON_PRESS_MASK
@@ -1020,7 +1018,6 @@ static void webkit_web_view_realize(GtkWidget* widget)
                             | GDK_BUTTON2_MOTION_MASK
                             | GDK_BUTTON3_MOTION_MASK;
 
-    attributes.event_mask = GDK_ALL_EVENTS_MASK;
     gint attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
 #ifdef GTK_API_VERSION_2
     attributes_mask |= GDK_WA_COLORMAP;
@@ -1030,16 +1027,21 @@ static void webkit_web_view_realize(GtkWidget* widget)
     attributes.window_type = GDK_WINDOW_TOPLEVEL;
     attributes.x = 0;
     attributes.y = 0;
-    //attributes.event_mask = GDK_ALL_EVENTS_MASK & ~GDK_STRUCTURE_MASK;
+    attributes.width = 0;
+    attributes.height = 0;
+    GdkScreen *screen = gdk_screen_get_default();
+    attributes.visual = gdk_screen_get_rgba_visual(screen);
+    if (!attributes.visual) {
+        g_assert_not_reached();
+        attributes.visual = gdk_screen_get_system_visual(screen);
+    }
+
     GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
     priv->forwardWindow = fw;
-    //cairo_rectangle_int_t rr = {0, 0, 300, 300};
-    //cairo_region_t* region = cairo_region_create_rectangle(&rr);
-    //gdk_window_shape_combine_region(fw, region, 0, 0);
-    //gdk_window_show(fw);
     gdk_window_set_decorations(fw, GdkWMDecoration(0));
+    GdkRGBA rgba = {0, 0, 0, 0};
+    gdk_window_set_background_rgba(fw, &rgba);
     gdk_window_set_user_data(fw, widget);
-    gdk_window_set_keep_above(fw, true);
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER_GL)
     priv->hasNativeWindow = gdk_window_ensure_native(window);
@@ -1369,9 +1371,11 @@ static void webkit_web_view_dispose(GObject* object)
 
 static void webkit_web_view_finalize(GObject* object)
 {
+    printf("webview finalize\n");
     // We need to manually call the destructor here, since this object's memory is managed
     // by GLib. This calls all C++ members' destructors and prevents memory leaks.
     WEBKIT_WEB_VIEW(object)->priv->~WebKitWebViewPrivate();
+    gdk_window_destroy(WEBKIT_WEB_VIEW(object)->priv->forwardWindow);
     G_OBJECT_CLASS(webkit_web_view_parent_class)->finalize(object);
 }
 
@@ -5161,56 +5165,66 @@ WebKitWebView* kit(WebCore::Page* corePage)
 }
 namespace WebCore {
 
+void destroy_forward_region(WebCore::Page* page)
+{
+    return;
+    WebKitWebView *webView = WebKit::kit(page);
+    cairo_t *cr = cairo_create(webView->priv->backingStore->forwardSurface());
+    cairo_set_operator(cr, CAIRO_OPERATOR_CLEAR);
+    cairo_paint(cr);
+    cairo_destroy(cr);
+}
+
 void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
 {
-    bool show = false;
     WebKitWebView *webView = WebKit::kit(page);
+    if (!gtk_widget_get_realized(GTK_WIDGET(webView)))
+        return;
+
+    bool show = false;
     GdkWindow* window = webView->priv->forwardWindow;
 
-    static unsigned long sig_id = 0;
-    if (sig_id == 0) {
-        gpointer widget = NULL;
-        gdk_window_get_user_data(window, &widget);
-        GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(widget));
-        GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
-        sig_id = g_signal_connect(toplevel, "configure-event", G_CALLBACK(webkit_web_view_configure_event),webViewWindow);
-
-        int x, y;
-        gdk_window_get_origin(webViewWindow, &x, &y);
-        printf(".......(%d,%d,%d,%d)\n", x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
-        gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
-    }
 
     cairo_region_t* region = cairo_region_create();
 
     for (int i = 0; i < rv.size(); i++) {
         const IntRect& r = rv.at(i);
         cairo_rectangle_int_t cr = {r.x(), r.y(), r.width(), r.height()};
-        if (cr.x < 0) {
-            cr.width += cr.x;
-            cr.x = 0;
-        }
-        if (cr.y < 0) {
-            cr.height += cr.y;
-            cr.y = 0;
-        }
-        if (cr.width < 0 || cr.height < 0)
-            continue;
-        //cairo_rectangle_int_t cr = cairo_rectangle_int_t(r);
         cairo_region_union_rectangle(region, &cr);
         show = true;
-        printf("%d region:(%d,%d,%d,%d)\n", random(), cr.x, cr.y, cr.width, cr.height);
+        //printf("%d region:(%d,%d,%d,%d)\n", random(), cr.x, cr.y, cr.width, cr.height);
     }
-    printf("----------------\n");
+    //printf("----------------\n");
 
 
     if (show) {
-        gdk_window_show(window);
         gdk_window_shape_combine_region(window, region, 0, 0);
+
+        GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
+        int x, y;
+        gdk_window_get_origin(webViewWindow, &x, &y);
+        //printf(".......(%d,%d,%d,%d)\n", x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
+        gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
+        gdk_window_show_unraised(window);
+        gdk_window_set_keep_above(window, true);
     } else {
         gdk_window_hide(window);
     }
     cairo_region_destroy(region);
+
+    if (webView->priv->forward_sig_id == 0) {
+        gpointer widget = NULL;
+        gdk_window_get_user_data(window, &widget);
+        GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(widget));
+        GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
+        webView->priv->forward_sig_id = g_signal_connect(toplevel, "configure-event", G_CALLBACK(webkit_web_view_configure_event), webViewWindow);
+
+        //FIXME: Why move_resize hasn't effect?
+        //int x, y;
+        //gdk_window_get_origin(webViewWindow, &x, &y);
+        //printf(".......(%d,%d,%d,%d)\n", x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
+        //gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
+    }
 }
 
 }
