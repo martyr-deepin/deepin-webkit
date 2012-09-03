@@ -537,26 +537,23 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
         GraphicsContext ggc(forwardContext.get());
         const Vector<const RenderLayer*>::const_iterator it = vs.begin();
 
-        Color color = frame->view()->documentBackgroundColor();
-        ColorSpace space = ggc.fillColorSpace();
-
         for (int i=0; i < vs.size(); i++) {
             const RenderLayer* layer = vs.at(i);
-            //printf("(%d,%d,%d,%d)\n", rect.x(), rect.y(), rect.width(), rect.height());
             IntRect rect = layer->absoluteBoundingBox();
-            frame->view()->setNodeToDraw(layer->renderer()->node());
             rect.move(-frame->view()->scrollOffsetForFixedPosition());
-
+            //printf("----(%d,%d,%d,%d)\n", rect.x(), rect.y(), rect.width(), rect.height());
             ggc.save();
+
             ggc.clip(rect);
             ggc.clearRect(rect);
+
+            frame->view()->setNodeToDraw(layer->renderer()->node());
             frame->view()->paint(&ggc, rect);
 
             ggc.restore();
         }
 
         frame->view()->setNodeToDraw(0);
-        //forward_region_changed(frame->page(), frame->view()->getForwardRegion());
     }
 }
 

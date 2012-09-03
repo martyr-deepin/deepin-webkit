@@ -4223,7 +4223,7 @@ void RenderLayer::collectLayers(bool includeHiddenLayers, Vector<RenderLayer*>*&
         // Append ourselves at the end of the appropriate buffer.
         buffer->append(this);
 
-        if (zIndex() > 0)
+        if (zIndex() > 1000)
             renderer()->frame()->view()->addForwardLayer(this);
         else
             renderer()->frame()->view()->tryRemoveForwardLayer(this);
@@ -4380,11 +4380,6 @@ void RenderLayer::styleChanged(StyleDifference, const RenderStyle* oldStyle)
 
     if (Frame* frame = renderer()->frame()) {
         if (FrameView* frameView = frame->view()) {
-            //if (zIndex() > 0)
-                //frameView->addForwardLayer(this);
-            //else
-                //frameView->tryRemoveForwardLayer(this);
-
             if (scrollsOverflow())
                 frameView->addScrollableArea(this);
             else

@@ -60,17 +60,24 @@ private:
     // quick scrolling requests.
     WidgetBackingStorePrivate(GtkWidget* widget, const IntSize& size)
     {
+
         GdkVisual* visual = gtk_widget_get_visual(widget);
         GdkScreen* screen = gdk_visual_get_screen(visual);
+        GdkVisual* f_visual = gdk_screen_get_rgba_visual(screen);
+        if (!f_visual) {
+            f_visual = gdk_screen_get_system_visual(screen);
+        }
+
         m_display = GDK_SCREEN_XDISPLAY(screen);
         m_pixmap = XCreatePixmap(m_display,
                                  GDK_WINDOW_XID(gdk_screen_get_root_window(screen)),
                                  size.width(), size.height(),
                                  gdk_visual_get_depth(visual));
+
         m_f_pixmap = XCreatePixmap(m_display,
                                  GDK_WINDOW_XID(gdk_screen_get_root_window(screen)),
                                  size.width(), size.height(),
-                                 gdk_visual_get_depth(visual));
+                                 gdk_visual_get_depth(f_visual));
 
         m_gc = XCreateGC(m_display, m_pixmap, 0, 0);
         m_f_gc = XCreateGC(m_display, m_f_pixmap, 0, 0);
@@ -79,13 +86,13 @@ private:
                                                        GDK_VISUAL_XVISUAL(visual),
                                                        size.width(), size.height()));
         m_f_surface = adoptRef(cairo_xlib_surface_create(m_display, m_f_pixmap,
-                    GDK_VISUAL_XVISUAL(visual), size.width(), size.height()));
+                    GDK_VISUAL_XVISUAL(f_visual), size.width(), size.height()));
     }
 };
 
 PassOwnPtr<WidgetBackingStore> WidgetBackingStore::create(GtkWidget* widget, const IntSize& size)
 {
-    printf("Creating backstore\n");
+    //printf("Creating backstore\n");
     return adoptPtr(new WidgetBackingStore(widget, size));
 }
 

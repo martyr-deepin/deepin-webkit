@@ -985,7 +985,7 @@ static gboolean webkit_web_view_focus_out_event(GtkWidget* widget, GdkEventFocus
 
 static void webkit_web_view_realize(GtkWidget* widget)
 {
-    printf("webview realizing..\n");
+    //printf("webview realizing..\n");
     WebKitWebViewPrivate* priv = WEBKIT_WEB_VIEW(widget)->priv;
 
     gtk_widget_set_realized(widget, TRUE);
@@ -1022,6 +1022,7 @@ static void webkit_web_view_realize(GtkWidget* widget)
 #ifdef GTK_API_VERSION_2
     attributes_mask |= GDK_WA_COLORMAP;
 #endif
+
     GdkWindow* window = gdk_window_new(gtk_widget_get_parent_window(widget), &attributes, attributes_mask);
 
     attributes.window_type = GDK_WINDOW_TOPLEVEL;
@@ -1029,6 +1030,7 @@ static void webkit_web_view_realize(GtkWidget* widget)
     attributes.y = 0;
     attributes.width = 0;
     attributes.height = 0;
+    attributes.type_hint = GDK_WINDOW_TYPE_HINT_MENU;
     GdkScreen *screen = gdk_screen_get_default();
     attributes.visual = gdk_screen_get_rgba_visual(screen);
     if (!attributes.visual) {
@@ -1037,6 +1039,8 @@ static void webkit_web_view_realize(GtkWidget* widget)
     }
 
     GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
+    gdk_window_set_skip_pager_hint(fw, true);
+    gdk_window_set_skip_taskbar_hint(fw, true);
     priv->forwardWindow = fw;
     gdk_window_set_decorations(fw, GdkWMDecoration(0));
     GdkRGBA rgba = {0, 0, 0, 0};
@@ -1371,7 +1375,7 @@ static void webkit_web_view_dispose(GObject* object)
 
 static void webkit_web_view_finalize(GObject* object)
 {
-    printf("webview finalize\n");
+    //printf("webview finalize\n");
     // We need to manually call the destructor here, since this object's memory is managed
     // by GLib. This calls all C++ members' destructors and prevents memory leaks.
     WEBKIT_WEB_VIEW(object)->priv->~WebKitWebViewPrivate();
@@ -5184,7 +5188,6 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
     bool show = false;
     GdkWindow* window = webView->priv->forwardWindow;
 
-
     cairo_region_t* region = cairo_region_create();
 
     for (int i = 0; i < rv.size(); i++) {
@@ -5203,14 +5206,14 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
         int x, y;
         gdk_window_get_origin(webViewWindow, &x, &y);
-        //printf(".......(%d,%d,%d,%d)\n", x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
         gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
         gdk_window_show_unraised(window);
-        gdk_window_set_keep_above(window, true);
     } else {
         gdk_window_hide(window);
     }
     cairo_region_destroy(region);
+    //printf("%d set forward keep above........\n", random());
+    gdk_window_set_keep_above(window, true);
 
     if (webView->priv->forward_sig_id == 0) {
         gpointer widget = NULL;
@@ -5218,12 +5221,6 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(widget));
         GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
         webView->priv->forward_sig_id = g_signal_connect(toplevel, "configure-event", G_CALLBACK(webkit_web_view_configure_event), webViewWindow);
-
-        //FIXME: Why move_resize hasn't effect?
-        //int x, y;
-        //gdk_window_get_origin(webViewWindow, &x, &y);
-        //printf(".......(%d,%d,%d,%d)\n", x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
-        //gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
     }
 }
 

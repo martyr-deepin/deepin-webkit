@@ -145,7 +145,7 @@ FrameView::FrameView(Frame* frame)
     , m_shouldAutoSize(false)
     , m_inAutoSize(false)
 {
-    printf("Frame View create\n");
+    //printf("Frame View create\n");
     init();
 
     // FIXME: Can m_frame ever be null here?
@@ -181,7 +181,7 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv);
 void destroy_forward_region(WebCore::Page* page);
 FrameView::~FrameView()
 {
-    printf("destroy frameview\n");
+    //printf("destroy frameview\n");
     destroy_forward_region(frame()->page());
 
     if (m_postLayoutTasksTimer.isActive()) {
@@ -2094,7 +2094,7 @@ bool FrameView::needsLayout() const
 
 void FrameView::setNeedsLayout()
 {
-    printf("Needs Layout\n");
+    //printf("Needs Layout\n");
     if (m_deferSetNeedsLayouts) {
         m_setNeedsLayoutWasDeferred = true;
         return;
@@ -2102,6 +2102,7 @@ void FrameView::setNeedsLayout()
 
     if (RenderView* root = rootRenderer(this))
         root->setNeedsLayout(true);
+
 }
 
 void FrameView::unscheduleRelayout()
@@ -3404,7 +3405,10 @@ Vector<IntRect> FrameView::getForwardRegion()
 
     HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
     for (; it != m_forward_layers.end(); ++it) {
+        
+        //printf("begin get %p layer \n", (*it));
         IntRect r = (*it)->absoluteBoundingBox();
+        //printf("end get %p layer \n", (*it));
         r.move(-scrollOffsetForFixedPosition());
 
         int x = r.x();
@@ -3422,7 +3426,7 @@ Vector<IntRect> FrameView::getForwardRegion()
         }
         if (width < 0 || height < 0) {
             //tryRemoveForwardLayer(*it);
-            //continue;
+            continue;
         }
         rects.append(IntRect(x, y, width, height));
     }
@@ -3447,33 +3451,19 @@ Vector<const RenderLayer*> FrameView::getForwardLayers()
 
 void FrameView::addForwardLayer(const RenderLayer* l) 
 { 
-    m_forward_layers.add(l); 
-    //forward_region_changed(m_frame->page(), getForwardRegion());
-
-
-    //Vector<IntRect> rects;
-    //HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
-    //for (; it != m_forward_layers.end(); ++it) {
-        //IntRect r = (*it)->absoluteBoundingBox();
-        //printf("addForwardLayer: (%d,%d,%d,%d)\n", r.x(), r.y(), r.width(), r.height());
-        //r.move(-scrollOffsetForFixedPosition());
-        //rects.append(r);
-    //}
-    forward_region_changed(m_frame->page(), getForwardRegion());
+    if (!m_forward_layers.contains(l)) {
+        m_forward_layers.add(l); 
+        //printf("add forward layer.....\n");
+        forward_region_changed(m_frame->page(), getForwardRegion());
+    }
 }
 void FrameView::tryRemoveForwardLayer(const RenderLayer* l)
 { 
-    m_forward_layers.remove(l); 
-    //forward_region_changed(m_frame->page(), getForwardRegion());
-
-
-    //Vector<IntRect> rects;
-    //HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
-    //for (; it != m_forward_layers.end(); ++it) {
-        //IntRect r = (*it)->absoluteBoundingBox();
-        //r.move(-scrollOffsetForFixedPosition());
-        //rects.append(r);
-    //}
+    if (m_forward_layers.contains(l)) {
+        m_forward_layers.remove(l); 
+        //printf("remove forward layer.....\n");
+        forward_region_changed(m_frame->page(), getForwardRegion());
+    }
 }
     
 } // namespace WebCore
