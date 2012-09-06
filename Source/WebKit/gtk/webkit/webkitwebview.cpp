@@ -628,6 +628,11 @@ static void webkit_web_view_set_property(GObject* object, guint prop_id, const G
     }
 }
 
+GdkWindow*  webkit_web_view_get_forward_window(GtkWidget* widget)
+{
+    return WEBKIT_WEB_VIEW(widget)->priv->forwardWindow;
+}
+
 static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfigure *event, gpointer user_data)
 {
     GdkWindow* window = GDK_WINDOW(user_data);
@@ -1024,6 +1029,26 @@ static void webkit_web_view_realize(GtkWidget* widget)
 #endif
 
     GdkWindow* window = gdk_window_new(gtk_widget_get_parent_window(widget), &attributes, attributes_mask);
+    gtk_widget_set_window(widget, window);
+    gdk_window_set_user_data(window, widget);
+
+#if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER_GL)
+    priv->hasNativeWindow = gdk_window_ensure_native(window);
+#endif
+
+#ifdef GTK_API_VERSION_2
+#if GTK_CHECK_VERSION(2, 20, 0)
+    gtk_widget_style_attach(widget);
+#else
+    widget->style = gtk_style_attach(gtk_widget_get_style(widget), window);
+#endif
+    gtk_style_set_background(gtk_widget_get_style(widget), window, GTK_STATE_NORMAL);
+#else
+    gtk_style_context_set_background(gtk_widget_get_style_context(widget), window);
+#endif
+
+    gtk_im_context_set_client_window(priv->imContext.get(), window);
+
 
     attributes.window_type = GDK_WINDOW_TOPLEVEL;
     attributes.x = 0;
@@ -1046,26 +1071,6 @@ static void webkit_web_view_realize(GtkWidget* widget)
     GdkRGBA rgba = {0, 0, 0, 0};
     gdk_window_set_background_rgba(fw, &rgba);
     gdk_window_set_user_data(fw, widget);
-
-#if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER_GL)
-    priv->hasNativeWindow = gdk_window_ensure_native(window);
-#endif
-    gtk_widget_set_window(widget, window);
-    gdk_window_set_user_data(window, widget);
-
-#ifdef GTK_API_VERSION_2
-#if GTK_CHECK_VERSION(2, 20, 0)
-    gtk_widget_style_attach(widget);
-#else
-    widget->style = gtk_style_attach(gtk_widget_get_style(widget), window);
-#endif
-    gtk_style_set_background(gtk_widget_get_style(widget), window, GTK_STATE_NORMAL);
-#else
-    gtk_style_context_set_background(gtk_widget_get_style_context(widget), window);
-#endif
-
-    gtk_im_context_set_client_window(priv->imContext.get(), window);
-
 }
 
 #ifdef GTK_API_VERSION_2
@@ -5190,7 +5195,7 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
 
     cairo_region_t* region = cairo_region_create();
 
-    for (int i = 0; i < rv.size(); i++) {
+    for (size_t i = 0; i < rv.size(); i++) {
         const IntRect& r = rv.at(i);
         cairo_rectangle_int_t cr = {r.x(), r.y(), r.width(), r.height()};
         cairo_region_union_rectangle(region, &cr);
@@ -5208,12 +5213,12 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         gdk_window_get_origin(webViewWindow, &x, &y);
         gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
         gdk_window_show_unraised(window);
+        gdk_window_set_keep_above(window, true);
     } else {
         gdk_window_hide(window);
     }
     cairo_region_destroy(region);
     //printf("%d set forward keep above........\n", random());
-    gdk_window_set_keep_above(window, true);
 
     if (webView->priv->forward_sig_id == 0) {
         gpointer widget = NULL;
@@ -5221,6 +5226,7 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(widget));
         GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
         webView->priv->forward_sig_id = g_signal_connect(toplevel, "configure-event", G_CALLBACK(webkit_web_view_configure_event), webViewWindow);
+        //gdk_window_set_group(webView->priv->forwardWindow, gtk_widget_get_toplevel(webViewWindow));
     }
 }
 

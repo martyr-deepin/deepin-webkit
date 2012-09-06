@@ -35,6 +35,7 @@
 
 G_BEGIN_DECLS
 
+
 #define WEBKIT_TYPE_WEB_VIEW            (webkit_web_view_get_type())
 #define WEBKIT_WEB_VIEW(obj)            (G_TYPE_CHECK_INSTANCE_CAST((obj), WEBKIT_TYPE_WEB_VIEW, WebKitWebView))
 #define WEBKIT_WEB_VIEW_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST((klass),  WEBKIT_TYPE_WEB_VIEW, WebKitWebViewClass))
@@ -445,6 +446,9 @@ webkit_web_view_get_dom_document                (WebKitWebView        *web_view)
 
 WEBKIT_API WebKitViewportAttributes*
 webkit_web_view_get_viewport_attributes         (WebKitWebView        *web_view);
+
+WEBKIT_API GdkWindow* 
+webkit_web_view_get_forward_window(GtkWidget* widget);
 
 G_END_DECLS
 
