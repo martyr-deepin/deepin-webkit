@@ -3402,6 +3402,9 @@ AXObjectCache* FrameView::axObjectCache() const
 Vector<IntRect> FrameView::getForwardRegion()
 {
     Vector<IntRect> rects;
+    if (!frame()->document()->renderView()) {
+        return rects;
+    }
 
     HashSet<const RenderLayer*>::iterator it =  m_forward_layers.begin();
     for (; it != m_forward_layers.end(); ++it) {
