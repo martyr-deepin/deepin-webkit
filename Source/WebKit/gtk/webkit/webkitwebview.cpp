@@ -986,7 +986,13 @@ static gboolean webkit_web_view_focus_out_event(GtkWidget* widget, GdkEventFocus
 
     return GTK_WIDGET_CLASS(webkit_web_view_parent_class)->focus_out_event(widget, event);
 }
-
+static gboolean webkit_web_view_delete(GtkWidget *widget, GdkEventAny *event)
+{
+    if (! (event->window == gtk_widget_get_window(widget)))
+        return true;
+    else
+        return false;
+}
 
 static void webkit_web_view_realize(GtkWidget* widget)
 {
@@ -2812,6 +2818,7 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
 
     GtkWidgetClass* widgetClass = GTK_WIDGET_CLASS(webViewClass);
     widgetClass->realize = webkit_web_view_realize;
+    widgetClass->delete_event = webkit_web_view_delete;
 #ifdef GTK_API_VERSION_2
     widgetClass->expose_event = webkit_web_view_expose_event;
 #else

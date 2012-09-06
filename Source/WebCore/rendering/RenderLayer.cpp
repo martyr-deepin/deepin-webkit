@@ -186,6 +186,8 @@ RenderLayer::RenderLayer(RenderBoxModelObject* renderer)
     , m_reflection(0)
     , m_scrollCorner(0)
     , m_resizer(0)
+    , m_force_paint(false)
+
 {
     m_isNormalFlowOnly = shouldBeNormalFlowOnly();
 
@@ -2741,6 +2743,9 @@ void RenderLayer::paintLayer(RenderLayer* rootLayer, GraphicsContext* context,
                         RenderObject* paintingRoot, RenderRegion* region, OverlapTestRequestMap* overlapTestRequests,
                         PaintLayerFlags paintFlags)
 {
+    if (!m_force_paint && zIndex() > 1000) {
+        return;
+    }
 #if USE(ACCELERATED_COMPOSITING)
     if (isComposited()) {
         // The updatingControlTints() painting pass goes through compositing layers,

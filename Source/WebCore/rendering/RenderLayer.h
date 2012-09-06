@@ -219,6 +219,7 @@ class RenderLayer : public ScrollableArea
 public:
     friend class RenderReplica;
 
+
     RenderLayer(RenderBoxModelObject*);
     ~RenderLayer();
 
@@ -229,6 +230,8 @@ public:
     RenderLayer* nextSibling() const { return m_next; }
     RenderLayer* firstChild() const { return m_first; }
     RenderLayer* lastChild() const { return m_last; }
+
+    void setForcePaint(bool force) const { m_force_paint = force; }
 
     void addChild(RenderLayer* newChild, RenderLayer* beforeChild = 0);
     RenderLayer* removeChild(RenderLayer*);
@@ -693,9 +696,7 @@ private:
     // Both updates the status, and returns true if descendants of this have 3d.
     bool update3DTransformedDescendantStatus();
 
-    public:
     Node* enclosingElement() const;
-    private:
 
     void createReflection();
     void removeReflection();
@@ -806,6 +807,8 @@ protected:
     RenderLayer* m_next;
     RenderLayer* m_first;
     RenderLayer* m_last;
+
+    mutable bool m_force_paint;
 
     LayoutRect m_repaintRect; // Cached repaint rects. Used by layout.
     LayoutRect m_outlineBox;
