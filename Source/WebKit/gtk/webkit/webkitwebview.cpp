@@ -5221,10 +5221,10 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
         gdk_window_flush(window);
         gdk_window_show_unraised(window);
-        gdk_window_set_keep_above(window, true);
     } else {
         gdk_window_hide(window);
     }
+    gdk_window_set_keep_above(window, true);
     cairo_region_destroy(region);
     //printf("%d set forward keep above........\n", random());
 

@@ -33,6 +33,9 @@
 #include "MicroDataItemValue.h"
 #endif
 
+#include "DeepinMenu.h"
+#include "JSDeepinMenu.h"
+
 namespace WebCore {
 
 using namespace JSC;
@@ -78,5 +81,16 @@ void JSHTMLElement::setItemValue(ExecState* exec, JSValue value)
     setDOMException(exec, ec);
 }
 #endif
+
+JSValue JSHTMLElement::contextMenu(JSC::ExecState* exec) const 
+{
+    return toJS(exec, globalObject(), impl()->contextMenu());
+}
+void JSHTMLElement::setContextMenu(JSC::ExecState* exec, JSC::JSValue value)
+{
+    DeepinMenu* menu = toDeepinMenu(value);
+    impl()->setContextMenu(menu);
+}
+
 
 } // namespace WebCore

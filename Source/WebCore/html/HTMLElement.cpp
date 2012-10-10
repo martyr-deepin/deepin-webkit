@@ -71,6 +71,12 @@ PassRefPtr<HTMLElement> HTMLElement::create(const QualifiedName& tagName, Docume
     return adoptRef(new HTMLElement(tagName, document));
 }
 
+HTMLElement::HTMLElement(const QualifiedName& tagName, Document* document)
+    : StyledElement(tagName, document, CreateHTMLElement)
+{
+    ASSERT(tagName.localName().impl());
+}
+
 String HTMLElement::nodeName() const
 {
     // FIXME: Would be nice to have an atomicstring lookup based off uppercase

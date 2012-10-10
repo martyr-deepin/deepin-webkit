@@ -1,5 +1,19 @@
-#dom_binding_idls += \
-	#$(WebCore)/deepin/GI.idl
+dom_binding_idls += \
+	$(WebCore)/deepin/DeepinMenu.idl \
+	$(WebCore)/deepin/DeepinMenuItem.idl \
+	$(WebCore)/deepin/ItemSelectedEvent.idl
 
-#webcore_sources += \
-	#Source/WebCore/deepin/GI.cpp
+webcore_sources += \
+	Source/WebCore/deepin/DeepinMenu.cpp \
+	Source/WebCore/deepin/DeepinMenuItem.cpp \
+	Source/WebCore/deepin/ItemSelectedEvent.cpp
+
+
+
+webcore_built_sources += \
+	DerivedSources/WebCore/JSDeepinMenu.h \
+	DerivedSources/WebCore/JSDeepinMenu.cpp \
+	DerivedSources/WebCore/JSDeepinMenuItem.h \
+	DerivedSources/WebCore/JSDeepinMenuItem.cpp \
+	DerivedSources/WebCore/JSItemSelectedEvent.h \
+	DerivedSources/WebCore/JSItemSelectedEvent.cpp

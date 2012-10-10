@@ -92,6 +92,8 @@ module html {
 #endif
 
         void click();
+
+        attribute [Custom] DeepinMenu contextMenu;
     };
 
 }

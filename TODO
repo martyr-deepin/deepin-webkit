@@ -1,3 +1,6 @@
-Source/WebKit/gtk/webkit.pc.in     的修改
+1. RenderLayer->absoulteBoundingBox()  can't get the really bounding of an element when has rotate or position:absoulte;
+2. modify the build script to remove JavaScriptCore and compile the webkit
+3. try add cpp bindings to WebCore, and test it.
+4. modify the <script> tag to load an native code module.
+5. add the <widget> tag to easy handle widget.
 
-deepin-webkit 只使用GTK3

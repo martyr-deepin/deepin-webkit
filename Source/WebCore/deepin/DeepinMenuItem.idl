@@ -1,0 +1,11 @@
+module deepin {
+    interface [
+        Constructor(in unsigned short id, in DOMString title, in [Optional=DefaultIsNullString] DOMString iconURL)
+        //Constructor(in DeepinMenu sub_menu)
+    ] DeepinMenuItem {
+        readonly attribute int id;
+        readonly attribute int type;
+        readonly attribute DOMString title;
+        readonly attribute DOMString iconURL;
+    };
+}

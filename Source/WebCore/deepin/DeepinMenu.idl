@@ -1,0 +1,8 @@
+module deepin {
+    interface [
+        Constructor()
+    ] DeepinMenu {
+        void appendItem(in DeepinMenuItem item);
+        void insertItem(in long position, in DeepinMenuItem item);
+    };
+}

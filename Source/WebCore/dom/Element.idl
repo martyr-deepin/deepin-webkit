@@ -144,6 +144,7 @@ module core {
         attribute [NotEnumerable] EventListener onchange;
         attribute [NotEnumerable] EventListener onclick;
         attribute [NotEnumerable] EventListener oncontextmenu;
+        attribute [NotEnumerable] EventListener onitemselected;
         attribute [NotEnumerable] EventListener ondblclick;
         attribute [NotEnumerable] EventListener ondrag;
         attribute [NotEnumerable] EventListener ondragend;

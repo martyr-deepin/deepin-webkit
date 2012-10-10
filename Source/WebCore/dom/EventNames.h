@@ -50,6 +50,7 @@ namespace WebCore {
     macro(compositionupdate) \
     macro(connect) \
     macro(contextmenu) \
+    macro(itemselected) \
     macro(copy) \
     macro(cut) \
     macro(dblclick) \

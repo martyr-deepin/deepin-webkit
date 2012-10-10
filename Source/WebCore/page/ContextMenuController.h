@@ -32,9 +32,13 @@
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 
+#include "DeepinMenu.h"
+
 namespace WebCore {
 
     class ContextMenu;
+    class HTMLElement;
+    class DeepinMenu;
     class ContextMenuClient;
     class ContextMenuItem;
     class ContextMenuProvider;
@@ -85,6 +89,7 @@ namespace WebCore {
         Page* m_page;
         ContextMenuClient* m_client;
         OwnPtr<ContextMenu> m_contextMenu;
+        HTMLElement* m_element;
         RefPtr<ContextMenuProvider> m_menuProvider;
         HitTestResult m_hitTestResult;
     };

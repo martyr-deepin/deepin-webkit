@@ -24,12 +24,14 @@
 #define HTMLElement_h
 
 #include "StyledElement.h"
+#include "DeepinMenu.h"
 
 namespace WebCore {
 
 class DocumentFragment;
 class HTMLCollection;
 class HTMLFormElement;
+class DeepinMenu;
 
 #if ENABLE(MICRODATA)
 class MicroDataItemValue;
@@ -43,6 +45,10 @@ enum TranslateAttributeMode {
 
 class HTMLElement : public StyledElement {
 public:
+    void setContextMenu(RefPtr<DeepinMenu> m) { m_menu = m; }
+    DeepinMenu* contextMenu() { return m_menu.get(); }
+    void setMenu(RefPtr<DeepinMenu> menu) { m_menu = menu; }
+
     static PassRefPtr<HTMLElement> create(const QualifiedName& tagName, Document*);
 
     HTMLCollection* children();
@@ -136,6 +142,7 @@ private:
     virtual String itemValueText() const;
     virtual void setItemValueText(const String&, ExceptionCode&);
 #endif
+    RefPtr<DeepinMenu> m_menu;
 };
 
 inline HTMLElement* toHTMLElement(Node* node)
@@ -152,12 +159,6 @@ inline const HTMLElement* toHTMLElement(const Node* node)
 
 // This will catch anyone doing an unnecessary cast.
 void toHTMLElement(const HTMLElement*);
-
-inline HTMLElement::HTMLElement(const QualifiedName& tagName, Document* document)
-    : StyledElement(tagName, document, CreateHTMLElement)
-{
-    ASSERT(tagName.localName().impl());
-}
 
 } // namespace WebCore
 

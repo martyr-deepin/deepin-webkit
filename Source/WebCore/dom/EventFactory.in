@@ -21,6 +21,7 @@ PageTransitionEvent
 PopStateEvent
 ProgressEvent
 TextEvent
+ItemSelectedEvent interfaceName=ItemSelectedEvent
 UIEvent
 UIEvents interfaceName=UIEvent
 WebKitAnimationEvent

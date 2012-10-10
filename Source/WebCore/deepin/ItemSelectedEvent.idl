@@ -1,0 +1,6 @@
+module events {
+    interface ItemSelectedEvent : Event {
+        readonly attribute int id;
+        readonly attribute DOMString title;
+    };
+}
