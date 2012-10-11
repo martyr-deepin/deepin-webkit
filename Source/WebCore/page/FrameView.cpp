@@ -3410,7 +3410,7 @@ Vector<IntRect> FrameView::getForwardRegion()
     for (; it != m_forward_layers.end(); ++it) {
         
         //printf("begin get %p layer \n", (*it));
-        IntRect r = (*it)->absoluteBoundingBox();
+        IntRect r = (*it)->repaintRectIncludingDescendants();
         //printf("end get %p layer \n", (*it));
         r.move(-scrollOffsetForFixedPosition());
 

@@ -539,7 +539,7 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
 
         for (int i=0; i < vs.size(); i++) {
             const RenderLayer* layer = vs.at(i);
-            IntRect rect = layer->absoluteBoundingBox();
+            IntRect rect = layer->repaintRectIncludingDescendants();
             rect.move(-frame->view()->scrollOffsetForFixedPosition());
             //printf("----(%d,%d,%d,%d)\n", rect.x(), rect.y(), rect.width(), rect.height());
             ggc.save();
@@ -552,9 +552,9 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
             //layer->paint(&ggc, rect);
             frame->view()->paint(&ggc, rect);
             layer->setForcePaint(false);
-            ggc.setStrokeColor(Color(255, 0, 0), ColorSpaceDeviceRGB);
-            ggc.strokeRect(rect, 4);
-            ggc.restore();
+            //ggc.setStrokeColor(Color(255, 0, 0), ColorSpaceDeviceRGB);
+            //ggc.strokeRect(rect, 4);
+            //ggc.restore();
         }
 
         frame->view()->setNodeToDraw(0);
