@@ -5194,7 +5194,7 @@ void destroy_forward_region(WebCore::Page* page)
 void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
 {
     WebKitWebView *webView = WebKit::kit(page);
-    if (!gtk_widget_get_realized(GTK_WIDGET(webView)))
+    if (webView == NULL || !gtk_widget_get_realized(GTK_WIDGET(webView)))
         return;
 
     bool show = false;
