@@ -20,11 +20,30 @@ namespace WebCore {
     {
         ContextMenu *m = new ContextMenu();
         PassOwnPtr<ContextMenu> tmp_menu = adoptPtr(m);
+
         for (Vector<DeepinMenuItem*>::iterator itr=m_items.begin(); itr!=m_items.end(); ++itr) {
-            ContextMenuItem menuitem(ActionType, 
-                    static_cast<ContextMenuAction>(ContextMenuItemBaseApplicationTag+(*itr)->id()), 
-                    (*itr)->title());
-            tmp_menu->appendItem(menuitem);
+
+            printf("menu item type %d\n", (*itr)->type());
+            switch ((*itr)->type()) {
+                case 0:
+                    {
+                        ContextMenuItem menuitem(ActionType, 
+                                static_cast<ContextMenuAction>(ContextMenuItemBaseApplicationTag+(*itr)->id()), 
+                                (*itr)->title());
+
+                        tmp_menu->appendItem(menuitem);
+                        printf("add menu item...%s..\n", (*itr)->title().utf8().data());
+                    }
+                    break;
+                case 1:
+                    {
+                        ContextMenuItem menuitem(SubmenuType, static_cast<ContextMenuAction>(0), (*itr)->title(), (*itr)->submenu()->contextMenu().get());
+
+                        tmp_menu->appendItem(menuitem);
+                    }
+                    break;
+            }
+
         }
         return tmp_menu;
     }

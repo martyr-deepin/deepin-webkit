@@ -10,29 +10,28 @@ namespace WebCore {
 
     class DeepinMenuItem : public RefCounted<DeepinMenuItem> {
         public:
-            static PassRefPtr<DeepinMenuItem> create(unsigned short id, const String& title, const String& iconURL) {
-                return adoptRef(new DeepinMenuItem(id, title, iconURL));
-            }
-            static PassRefPtr<DeepinMenuItem> create(unsigned short id, DeepinMenu* sub_menu) {
-                return adoptRef(new DeepinMenuItem(id, sub_menu));
+            static PassRefPtr<DeepinMenuItem> create(int type, unsigned short id, const String& title, DeepinMenu* data) {
+                if (type == 0) {
+                    return adoptRef(new DeepinMenuItem(title, id));
+                } else {
+                    return adoptRef(new DeepinMenuItem(title, data));
+                }
             }
 
             const String& title() { return m_title; }
             void setTitle(const String& t) { m_title = t; }
 
-            const String& iconURL() { return m_iconURL; }
-            void setIconURL(const String& url) { m_iconURL = url; }
-
             unsigned short id() { return m_id; }
 
             int type() { return m_type; }
 
+            DeepinMenu* submenu() { return m_submenu; }
+
         private:
-            DeepinMenuItem(unsigned short id, const String& title, const String& iconURL);
-            DeepinMenuItem(unsigned short id, DeepinMenu* menu);
+            DeepinMenuItem(const String& title, unsigned short id);
+            DeepinMenuItem(const String& title, DeepinMenu* menu);
 
             String m_title;
-            String m_iconURL;
             unsigned short m_id;
             int m_type;
             DeepinMenu *m_submenu;
