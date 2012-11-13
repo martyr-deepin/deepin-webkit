@@ -17,9 +17,6 @@ namespace WebCore {
             void appendItem(DeepinMenuItem* item);
             void insertItem(size_t position, DeepinMenuItem* item);
 
-            //void populateContextMenu(ContextMenu*);
-            //void contextMenuItemSelected(ContextMenuItem*);
-            //void contextMenuCleared();
             PassOwnPtr<ContextMenu> contextMenu();
 
         private:

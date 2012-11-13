@@ -26,6 +26,7 @@ namespace WebCore {
             int type() { return m_type; }
 
             DeepinMenu* submenu() { return m_submenu; }
+            ~DeepinMenuItem();
 
         private:
             DeepinMenuItem(const String& title, unsigned short id);
