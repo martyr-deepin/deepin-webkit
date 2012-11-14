@@ -27,14 +27,20 @@ namespace WebCore {
                                 static_cast<ContextMenuAction>(ContextMenuItemBaseApplicationTag+(*itr)->id()), 
                                 (*itr)->title());
                         tmp_menu->appendItem(menuitem);
+                        break;
                     }
-                    break;
                 case 1:
                     {
                         ContextMenuItem menuitem(SubmenuType, static_cast<ContextMenuAction>(0), (*itr)->title(), (*itr)->submenu()->contextMenu().get());
                         tmp_menu->appendItem(menuitem);
+                        break;
                     }
-                    break;
+                case 2:
+                    {
+                        ContextMenuItem menuitem(SeparatorType, ContextMenuItemTagNoAction, String());
+                        tmp_menu->appendItem(menuitem);
+                        break;
+                    }
             }
 
         }

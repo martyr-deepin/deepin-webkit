@@ -11,11 +11,12 @@ namespace WebCore {
     class DeepinMenuItem : public RefCounted<DeepinMenuItem> {
         public:
             static PassRefPtr<DeepinMenuItem> create(int type, unsigned short id, const String& title, DeepinMenu* data) {
-                if (type == 0) {
-                    return adoptRef(new DeepinMenuItem(title, id));
-                } else {
-                    return adoptRef(new DeepinMenuItem(title, data));
-                }
+                return adoptRef(new DeepinMenuItem(type, id, title, data));
+                //if (type == 0) {
+                    //return adoptRef(new DeepinMenuItem(title, id));
+                //} else {
+                    //return adoptRef(new DeepinMenuItem(title, data));
+                //}
             }
 
             const String& title() { return m_title; }
@@ -29,8 +30,8 @@ namespace WebCore {
             ~DeepinMenuItem();
 
         private:
-            DeepinMenuItem(const String& title, unsigned short id);
-            DeepinMenuItem(const String& title, DeepinMenu* menu);
+            //DeepinMenuItem(const String& title, unsigned short id);
+            DeepinMenuItem(int type, unsigned short id, const String& title, DeepinMenu* menu);
 
             String m_title;
             unsigned short m_id;
