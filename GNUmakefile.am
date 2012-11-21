@@ -25,6 +25,7 @@
 srcdir = @srcdir@
 VPATH = @srcdir@
 
+
 DISTCHECK_CONFIGURE_FLAGS = \
 	--enable-introspection	\
 	--enable-gtk-doc \

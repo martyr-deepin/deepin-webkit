@@ -6,7 +6,8 @@ dom_binding_idls += \
 webcore_sources += \
 	Source/WebCore/deepin/DeepinMenu.cpp \
 	Source/WebCore/deepin/DeepinMenuItem.cpp \
-	Source/WebCore/deepin/ItemSelectedEvent.cpp
+	Source/WebCore/deepin/ItemSelectedEvent.cpp \
+	Source/WebCore/deepin/deepin_canvas.cpp
 
 
 
