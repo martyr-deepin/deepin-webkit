@@ -284,10 +284,12 @@ void InspectorConsoleAgent::addConsoleMessage(PassOwnPtr<ConsoleMessage> console
 class InspectableHeapObject : public InjectedScriptHost::InspectableObject {
 public:
     explicit InspectableHeapObject(int heapObjectId) : m_heapObjectId(heapObjectId) { }
+#if ENABLE(JAVASCRIPT_DEBUG)
     virtual ScriptValue get(ScriptState*)
     {
         return ScriptProfiler::objectByHeapObjectId(m_heapObjectId);
     }
+#endif
 private:
     int m_heapObjectId;
 };

@@ -4,7 +4,7 @@ Event
 Events interfaceName=Event
 HTMLEvents interfaceName=Event
 BeforeLoadEvent
-CloseEvent
+CloseEvent conditional=WEB_SOCKETS
 CompositionEvent
 CustomEvent
 ErrorEvent

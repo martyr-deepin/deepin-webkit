@@ -41,7 +41,7 @@ module window {
         readonly attribute boolean onLine;
 
 #if defined(ENABLE_GEOLOCATION) && ENABLE_GEOLOCATION
-        readonly attribute [V8EnabledAtRuntime] Geolocation geolocation;
+        [Conditional=GEOLOCATION] readonly attribute [V8EnabledAtRuntime] Geolocation geolocation;
 #endif
 
 #if defined(ENABLE_POINTER_LOCK) && ENABLE_POINTER_LOCK

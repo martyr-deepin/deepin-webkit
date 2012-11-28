@@ -292,7 +292,9 @@ InspectorMemoryAgent::~InspectorMemoryAgent()
 void InspectorMemoryAgent::getDOMNodeCount(ErrorString*, RefPtr<InspectorArray>& domGroups, RefPtr<InspectorObject>& strings)
 {
     CounterVisitor counterVisitor(m_page);
+#if ENABLE(JAVASCRIPT_DEBUG)
     ScriptProfiler::visitJSDOMWrappers(&counterVisitor);
+#endif
 
     // Make sure all documents reachable from the main frame are accounted.
     for (Frame* frame = m_page->mainFrame(); frame; frame = frame->tree()->traverseNext()) {
@@ -300,7 +302,9 @@ void InspectorMemoryAgent::getDOMNodeCount(ErrorString*, RefPtr<InspectorArray>&
             counterVisitor.visitNode(doc);
     }
 
+#if ENABLE(JAVASCRIPT_DEBUG)
     ScriptProfiler::visitExternalJSStrings(&counterVisitor);
+#endif
 
     domGroups = counterVisitor.domGroups();
     strings = counterVisitor.strings();

@@ -106,12 +106,14 @@ public:
 
     virtual void didFinishURLImport()
     {
+#if ENABLE(ICONDATABASE)
         webkitFaviconDatabaseImportFinished(webkit_get_favicon_database());
 
         // Now that everything is imported enable pruning of old
         // icons. No icon will be removed during the import process
         // because we disable cleanups before opening the database.
         IconDatabase::allowDatabaseCleanup();
+#endif
     }
 };
 
@@ -340,6 +342,7 @@ static void webkitFaviconDatabaseClose(WebKitFaviconDatabase* database)
  */
 void webkit_favicon_database_set_path(WebKitFaviconDatabase* database, const gchar* path)
 {
+#if ENABLE(ICONDATABASE)
     g_return_if_fail(WEBKIT_IS_FAVICON_DATABASE(database));
 
     // Always try to close because the deprecated icondatabase is opened by default.
@@ -361,6 +364,7 @@ void webkit_favicon_database_set_path(WebKitFaviconDatabase* database, const gch
     }
 
     database->priv->path.set(g_strdup(path));
+#endif
 }
 
 /**

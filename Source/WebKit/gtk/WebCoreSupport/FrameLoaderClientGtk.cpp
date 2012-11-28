@@ -597,7 +597,9 @@ void FrameLoaderClient::didPerformFirstNavigation() const
 
 void FrameLoaderClient::registerForIconNotification(bool shouldRegister)
 {
+#if ENABLE(ICONDATABASE)
     webkitWebViewRegisterForIconNotification(getViewFromFrame(m_frame), shouldRegister);
+#endif 
 }
 
 void FrameLoaderClient::setMainFrameDocumentReady(bool ready)
@@ -771,6 +773,7 @@ void FrameLoaderClient::dispatchWillClose()
 
 void FrameLoaderClient::dispatchDidReceiveIcon()
 {
+#if ENABLE(ICONDATABASE)
     if (m_loadingErrorPage)
         return;
 
@@ -782,6 +785,7 @@ void FrameLoaderClient::dispatchDidReceiveIcon()
     WebKitFaviconDatabase* database = webkit_get_favicon_database();
     webkitFaviconDatabaseDispatchDidReceiveIcon(database, frameURI);
     webkitWebViewIconLoaded(database, frameURI, webView);
+#endif
 }
 
 void FrameLoaderClient::dispatchDidStartProvisionalLoad()

@@ -1259,12 +1259,14 @@ PassRefPtr<InspectorObject> InspectorDOMAgent::buildObjectForEventListener(const
         .setHandlerBody(eventListenerHandlerBody(node->document(), eventListener.get()));
     String sourceName;
     int lineNumber;
+#if ENABLE(JAVASCRIPT_DEBUG)
     if (eventListenerHandlerLocation(node->document(), eventListener.get(), sourceName, lineNumber)) {
         RefPtr<TypeBuilder::Debugger::Location> location = TypeBuilder::Debugger::Location::create()
             .setScriptId(sourceName)
             .setLineNumber(lineNumber);
         value->setLocation(location);
     }
+#endif
     return value.release();
 }
 
