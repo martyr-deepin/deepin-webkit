@@ -43,6 +43,7 @@ public:
     void setRange(PassRefPtr<Range> newRange) { m_range = newRange; }
     void setImage(GdkPixbuf* newImage) { m_image = newImage; }
     void setURL(const KURL&, const String&);
+    bool hasCustom() const { return m_custom.size() != 0; }
     bool hasText() const { return m_range || !m_text.isEmpty(); }
     bool hasMarkup() const { return m_range || !m_markup.isEmpty(); }
     bool hasURIList() const { return !m_uriList.isEmpty(); }
@@ -55,6 +56,10 @@ public:
 
     String text() const;
     String markup() const;
+    void setCustoms(const String& data);
+    String getCustoms() const;
+    String getCustom(const String& k) const;
+    void setCustom(const String& v);
     void setText(const String&);
     void setMarkup(const String&);
     void setURIList(const String&);
@@ -68,6 +73,7 @@ public:
     static DataObjectGtk* forClipboard(GtkClipboard*);
 
 private:
+    Vector<String> m_custom;
     String m_text;
     String m_markup;
     KURL m_url;

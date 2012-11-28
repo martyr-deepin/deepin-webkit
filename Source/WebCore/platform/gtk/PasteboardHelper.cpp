@@ -37,6 +37,7 @@ namespace WebCore {
 static GdkAtom textPlainAtom;
 static GdkAtom markupAtom;
 static GdkAtom netscapeURLAtom;
+static GdkAtom customAtom;
 static GdkAtom uriListAtom;
 static GdkAtom smartPasteAtom;
 static String gMarkupPrefix;
@@ -61,6 +62,7 @@ static void initGdkAtoms()
     textPlainAtom = gdk_atom_intern("text/plain;charset=utf-8", FALSE);
     markupAtom = gdk_atom_intern("text/html", FALSE);
     netscapeURLAtom = gdk_atom_intern("_NETSCAPE_URL", FALSE);
+    customAtom = gdk_atom_intern("_DEEPIN_DND", FALSE);
     uriListAtom = gdk_atom_intern("text/uri-list", FALSE);
     smartPasteAtom = gdk_atom_intern("application/vnd.webkitgtk.smartpaste", FALSE);
     gMarkupPrefix = "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">";
@@ -82,6 +84,7 @@ PasteboardHelper::PasteboardHelper()
     gtk_target_list_add(m_targetList, markupAtom, 0, PasteboardHelper::TargetTypeMarkup);
     gtk_target_list_add_uri_targets(m_targetList, PasteboardHelper::TargetTypeURIList);
     gtk_target_list_add(m_targetList, netscapeURLAtom, 0, PasteboardHelper::TargetTypeNetscapeURL);
+    gtk_target_list_add(m_targetList, customAtom, 0, PasteboardHelper::TargetTypeUnknown);
     gtk_target_list_add_image_targets(m_targetList, PasteboardHelper::TargetTypeImage, TRUE);
 }
 
@@ -156,14 +159,25 @@ void PasteboardHelper::getClipboardContents(GtkClipboard* clipboard)
             gtk_selection_data_free(data);
         }
     }
+
+    if (gtk_clipboard_wait_is_target_available(clipboard, customAtom)) {
+        if (GtkSelectionData* data = gtk_clipboard_wait_for_contents(clipboard, customAtom)) {
+            String tmp(selectionDataToUTF8String(data));
+            dataObject->setCustoms(tmp);
+            gtk_selection_data_free(data);
+        }
+    }
 }
 
 void PasteboardHelper::fillSelectionData(GtkSelectionData* selectionData, guint info, DataObjectGtk* dataObject)
 {
     if (info == TargetTypeText)
         gtk_selection_data_set_text(selectionData, dataObject->text().utf8().data(), -1);
-
-    else if (info == TargetTypeMarkup) {
+    else if (info == TargetTypeUnknown) {
+        const CString &customs = dataObject->getCustoms().utf8();
+        gtk_selection_data_set(selectionData, customAtom, 8,
+                reinterpret_cast<const guchar*>(customs.data()), customs.length() + 1);
+    } else if (info == TargetTypeMarkup) {
         // Some Linux applications refuse to accept pasted markup unless it is
         // prefixed by a content-type meta tag.
         CString markup = String(gMarkupPrefix + dataObject->markup()).utf8();
@@ -202,6 +216,10 @@ GtkTargetList* PasteboardHelper::targetListForDataObject(DataObjectGtk* dataObje
 
     if (dataObject->hasText())
         gtk_target_list_add_text_targets(list, TargetTypeText);
+
+    if (dataObject->hasCustom()) {
+        gtk_target_list_add(list, customAtom, 0, TargetTypeUnknown);
+    }
 
     if (dataObject->hasMarkup())
         gtk_target_list_add(list, markupAtom, 0, TargetTypeMarkup);
@@ -245,6 +263,8 @@ void PasteboardHelper::fillDataObjectFromDropData(GtkSelectionData* data, guint 
             dataObject->setURIList(pieces[0]);
         if (pieces.size() > 1)
             dataObject->setText(pieces[1]);
+    } else if (target == customAtom) {
+        dataObject->setCustoms(selectionDataToUTF8String(data));
     }
 }
 
@@ -256,6 +276,7 @@ Vector<GdkAtom> PasteboardHelper::dropAtomsForContext(GtkWidget* widget, GdkDrag
     dropAtoms.append(markupAtom);
     dropAtoms.append(uriListAtom);
     dropAtoms.append(netscapeURLAtom);
+    dropAtoms.append(customAtom);
 
     // For images, try to find the most applicable image type.
     GRefPtr<GtkTargetList> list(gtk_target_list_new(0, 0));

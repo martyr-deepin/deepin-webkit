@@ -47,6 +47,44 @@ String DataObjectGtk::markup() const
     return m_markup;
 }
 
+
+
+void DataObjectGtk::setCustoms(const String& data)
+{
+    Vector<String> result;
+    data.split('\n', result);
+    for (int i=0; i<result.size(); i++) {
+        setCustom(result[i]);
+    }
+}
+
+String DataObjectGtk::getCustoms() const
+{
+    String tmp;
+    for (int i=0; i<m_custom.size(); i++) {
+        tmp.append(m_custom[i]);
+        tmp.append('\n');
+    }
+    return tmp;
+}
+
+String DataObjectGtk::getCustom(const String& k) const
+{
+    for (int i=0; i<m_custom.size(); i++) {
+        const String& s = m_custom[i];
+        if (s.startsWith(k + ':')) {
+            unsigned p = s.find(':');
+            return s.substring(p);
+        }
+    }
+    return String();
+}
+
+void DataObjectGtk::setCustom(const String& v)
+{
+    m_custom.append(v);
+}
+
 void DataObjectGtk::setText(const String& newText)
 {
     m_range = 0;
@@ -158,6 +196,7 @@ void DataObjectGtk::clearAll()
 {
     clearAllExceptFilenames();
     m_filenames.clear();
+    m_custom.clear();
 }
 
 DataObjectGtk* DataObjectGtk::forClipboard(GtkClipboard* clipboard)

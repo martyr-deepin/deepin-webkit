@@ -92,7 +92,6 @@ private:
 
 PassOwnPtr<WidgetBackingStore> WidgetBackingStore::create(GtkWidget* widget, const IntSize& size)
 {
-    //printf("Creating backstore\n");
     return adoptPtr(new WidgetBackingStore(widget, size));
 }
 

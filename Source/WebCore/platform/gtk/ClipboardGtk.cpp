@@ -165,6 +165,8 @@ String ClipboardGtk::getData(const String& typeString, bool& success) const
         return m_dataObject->markup();
     if (type == ClipboardDataTypeText)
         return m_dataObject->text();
+    if (type == ClipboardDataTypeUnknown)
+        return m_dataObject->getCustom(typeString);
 
     return String();
 }
@@ -184,6 +186,12 @@ bool ClipboardGtk::setData(const String& typeString, const String& data)
         success = true;
     } else if (type == ClipboardDataTypeText) {
         m_dataObject->setText(data);
+        success = true;
+    } else if (type == ClipboardDataTypeUnknown) {
+        String tmp(typeString);
+        tmp.append(':');
+        tmp.append(data);
+        m_dataObject->setCustom(tmp);
         success = true;
     }
 
@@ -334,7 +342,7 @@ bool ClipboardGtk::hasData()
         PasteboardHelper::defaultPasteboardHelper()->getClipboardContents(m_clipboard);
 
     return m_dataObject->hasText() || m_dataObject->hasMarkup()
-        || m_dataObject->hasURIList() || m_dataObject->hasImage();
+        || m_dataObject->hasURIList() || m_dataObject->hasImage() || m_dataObject->hasCustom();
 }
 
 }
