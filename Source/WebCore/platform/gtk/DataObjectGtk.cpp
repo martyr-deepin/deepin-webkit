@@ -24,6 +24,9 @@
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/StringBuilder.h>
 
+static const LChar CustomDelimiter1 = '\1';
+static const LChar CustomDelimiter2 = '\2';
+
 namespace WebCore {
 
 static void replaceNonBreakingSpaceWithSpace(String& str)
@@ -48,41 +51,43 @@ String DataObjectGtk::markup() const
 }
 
 
-
-void DataObjectGtk::setCustoms(const String& data)
-{
-    Vector<String> result;
-    data.split('\n', result);
-    for (int i=0; i<result.size(); i++) {
-        setCustom(result[i]);
-    }
-}
-
 String DataObjectGtk::getCustoms() const
 {
     String tmp;
-    for (int i=0; i<m_custom.size(); i++) {
+    for (size_t i=0; i<m_custom.size(); i++) {
         tmp.append(m_custom[i]);
-        tmp.append('\n');
+        tmp.append(CustomDelimiter2);
     }
     return tmp;
 }
 
 String DataObjectGtk::getCustom(const String& k) const
 {
-    for (int i=0; i<m_custom.size(); i++) {
+    for (size_t i=0; i<m_custom.size(); i++) {
         const String& s = m_custom[i];
-        if (s.startsWith(k + ':')) {
-            unsigned p = s.find(':');
-            return s.substring(p);
+        if (s.startsWith(k + CustomDelimiter1)) {
+            unsigned p = s.find(CustomDelimiter1);
+            return s.substring(p+1);
         }
     }
     return String();
 }
 
-void DataObjectGtk::setCustom(const String& v)
+void DataObjectGtk::setCustom(const String& k, const String& v)
 {
-    m_custom.append(v);
+    String tmp(k);
+    tmp.append(CustomDelimiter1);
+    tmp.append(v);
+    m_custom.append(tmp);
+}
+
+void DataObjectGtk::setCustoms(const String& data)
+{
+    Vector<String> result;
+    data.split(CustomDelimiter2, false, result);
+    for (size_t i=0; i<result.size(); i++) {
+        m_custom.append(result[i]);
+    }
 }
 
 void DataObjectGtk::setText(const String& newText)

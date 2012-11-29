@@ -59,7 +59,8 @@ public:
     void setCustoms(const String& data);
     String getCustoms() const;
     String getCustom(const String& k) const;
-    void setCustom(const String& v);
+    //void setCustom(const String& v);
+    void setCustom(const String& k, const String& v);
     void setText(const String&);
     void setMarkup(const String&);
     void setURIList(const String&);

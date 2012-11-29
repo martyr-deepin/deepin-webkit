@@ -188,10 +188,7 @@ bool ClipboardGtk::setData(const String& typeString, const String& data)
         m_dataObject->setText(data);
         success = true;
     } else if (type == ClipboardDataTypeUnknown) {
-        String tmp(typeString);
-        tmp.append(':');
-        tmp.append(data);
-        m_dataObject->setCustom(tmp);
+        m_dataObject->setCustom(typeString, data);
         success = true;
     }
 
