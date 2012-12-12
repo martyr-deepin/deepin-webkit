@@ -341,10 +341,10 @@ String HTMLCanvasElement::toEncodingMimeType(const String& mimeType)
 
 String HTMLCanvasElement::toDataURL(const String& mimeType, const double* quality, ExceptionCode& ec)
 {
-    if (!m_originClean) {
-        ec = SECURITY_ERR;
-        return String();
-    }
+    //if (!m_originClean) {
+        //ec = SECURITY_ERR;
+        //return String();
+    //}
 
     if (m_size.isEmpty() || !buffer())
         return String("data:,");
