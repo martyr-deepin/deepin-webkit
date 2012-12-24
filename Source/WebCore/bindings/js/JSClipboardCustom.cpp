@@ -32,6 +32,7 @@
 #include "Clipboard.h"
 #include "Element.h"
 #include "HTMLImageElement.h"
+#include "JSHTMLCanvasElement.h"
 #include "HTMLNames.h"
 #include "IntPoint.h"
 #include "JSNode.h"
@@ -110,6 +111,21 @@ JSValue JSClipboard::setDragImage(ExecState* exec)
     else
         clipboard->setDragImageElement(node, IntPoint(x, y));
 
+    return jsUndefined();
+}
+JSValue JSClipboard::setDragCanvas(ExecState* exec)
+{
+    Clipboard* clipboard = impl();
+    if (!clipboard->isForDragAndDrop())
+        return jsUndefined();
+    if (exec->argumentCount() != 3)
+        return throwError(exec, createSyntaxError(exec, "setDragCanvas: Invalid number of arguments"));
+    int x = exec->argument(1).toInt32(exec);
+    int y = exec->argument(2).toInt32(exec);
+    HTMLCanvasElement* canvas = toHTMLCanvasElement(exec->argument(0));
+    if (!canvas)
+        return throwTypeError(exec);
+    clipboard->setDragCanvas(canvas, IntPoint(x, y));
     return jsUndefined();
 }
 

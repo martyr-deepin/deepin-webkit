@@ -29,6 +29,7 @@
 #include "DragActions.h"
 #include "DragImage.h"
 #include "IntPoint.h"
+#include "HTMLCanvasElement.h"
 #include "Node.h"
 
 namespace WebCore {
@@ -73,6 +74,7 @@ namespace WebCore {
         IntPoint dragLocation() const { return m_dragLoc; }
         CachedImage* dragImage() const { return m_dragImage.get(); }
         virtual void setDragImage(CachedImage*, const IntPoint&) = 0;
+        virtual void setDragCanvas(HTMLCanvasElement*, const IntPoint&) = 0;
         Node* dragImageElement() const { return m_dragImageElement.get(); }
         virtual void setDragImageElement(Node*, const IntPoint&) = 0;
         

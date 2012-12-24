@@ -30,6 +30,7 @@
 #include "CachedImage.h"
 #include "Clipboard.h"
 #include "DataObjectGtk.h"
+#include "HTMLCanvasElement.h"
 
 namespace WebCore {
     class CachedImage;
@@ -61,6 +62,7 @@ namespace WebCore {
         virtual PassRefPtr<FileList> files() const;
 
         void setDragImage(CachedImage*, const IntPoint&);
+        void setDragCanvas(HTMLCanvasElement*, const IntPoint&);
         void setDragImageElement(Node*, const IntPoint&);
         void setDragImage(CachedImage*, Node*, const IntPoint&);
 
@@ -80,6 +82,7 @@ namespace WebCore {
         ClipboardGtk(ClipboardAccessPolicy, PassRefPtr<DataObjectGtk>, ClipboardType, Frame*);
 
         RefPtr<DataObjectGtk> m_dataObject;
+        RefPtr<HTMLCanvasElement> m_dragCanvas;
         GtkClipboard* m_clipboard;
         Frame* m_frame;
     };

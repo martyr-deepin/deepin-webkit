@@ -239,6 +239,12 @@ PassRefPtr<FileList> ClipboardGtk::files() const
     return fileList.release();
 }
 
+void ClipboardGtk::setDragCanvas(HTMLCanvasElement* canvas, const IntPoint& location)
+{
+    m_dragCanvas = canvas;
+    m_dragLoc = location;
+}
+
 void ClipboardGtk::setDragImage(CachedImage* image, const IntPoint& location)
 {
     setDragImage(image, 0, location);
@@ -268,6 +274,8 @@ DragImageRef ClipboardGtk::createDragImage(IntPoint& location) const
 {
     location = m_dragLoc;
 
+    if (m_dragCanvas)
+        return createDragImageFromImage(m_dragCanvas->copiedImage());
     if (m_dragImage)
         return createDragImageFromImage(m_dragImage->image());
     if (m_dragImageElement && m_frame)
