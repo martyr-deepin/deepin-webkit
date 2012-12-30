@@ -2,6 +2,7 @@ module deepin {
     interface [
         Constructor(in unsigned short type, in unsigned short id, in DOMString title, in DeepinMenu sub_menu)
     ] DeepinMenuItem {
+        attribute boolean enabled;
         readonly attribute int id;
         readonly attribute int type;
         readonly attribute DOMString title;

@@ -22,6 +22,9 @@ namespace WebCore {
             const String& title() { return m_title; }
             void setTitle(const String& t) { m_title = t; }
 
+            bool enabled() { return m_enabled; }
+            void setEnabled(bool e) { m_enabled = e; }
+
             unsigned short id() { return m_id; }
 
             int type() { return m_type; }
@@ -32,6 +35,7 @@ namespace WebCore {
         private:
             //DeepinMenuItem(const String& title, unsigned short id);
             DeepinMenuItem(int type, unsigned short id, const String& title, DeepinMenu* menu);
+            bool m_enabled;
 
             String m_title;
             unsigned short m_id;
