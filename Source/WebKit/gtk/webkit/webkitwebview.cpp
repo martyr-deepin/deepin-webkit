@@ -1070,6 +1070,7 @@ static void webkit_web_view_realize(GtkWidget* widget)
     }
 
     GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
+    gdk_window_set_accept_focus(fw, false);
     gdk_window_set_skip_pager_hint(fw, true);
     gdk_window_set_skip_taskbar_hint(fw, true);
     priv->forwardWindow = fw;
