@@ -1069,7 +1069,7 @@ static void webkit_web_view_realize(GtkWidget* widget)
         attributes.visual = gdk_screen_get_system_visual(screen);
     }
 
-    GdkWindow* fw = gdk_window_new(window, &attributes, attributes_mask);
+    GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
     gdk_window_set_accept_focus(fw, false);
     gdk_window_set_skip_pager_hint(fw, true);
     gdk_window_set_skip_taskbar_hint(fw, true);

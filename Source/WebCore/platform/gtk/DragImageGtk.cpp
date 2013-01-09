@@ -75,7 +75,17 @@ DragImageRef dissolveDragImageToFraction(DragImageRef image, float fraction)
 
 DragImageRef createDragImageFromImage(Image* image)
 {
-    return cairo_surface_reference(image->nativeImageForCurrentFrame());
+    cairo_surface_t* old =  image->nativeImageForCurrentFrame();
+    if (old != 0) {
+        cairo_surface_t* tmp = cairo_surface_create_similar(old, CAIRO_CONTENT_COLOR_ALPHA, image->width(), image->height());
+        cairo_t* cr = cairo_create(tmp);
+        cairo_set_source_surface(cr, old, 0, 0);
+        cairo_paint(cr);
+        cairo_destroy(cr);
+        return tmp;
+    } else {
+        return 0;
+    }
 }
 
 DragImageRef createDragImageIconForCachedImage(CachedImage*)
