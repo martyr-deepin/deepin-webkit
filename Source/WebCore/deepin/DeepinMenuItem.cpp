@@ -13,8 +13,8 @@ namespace WebCore {
         : m_title(title),
         m_id(0),
         m_type(type),
-        m_submenu(NULL)
-
+        m_submenu(NULL),
+        m_enabled(true)
     {
         switch (m_type) {
             case 0:
