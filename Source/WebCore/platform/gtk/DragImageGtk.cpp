@@ -80,7 +80,7 @@ DragImageRef createDragImageFromImage(Image* image)
         cairo_surface_t* tmp = cairo_surface_create_similar(old, CAIRO_CONTENT_COLOR_ALPHA, image->width(), image->height());
         cairo_t* cr = cairo_create(tmp);
         cairo_set_source_surface(cr, old, 0, 0);
-        cairo_paint(cr);
+        cairo_paint_with_alpha(cr, 0.75);
         cairo_destroy(cr);
         return tmp;
     } else {
