@@ -808,6 +808,30 @@ static gboolean webkit_web_view_motion_event(GtkWidget* widget, GdkEventMotion* 
 
     return frame->eventHandler()->mouseMoved(PlatformMouseEvent(event));
 }
+static gboolean webkit_web_view_leave_event(GtkWidget* widget, GdkEventCrossing* event)
+{
+    WebKitWebView* webView = WEBKIT_WEB_VIEW(widget);
+
+    Frame* frame = core(webView)->mainFrame();
+    if (!frame->view())
+        return FALSE;
+    GdkEventMotion motion_event = {
+        GDK_MOTION_NOTIFY,
+        event->window,
+        true,
+        event->time,
+        event->x,
+        event->y,
+        NULL, //axes
+        event->state,
+        0, //is_hint
+        0, //device,
+        event->x_root,
+        event->y_root
+    };
+
+    return frame->eventHandler()->mouseMoved(PlatformMouseEvent(&motion_event));
+}
 
 static gboolean webkit_web_view_scroll_event(GtkWidget* widget, GdkEventScroll* event)
 {
@@ -996,7 +1020,6 @@ static gboolean webkit_web_view_delete(GtkWidget *widget, GdkEventAny *event)
 
 static void webkit_web_view_realize(GtkWidget* widget)
 {
-    //printf("webview realizing..\n");
     WebKitWebViewPrivate* priv = WEBKIT_WEB_VIEW(widget)->priv;
 
     gtk_widget_set_realized(widget, TRUE);
@@ -1387,7 +1410,6 @@ static void webkit_web_view_dispose(GObject* object)
 
 static void webkit_web_view_finalize(GObject* object)
 {
-    //printf("webview finalize\n");
     // We need to manually call the destructor here, since this object's memory is managed
     // by GLib. This calls all C++ members' destructors and prevents memory leaks.
     WEBKIT_WEB_VIEW(object)->priv->~WebKitWebViewPrivate();
@@ -2830,6 +2852,7 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
     widgetClass->button_press_event = webkit_web_view_button_press_event;
     widgetClass->button_release_event = webkit_web_view_button_release_event;
     widgetClass->motion_notify_event = webkit_web_view_motion_event;
+    widgetClass->leave_notify_event = webkit_web_view_leave_event;
     widgetClass->scroll_event = webkit_web_view_scroll_event;
     widgetClass->size_allocate = webkit_web_view_size_allocate;
 #ifdef GTK_API_VERSION_2
