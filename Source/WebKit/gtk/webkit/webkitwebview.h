@@ -65,7 +65,6 @@ typedef enum {
  * @WEBKIT_WEB_VIEW_TARGET_INFO_TEXT: Text data
  * @WEBKIT_WEB_VIEW_TARGET_INFO_IMAGE: Image data
  * @WEBKIT_WEB_VIEW_TARGET_INFO_URI_LIST: URI list data
- * @WEBKIT_WEB_VIEW_TARGET_INFO_NETSCAPE_URL: A single URL in the Netscape protocol
  *
  * Enum values used to denote the info value of various selection types. These can be used
  * to interpret the data WebKitGTK+ publishes via GtkClipboard and drag-and-drop.
@@ -76,7 +75,6 @@ typedef enum
     WEBKIT_WEB_VIEW_TARGET_INFO_TEXT,
     WEBKIT_WEB_VIEW_TARGET_INFO_IMAGE,
     WEBKIT_WEB_VIEW_TARGET_INFO_URI_LIST,
-    WEBKIT_WEB_VIEW_TARGET_INFO_NETSCAPE_URL
 } WebKitWebViewTargetInfo;
 
 /**

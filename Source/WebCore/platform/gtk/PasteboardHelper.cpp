@@ -36,7 +36,6 @@ namespace WebCore {
 
 static GdkAtom textPlainAtom;
 static GdkAtom markupAtom;
-static GdkAtom netscapeURLAtom;
 static GdkAtom customAtom;
 static GdkAtom uriListAtom;
 static GdkAtom smartPasteAtom;
@@ -61,7 +60,6 @@ static void initGdkAtoms()
 
     textPlainAtom = gdk_atom_intern("text/plain;charset=utf-8", FALSE);
     markupAtom = gdk_atom_intern("text/html", FALSE);
-    netscapeURLAtom = gdk_atom_intern("_NETSCAPE_URL", FALSE);
     customAtom = gdk_atom_intern("_DEEPIN_DND", FALSE);
     uriListAtom = gdk_atom_intern("text/uri-list", FALSE);
     smartPasteAtom = gdk_atom_intern("application/vnd.webkitgtk.smartpaste", FALSE);
@@ -83,7 +81,6 @@ PasteboardHelper::PasteboardHelper()
     gtk_target_list_add_text_targets(m_targetList, PasteboardHelper::TargetTypeText);
     gtk_target_list_add(m_targetList, markupAtom, 0, PasteboardHelper::TargetTypeMarkup);
     gtk_target_list_add_uri_targets(m_targetList, PasteboardHelper::TargetTypeURIList);
-    gtk_target_list_add(m_targetList, netscapeURLAtom, 0, PasteboardHelper::TargetTypeNetscapeURL);
     gtk_target_list_add(m_targetList, customAtom, 0, PasteboardHelper::TargetTypeUnknown);
     gtk_target_list_add_image_targets(m_targetList, PasteboardHelper::TargetTypeImage, TRUE);
 }
@@ -188,21 +185,6 @@ void PasteboardHelper::fillSelectionData(GtkSelectionData* selectionData, guint 
         CString uriList = dataObject->uriList().utf8();
         gtk_selection_data_set(selectionData, uriListAtom, 8,
             reinterpret_cast<const guchar*>(uriList.data()), uriList.length() + 1);
-
-    } else if (info == TargetTypeNetscapeURL && dataObject->hasURL()) {
-        String url(dataObject->url());
-        String result(url);
-        result.append("\n");
-
-        if (dataObject->hasText())
-            result.append(dataObject->text());
-        else
-            result.append(url);
-
-        GOwnPtr<gchar> resultData(g_strdup(result.utf8().data()));
-        gtk_selection_data_set(selectionData, netscapeURLAtom, 8,
-            reinterpret_cast<const guchar*>(resultData.get()), strlen(resultData.get()) + 1);
-
     } else if (info == TargetTypeImage)
         gtk_selection_data_set_pixbuf(selectionData, dataObject->image());
 
@@ -226,7 +208,6 @@ GtkTargetList* PasteboardHelper::targetListForDataObject(DataObjectGtk* dataObje
 
     if (dataObject->hasURIList()) {
         gtk_target_list_add_uri_targets(list, TargetTypeURIList);
-        gtk_target_list_add(list, netscapeURLAtom, 0, TargetTypeNetscapeURL);
     }
 
     if (dataObject->hasImage())
@@ -252,17 +233,6 @@ void PasteboardHelper::fillDataObjectFromDropData(GtkSelectionData* data, guint 
         dataObject->setMarkup(markup);
     } else if (target == uriListAtom) {
         dataObject->setURIList(selectionDataToUTF8String(data));
-    } else if (target == netscapeURLAtom) {
-        String urlWithLabel(selectionDataToUTF8String(data));
-        Vector<String> pieces;
-        urlWithLabel.split("\n", pieces);
-
-        // Give preference to text/uri-list here, as it can hold more
-        // than one URI but still take  the label if there is one.
-        if (!dataObject->hasURIList())
-            dataObject->setURIList(pieces[0]);
-        if (pieces.size() > 1)
-            dataObject->setText(pieces[1]);
     } else if (target == customAtom) {
         dataObject->setCustoms(selectionDataToUTF8String(data));
     }
@@ -275,7 +245,6 @@ Vector<GdkAtom> PasteboardHelper::dropAtomsForContext(GtkWidget* widget, GdkDrag
     dropAtoms.append(textPlainAtom);
     dropAtoms.append(markupAtom);
     dropAtoms.append(uriListAtom);
-    dropAtoms.append(netscapeURLAtom);
     dropAtoms.append(customAtom);
 
     // For images, try to find the most applicable image type.

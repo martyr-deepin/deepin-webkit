@@ -53,7 +53,7 @@ public:
     void writeClipboardContents(GtkClipboard*, SmartPasteInclusion = DoNotIncludeSmartPaste, GClosure* = 0);
     void getClipboardContents(GtkClipboard*);
 
-    enum PasteboardTargetType { TargetTypeMarkup, TargetTypeText, TargetTypeImage, TargetTypeURIList, TargetTypeNetscapeURL, TargetTypeSmartPaste, TargetTypeUnknown };
+    enum PasteboardTargetType { TargetTypeMarkup, TargetTypeText, TargetTypeImage, TargetTypeURIList, TargetTypeSmartPaste, TargetTypeUnknown };
     bool clipboardContentSupportsSmartReplace(GtkClipboard*);
 
 private:
