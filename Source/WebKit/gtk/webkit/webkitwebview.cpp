@@ -642,7 +642,6 @@ static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfi
     gdk_window_get_origin(window, &x, &y);
     gdk_window_move_resize(WEBKIT_WEB_VIEW(webView)->priv->forwardWindow,
             x, y, gdk_window_get_width(window), gdk_window_get_height(window));
-    //printf("forward window move to (%d,%d,%d,%d)\n", event->x, event->y, event->width, event->height);
     return false;
 }
 
@@ -1084,7 +1083,7 @@ static void webkit_web_view_realize(GtkWidget* widget)
     attributes.y = 0;
     attributes.width = 0;
     attributes.height = 0;
-    attributes.type_hint = GDK_WINDOW_TYPE_HINT_MENU;
+    attributes.type_hint = GDK_WINDOW_TYPE_HINT_DIALOG;
     GdkScreen *screen = gdk_screen_get_default();
     attributes.visual = gdk_screen_get_rgba_visual(screen);
     if (!attributes.visual) {
@@ -1093,7 +1092,8 @@ static void webkit_web_view_realize(GtkWidget* widget)
     }
 
     GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
-    gdk_window_set_accept_focus(fw, false);
+    gdk_window_set_accept_focus(fw, true);
+    gdk_window_set_transient_for(fw, gdk_window_get_parent(window));
     gdk_window_set_skip_pager_hint(fw, true);
     gdk_window_set_skip_taskbar_hint(fw, true);
     priv->forwardWindow = fw;
@@ -5221,7 +5221,7 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
     if (webView == NULL || !gtk_widget_get_realized(GTK_WIDGET(webView)))
         return;
 
-    bool show = false;
+    bool has_content = false;
     GdkWindow* window = webView->priv->forwardWindow;
 
     cairo_region_t* region = cairo_region_create();
@@ -5230,27 +5230,23 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         const IntRect& r = rv.at(i);
         cairo_rectangle_int_t cr = {r.x(), r.y(), r.width(), r.height()};
         cairo_region_union_rectangle(region, &cr);
-        show = true;
+        has_content = true;
         //printf("%d region:(%d,%d,%d,%d)\n", random(), cr.x, cr.y, cr.width, cr.height);
     }
-    //printf("----------------\n");
 
 
-    if (show) {
+    GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
+    if (has_content)
         gdk_window_shape_combine_region(window, region, 0, 0);
 
-        GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
-        int x, y;
-        gdk_window_get_origin(webViewWindow, &x, &y);
-        gdk_window_move_resize(window, x, y, gdk_window_get_width(webViewWindow), gdk_window_get_height(webViewWindow));
-        gdk_window_flush(window);
-        gdk_window_show_unraised(window);
-    } else {
+    if (has_content && gdk_window_is_visible(window) == false) {
+        gdk_window_show(window);
+        gdk_window_set_keep_above(window, true);
+    } 
+    if (!has_content && gdk_window_is_visible(window)) {
         gdk_window_hide(window);
     }
-    gdk_window_set_keep_above(window, true);
     cairo_region_destroy(region);
-    //printf("%d set forward keep above........\n", random());
 
     if (webView->priv->forward_sig_id == 0) {
         gpointer widget = NULL;
@@ -5258,7 +5254,6 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(widget));
         GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
         webView->priv->forward_sig_id = g_signal_connect(toplevel, "configure-event", G_CALLBACK(webkit_web_view_configure_event), webViewWindow);
-        //gdk_window_set_group(webView->priv->forwardWindow, gtk_widget_get_toplevel(webViewWindow));
     }
 }
 
