@@ -2400,6 +2400,8 @@ bool EventHandler::sendContextMenuEvent(const PlatformMouseEvent& event)
     }
 
     swallowEvent = dispatchMouseEvent(eventNames().contextmenuEvent, targetNode(mev), true, 0, event, false);
+
+    m_mouseDownMayStartDrag = false;
     
     return swallowEvent;
 }
