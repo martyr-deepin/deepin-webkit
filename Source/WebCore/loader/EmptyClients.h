@@ -141,9 +141,9 @@ public:
 
     virtual void closeWindowSoon() { }
 
-    virtual void runJavaScriptAlert(Frame*, const String&) { }
-    virtual bool runJavaScriptConfirm(Frame*, const String&) { return false; }
-    virtual bool runJavaScriptPrompt(Frame*, const String&, const String&, String&) { return false; }
+    virtual void runJavaScriptAlert(Frame*, const String&, const String&) { }
+    virtual bool runJavaScriptConfirm(Frame*, const String&, const String&) { return false; }
+    virtual bool runJavaScriptPrompt(Frame*, const String&, const String&, const String&, String&) { return false; }
     virtual bool shouldInterruptJavaScript() { return false; }
 
     virtual bool selectItemWritingDirectionIsNatural() { return false; }

@@ -131,9 +131,9 @@ namespace WebCore {
 
         void closeWindowSoon();
 
-        void runJavaScriptAlert(Frame*, const String&);
-        bool runJavaScriptConfirm(Frame*, const String&);
-        bool runJavaScriptPrompt(Frame*, const String& message, const String& defaultValue, String& result);
+        void runJavaScriptAlert(Frame*, const String&, const String& title);
+        bool runJavaScriptConfirm(Frame*, const String&, const String& title);
+        bool runJavaScriptPrompt(Frame*, const String& message, const String& title, const String& defaultValue, String& result);
         void setStatusbarText(Frame*, const String&);
         bool shouldInterruptJavaScript();
 

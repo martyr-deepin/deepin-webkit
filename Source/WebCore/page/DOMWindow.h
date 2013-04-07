@@ -157,9 +157,9 @@ namespace WebCore {
         void showModalDialog(const String& urlString, const String& dialogFeaturesString,
             DOMWindow* activeWindow, DOMWindow* firstWindow, PrepareDialogFunction, void* functionContext);
 
-        void alert(const String& message);
-        bool confirm(const String& message);
-        String prompt(const String& message, const String& defaultValue);
+        void alert(const String& message, const String& title);
+        bool confirm(const String& message, const String& title);
+        String prompt(const String& message, const String& title, const String& defaultValue);
         String btoa(const String& stringToEncode, ExceptionCode&);
         String atob(const String& encodedString, ExceptionCode&);
 

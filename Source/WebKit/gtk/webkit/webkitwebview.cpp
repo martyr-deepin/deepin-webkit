@@ -1179,7 +1179,7 @@ typedef enum {
     WEBKIT_SCRIPT_DIALOG_PROMPT
  } WebKitScriptDialogType;
 
-static gboolean webkit_web_view_script_dialog(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message, WebKitScriptDialogType type, const gchar* defaultValue, gchar** value)
+static gboolean webkit_web_view_script_dialog(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message, const gchar* title, WebKitScriptDialogType type, const gchar* defaultValue, gchar** value)
 {
     GtkMessageType messageType;
     GtkButtonsType buttons;
@@ -1217,9 +1217,13 @@ static gboolean webkit_web_view_script_dialog(WebKitWebView* webView, WebKitWebF
                                     buttons,
                                     "%s",
                                     message);
-    gchar* title = g_strconcat("JavaScript - ", webkit_web_frame_get_uri(frame), NULL);
-    gtk_window_set_title(GTK_WINDOW(dialog), title);
-    g_free(title);
+    if (title == NULL) {
+        gchar* title = g_strconcat("JavaScript - ", webkit_web_frame_get_uri(frame), NULL);
+        gtk_window_set_title(GTK_WINDOW(dialog), title);
+        g_free(title);
+    } else {
+        gtk_window_set_title(GTK_WINDOW(dialog), title);
+    }
 
     if (type == WEBKIT_SCRIPT_DIALOG_PROMPT) {
         entry = gtk_entry_new();
@@ -1247,21 +1251,21 @@ static gboolean webkit_web_view_script_dialog(WebKitWebView* webView, WebKitWebF
     return didConfirm;
 }
 
-static gboolean webkit_web_view_real_script_alert(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message)
+static gboolean webkit_web_view_real_script_alert(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message, const gchar* title)
 {
-    webkit_web_view_script_dialog(webView, frame, message, WEBKIT_SCRIPT_DIALOG_ALERT, 0, 0);
+    webkit_web_view_script_dialog(webView, frame, message, title, WEBKIT_SCRIPT_DIALOG_ALERT, 0, 0);
     return TRUE;
 }
 
-static gboolean webkit_web_view_real_script_confirm(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message, gboolean* didConfirm)
+static gboolean webkit_web_view_real_script_confirm(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message, const gchar* title, gboolean* didConfirm)
 {
-    *didConfirm = webkit_web_view_script_dialog(webView, frame, message, WEBKIT_SCRIPT_DIALOG_CONFIRM, 0, 0);
+    *didConfirm = webkit_web_view_script_dialog(webView, frame, message, title, WEBKIT_SCRIPT_DIALOG_CONFIRM, 0, 0);
     return TRUE;
 }
 
-static gboolean webkit_web_view_real_script_prompt(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message, const gchar* defaultValue, gchar** value)
+static gboolean webkit_web_view_real_script_prompt(WebKitWebView* webView, WebKitWebFrame* frame, const gchar* message, const gchar* title, const gchar* defaultValue, gchar** value)
 {
-    if (!webkit_web_view_script_dialog(webView, frame, message, WEBKIT_SCRIPT_DIALOG_PROMPT, defaultValue, value))
+    if (!webkit_web_view_script_dialog(webView, frame, message, title, WEBKIT_SCRIPT_DIALOG_PROMPT, defaultValue, value))
         *value = NULL;
     return TRUE;
 }
@@ -2255,9 +2259,9 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
             G_STRUCT_OFFSET(WebKitWebViewClass, script_alert),
             g_signal_accumulator_true_handled,
             NULL,
-            webkit_marshal_BOOLEAN__OBJECT_STRING,
-            G_TYPE_BOOLEAN, 2,
-            WEBKIT_TYPE_WEB_FRAME, G_TYPE_STRING);
+            webkit_marshal_BOOLEAN__OBJECT_STRING_STRING,
+            G_TYPE_BOOLEAN, 3,
+            WEBKIT_TYPE_WEB_FRAME, G_TYPE_STRING, G_TYPE_STRING);
 
     /**
      * WebKitWebView::script-confirm:
@@ -2277,9 +2281,9 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
             G_STRUCT_OFFSET(WebKitWebViewClass, script_confirm),
             g_signal_accumulator_true_handled,
             NULL,
-            webkit_marshal_BOOLEAN__OBJECT_STRING_POINTER,
-            G_TYPE_BOOLEAN, 3,
-            WEBKIT_TYPE_WEB_FRAME, G_TYPE_STRING, G_TYPE_POINTER);
+            webkit_marshal_BOOLEAN__OBJECT_STRING_STRING_POINTER,
+            G_TYPE_BOOLEAN, 4,
+            WEBKIT_TYPE_WEB_FRAME, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_POINTER);
 
     /**
      * WebKitWebView::script-prompt:
@@ -2300,9 +2304,9 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
             G_STRUCT_OFFSET(WebKitWebViewClass, script_prompt),
             g_signal_accumulator_true_handled,
             NULL,
-            webkit_marshal_BOOLEAN__OBJECT_STRING_STRING_STRING,
-            G_TYPE_BOOLEAN, 4,
-            WEBKIT_TYPE_WEB_FRAME, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_POINTER);
+            webkit_marshal_BOOLEAN__OBJECT_STRING_STRING_STRING_STRING,
+            G_TYPE_BOOLEAN, 5,
+            WEBKIT_TYPE_WEB_FRAME, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_POINTER);
 
     /**
      * WebKitWebView::select-all:
@@ -5235,7 +5239,6 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
     }
 
 
-    GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
     if (has_content)
         gdk_window_shape_combine_region(window, region, 0, 0);
 

@@ -1000,7 +1000,7 @@ void DOMWindow::stop()
     m_frame->loader()->stopForUserCancel(true);
 }
 
-void DOMWindow::alert(const String& message)
+void DOMWindow::alert(const String& message, const String& title)
 {
     if (!m_frame)
         return;
@@ -1011,10 +1011,10 @@ void DOMWindow::alert(const String& message)
     if (!page)
         return;
 
-    page->chrome()->runJavaScriptAlert(m_frame, message);
+    page->chrome()->runJavaScriptAlert(m_frame, message, title);
 }
 
-bool DOMWindow::confirm(const String& message)
+bool DOMWindow::confirm(const String& message, const String& title)
 {
     if (!m_frame)
         return false;
@@ -1025,10 +1025,10 @@ bool DOMWindow::confirm(const String& message)
     if (!page)
         return false;
 
-    return page->chrome()->runJavaScriptConfirm(m_frame, message);
+    return page->chrome()->runJavaScriptConfirm(m_frame, message, title);
 }
 
-String DOMWindow::prompt(const String& message, const String& defaultValue)
+String DOMWindow::prompt(const String& message, const String& title, const String& defaultValue)
 {
     if (!m_frame)
         return String();
@@ -1040,7 +1040,7 @@ String DOMWindow::prompt(const String& message, const String& defaultValue)
         return String();
 
     String returnValue;
-    if (page->chrome()->runJavaScriptPrompt(m_frame, message, defaultValue, returnValue))
+    if (page->chrome()->runJavaScriptPrompt(m_frame, message, title, defaultValue, returnValue))
         return returnValue;
 
     return String();

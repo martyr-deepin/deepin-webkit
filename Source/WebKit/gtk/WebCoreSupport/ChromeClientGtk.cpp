@@ -321,7 +321,7 @@ bool ChromeClient::canRunBeforeUnloadConfirmPanel()
 
 bool ChromeClient::runBeforeUnloadConfirmPanel(const WTF::String& message, WebCore::Frame* frame)
 {
-    return runJavaScriptConfirm(frame, message);
+    return runJavaScriptConfirm(frame, message, "");
 }
 
 void ChromeClient::addMessageToConsole(WebCore::MessageSource source, WebCore::MessageType type, WebCore::MessageLevel level, const WTF::String& message, unsigned int lineNumber, const WTF::String& sourceId)
@@ -330,25 +330,25 @@ void ChromeClient::addMessageToConsole(WebCore::MessageSource source, WebCore::M
     g_signal_emit_by_name(m_webView, "console-message", message.utf8().data(), lineNumber, sourceId.utf8().data(), &retval);
 }
 
-void ChromeClient::runJavaScriptAlert(Frame* frame, const String& message)
+void ChromeClient::runJavaScriptAlert(Frame* frame, const String& message, const String& title)
 {
     gboolean retval;
-    g_signal_emit_by_name(m_webView, "script-alert", kit(frame), message.utf8().data(), &retval);
+    g_signal_emit_by_name(m_webView, "script-alert", kit(frame), message.utf8().data(), title.utf8().data(), &retval);
 }
 
-bool ChromeClient::runJavaScriptConfirm(Frame* frame, const String& message)
+bool ChromeClient::runJavaScriptConfirm(Frame* frame, const String& message, const String& title)
 {
     gboolean retval;
     gboolean didConfirm;
-    g_signal_emit_by_name(m_webView, "script-confirm", kit(frame), message.utf8().data(), &didConfirm, &retval);
+    g_signal_emit_by_name(m_webView, "script-confirm", kit(frame), message.utf8().data(), title.utf8().data(), &didConfirm, &retval);
     return didConfirm == TRUE;
 }
 
-bool ChromeClient::runJavaScriptPrompt(Frame* frame, const String& message, const String& defaultValue, String& result)
+bool ChromeClient::runJavaScriptPrompt(Frame* frame, const String& message, const String& title, const String& defaultValue, String& result)
 {
     gboolean retval;
     gchar* value = 0;
-    g_signal_emit_by_name(m_webView, "script-prompt", kit(frame), message.utf8().data(), defaultValue.utf8().data(), &value, &retval);
+    g_signal_emit_by_name(m_webView, "script-prompt", kit(frame), message.utf8().data(), title.utf8().data(), defaultValue.utf8().data(), &value, &retval);
     if (value) {
         result = String::fromUTF8(value);
         g_free(value);
@@ -535,9 +535,8 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
     if (vs.size() > 0) {
         RefPtr<cairo_t> forwardContext = adoptRef(cairo_create(webView->priv->backingStore->forwardSurface()));
         GraphicsContext ggc(forwardContext.get());
-        const Vector<const RenderLayer*>::const_iterator it = vs.begin();
 
-        for (int i=0; i < vs.size(); i++) {
+        for (size_t i=0; i < vs.size(); i++) {
             const RenderLayer* layer = vs.at(i);
             IntRect rect = layer->repaintRectIncludingDescendants();
             rect.move(-frame->view()->scrollOffsetForFixedPosition());

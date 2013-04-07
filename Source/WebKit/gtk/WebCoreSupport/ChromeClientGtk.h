@@ -91,9 +91,9 @@ namespace WebKit {
 
         virtual void closeWindowSoon();
 
-        virtual void runJavaScriptAlert(Frame*, const WTF::String&);
-        virtual bool runJavaScriptConfirm(Frame*, const WTF::String&);
-        virtual bool runJavaScriptPrompt(Frame*, const WTF::String& message, const WTF::String& defaultValue, WTF::String& result);
+        virtual void runJavaScriptAlert(Frame*, const WTF::String&, const WTF::String& title);
+        virtual bool runJavaScriptConfirm(Frame*, const WTF::String&, const WTF::String&);
+        virtual bool runJavaScriptPrompt(Frame*, const WTF::String& message, const WTF::String& title, const WTF::String& defaultValue, WTF::String& result);
         virtual void setStatusbarText(const WTF::String&);
         virtual bool shouldInterruptJavaScript();
         virtual KeyboardUIMode keyboardUIMode();

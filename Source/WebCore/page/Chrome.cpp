@@ -297,7 +297,7 @@ void Chrome::closeWindowSoon()
     m_client->closeWindowSoon();
 }
 
-void Chrome::runJavaScriptAlert(Frame* frame, const String& message)
+void Chrome::runJavaScriptAlert(Frame* frame, const String& message, const String& title)
 {
     if (!canRunModalIfDuringPageDismissal(m_page, ChromeClient::AlertDialog, message))
         return;
@@ -307,10 +307,10 @@ void Chrome::runJavaScriptAlert(Frame* frame, const String& message)
     PageGroupLoadDeferrer deferrer(m_page, true);
 
     ASSERT(frame);
-    m_client->runJavaScriptAlert(frame, frame->displayStringModifiedByEncoding(message));
+    m_client->runJavaScriptAlert(frame, frame->displayStringModifiedByEncoding(message), frame->displayStringModifiedByEncoding(title));
 }
 
-bool Chrome::runJavaScriptConfirm(Frame* frame, const String& message)
+bool Chrome::runJavaScriptConfirm(Frame* frame, const String& message, const String& title)
 {
     if (!canRunModalIfDuringPageDismissal(m_page, ChromeClient::ConfirmDialog, message))
         return false;
@@ -320,10 +320,10 @@ bool Chrome::runJavaScriptConfirm(Frame* frame, const String& message)
     PageGroupLoadDeferrer deferrer(m_page, true);
 
     ASSERT(frame);
-    return m_client->runJavaScriptConfirm(frame, frame->displayStringModifiedByEncoding(message));
+    return m_client->runJavaScriptConfirm(frame, frame->displayStringModifiedByEncoding(message), frame->displayStringModifiedByEncoding(title));
 }
 
-bool Chrome::runJavaScriptPrompt(Frame* frame, const String& prompt, const String& defaultValue, String& result)
+bool Chrome::runJavaScriptPrompt(Frame* frame, const String& prompt, const String& title, const String& defaultValue, String& result)
 {
     if (!canRunModalIfDuringPageDismissal(m_page, ChromeClient::PromptDialog, prompt))
         return false;
@@ -333,7 +333,7 @@ bool Chrome::runJavaScriptPrompt(Frame* frame, const String& prompt, const Strin
     PageGroupLoadDeferrer deferrer(m_page, true);
 
     ASSERT(frame);
-    bool ok = m_client->runJavaScriptPrompt(frame, frame->displayStringModifiedByEncoding(prompt), frame->displayStringModifiedByEncoding(defaultValue), result);
+    bool ok = m_client->runJavaScriptPrompt(frame, frame->displayStringModifiedByEncoding(prompt), frame->displayStringModifiedByEncoding(title), frame->displayStringModifiedByEncoding(defaultValue), result);
 
     if (ok)
         result = frame->displayStringModifiedByEncoding(result);

@@ -143,14 +143,17 @@ struct _WebKitWebViewClass {
                                                            const gchar          *old_file);
     gboolean                   (* script_alert)           (WebKitWebView        *web_view,
                                                            WebKitWebFrame       *frame,
-                                                           const gchar          *alert_message);
+                                                           const gchar          *alert_message,
+                                                           const gchar          *title);
     gboolean                   (* script_confirm)         (WebKitWebView        *web_view,
                                                            WebKitWebFrame       *frame,
                                                            const gchar          *confirm_message,
+                                                           const gchar          *title,
                                                            gboolean             *did_confirm);
     gboolean                   (* script_prompt)          (WebKitWebView        *web_view,
                                                            WebKitWebFrame       *frame,
                                                            const gchar          *message,
+                                                           const gchar          *title,
                                                            const gchar          *default_value,
                                                            gchar*               *value);
     gboolean                   (* console_message)        (WebKitWebView        *web_view,

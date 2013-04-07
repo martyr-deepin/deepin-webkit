@@ -79,9 +79,10 @@ module window {
                                            in [Optional] DOMObject dialogArgs,
                                            in [Optional] DOMString featureArgs);
 
-        void alert(in [Optional=DefaultIsUndefined] DOMString message);
-        boolean confirm(in [Optional=DefaultIsUndefined] DOMString message);
+        void alert(in [Optional=DefaultIsUndefined] DOMString message, in [Optional=DefaultIsUndefined] DOMString title);
+        boolean confirm(in [Optional=DefaultIsUndefined] DOMString message, in [Optional=DefaultIsUndefined] DOMString title);
         [TreatReturnedNullStringAs=Null] DOMString prompt(in [Optional=DefaultIsUndefined] DOMString message,
+                                                    in [Optional=DefaultIsUndefined] DOMString title,
                                                     in [TreatNullAs=NullString, TreatUndefinedAs=NullString,Optional=DefaultIsUndefined] DOMString defaultValue);
 
         boolean find(in [Optional=DefaultIsUndefined] DOMString string,
