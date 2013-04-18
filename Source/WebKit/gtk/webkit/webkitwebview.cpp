@@ -1603,6 +1603,9 @@ static gboolean webkit_web_view_drag_drop(GtkWidget* widget, GdkDragContext* con
         return FALSE;
 
     core(webView)->dragController()->performDrag(dragData.get());
+
+    webView->priv->dragAndDropHelper.try_set_xds_path(context);
+
     gtk_drag_finish(context, TRUE, FALSE, time);
     return TRUE;
 }
@@ -5235,7 +5238,6 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
         cairo_rectangle_int_t cr = {r.x(), r.y(), r.width(), r.height()};
         cairo_region_union_rectangle(region, &cr);
         has_content = true;
-        //printf("%d region:(%d,%d,%d,%d)\n", random(), cr.x, cr.y, cr.width, cr.height);
     }
 
 

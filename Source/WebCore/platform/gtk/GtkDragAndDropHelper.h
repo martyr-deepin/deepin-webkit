@@ -52,6 +52,8 @@ public:
     PassOwnPtr<DragData> handleDragDrop(GdkDragContext*, const IntPoint&);
     void startedDrag(GdkDragContext*, DataObjectGtk*);
 
+    void try_set_xds_path(GdkDragContext* context);
+
 private:
     GtkWidget* m_widget;
     HashMap<GdkDragContext*, DroppingContext*> m_droppingContexts;

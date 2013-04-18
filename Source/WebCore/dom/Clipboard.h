@@ -66,6 +66,8 @@ namespace WebCore {
         virtual void clearAllData() = 0;
         virtual String getData(const String& type, bool& success) const = 0;
         virtual bool setData(const String& type, const String& data) = 0;
+        virtual void setXDSPath(const String& path) = 0;
+        virtual String getXDSPath() const = 0;
     
         // extensions beyond IE's API
         virtual PassRefPtr<DOMStringList> types() const = 0;

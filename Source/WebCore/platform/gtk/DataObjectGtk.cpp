@@ -43,6 +43,12 @@ String DataObjectGtk::text() const
     return m_text;
 }
 
+String DataObjectGtk::XDS() const
+{
+    return m_xds;
+}
+
+
 String DataObjectGtk::markup() const
 {
     if (m_range)
@@ -95,6 +101,13 @@ void DataObjectGtk::setText(const String& newText)
     m_range = 0;
     m_text = newText;
     replaceNonBreakingSpaceWithSpace(m_text);
+}
+void DataObjectGtk::setXDS(const String& xds, bool internal)
+{
+    if (!m_has_xds) {
+        m_has_xds = !internal;
+    }
+    m_xds = xds;
 }
 
 void DataObjectGtk::setMarkup(const String& newMarkup)

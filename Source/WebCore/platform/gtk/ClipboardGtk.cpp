@@ -171,6 +171,15 @@ String ClipboardGtk::getData(const String& typeString, bool& success) const
     return String();
 }
 
+String ClipboardGtk::getXDSPath() const
+{
+    return m_dataObject->XDS();
+}
+void ClipboardGtk::setXDSPath(const String& s)
+{
+    m_dataObject->setXDS(s, false);
+}
+
 bool ClipboardGtk::setData(const String& typeString, const String& data)
 {
     if (policy() != ClipboardWritable)

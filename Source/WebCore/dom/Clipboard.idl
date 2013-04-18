@@ -44,6 +44,10 @@ module core {
         [Custom] void setDragCanvas(in HTMLCanvasElement canvas, in long x, in long y)
             raises(DOMException);
 
+        void setXDSPath(in DOMString path);
+        DOMString getXDSPath();
+
+
         readonly attribute [Conditional=DATA_TRANSFER_ITEMS, V8EnabledAtRuntime=DataTransferItems] DataTransferItemList items;
     };
 

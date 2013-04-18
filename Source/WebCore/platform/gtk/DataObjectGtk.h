@@ -33,7 +33,9 @@ class DataObjectGtk : public RefCounted<DataObjectGtk> {
 public:
     static PassRefPtr<DataObjectGtk> create()
     {
-        return adoptRef(new DataObjectGtk());
+        DataObjectGtk* d = new DataObjectGtk();
+        d->m_has_xds = false;
+        return adoptRef(d);
     }
 
     const KURL& url() const { return m_url; }
@@ -44,6 +46,7 @@ public:
     void setImage(GdkPixbuf* newImage) { m_image = newImage; }
     void setURL(const KURL&, const String&);
     bool hasCustom() const { return m_custom.size() != 0; }
+    bool hasXDS() const { return m_has_xds; }
     bool hasText() const { return m_range || !m_text.isEmpty(); }
     bool hasMarkup() const { return m_range || !m_markup.isEmpty(); }
     bool hasURIList() const { return !m_uriList.isEmpty(); }
@@ -56,11 +59,13 @@ public:
 
     String text() const;
     String markup() const;
+    String XDS() const;
     void setCustoms(const String& data);
     String getCustoms() const;
     String getCustom(const String& k) const;
     //void setCustom(const String& v);
     void setCustom(const String& k, const String& v);
+    void setXDS(const String&, bool internal=true);
     void setText(const String&);
     void setMarkup(const String&);
     void setURIList(const String&);
@@ -75,6 +80,8 @@ public:
 
 private:
     Vector<String> m_custom;
+    String m_xds;
+    bool m_has_xds;
     String m_text;
     String m_markup;
     KURL m_url;

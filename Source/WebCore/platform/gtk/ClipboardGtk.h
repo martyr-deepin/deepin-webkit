@@ -58,6 +58,9 @@ namespace WebCore {
         String getData(const String&, bool&) const;
         bool setData(const String&, const String&);
 
+        void setXDSPath(const String& path);
+        String getXDSPath() const;
+
         virtual PassRefPtr<DOMStringList> types() const;
         virtual PassRefPtr<FileList> files() const;
 

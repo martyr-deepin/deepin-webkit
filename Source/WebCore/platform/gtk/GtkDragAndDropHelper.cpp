@@ -29,6 +29,22 @@
 
 namespace WebCore {
 
+static
+char* try_get_xds_path(GdkDragContext* context)
+{
+    GdkAtom xdsAtom = gdk_atom_intern("XdndDirectSave0", false);
+    guchar *prop_text;
+    gint prop_len;
+    if (!gdk_property_get (gdk_drag_context_get_source_window (context),
+                xdsAtom, gdk_atom_intern ("text/plain", FALSE), 0, 1024, FALSE, NULL, NULL,
+                &prop_len, &prop_text)) {
+        // this is not an xds protocol
+        return NULL;
+    }
+    return (char*)prop_text;
+}
+
+
 struct DroppingContext {
     DroppingContext(GdkDragContext* gdkContext, const IntPoint& position)
         : gdkContext(gdkContext)
@@ -151,6 +167,15 @@ PassOwnPtr<DragData> GtkDragAndDropHelper::handleDragMotion(GdkDragContext* cont
     if (droppingContext->pendingDataRequests > 0)
         return adoptPtr(static_cast<DragData*>(0));
 
+    DataObjectGtk* dataObject = droppingContext->dataObject.get();
+    if (!dataObject->hasXDS()) {
+        char* path = try_get_xds_path(context);
+        if (path) {
+            dataObject->setXDS(path);
+            g_free(path);
+        }
+    }
+
     return adoptPtr(new DragData(droppingContext->dataObject.get(), position,
                                  convertWidgetPointToScreenPoint(m_widget, position),
                                  gdkDragActionToDragOperation(gdk_drag_context_get_actions(context))));
@@ -177,6 +202,27 @@ PassOwnPtr<DragData> GtkDragAndDropHelper::handleDragDataReceived(GdkDragContext
     return adoptPtr(new DragData(droppingContext->dataObject.get(), position, 
                                  convertWidgetPointToScreenPoint(m_widget, position),
                                  gdkDragActionToDragOperation(gdk_drag_context_get_actions(context))));
+}
+
+void GtkDragAndDropHelper::try_set_xds_path(GdkDragContext* context)
+{
+    DroppingContextMap::iterator iterator = m_droppingContexts.find(context);
+    if (iterator == m_droppingContexts.end())
+        return ;
+
+    GdkAtom xdsAtom = gdk_atom_intern("XdndDirectSave0", false);
+    DroppingContext* droppingContext = iterator->second;
+    if (droppingContext->dataObject->hasXDS()) {
+        const String& path = droppingContext->dataObject->XDS();
+        gdk_property_change (gdk_drag_context_get_source_window (context),
+                xdsAtom, gdk_atom_intern ("text/plain", FALSE), 8,
+                GDK_PROP_MODE_REPLACE,
+                (const guchar *) path.utf8().data(), path.length() + 1);
+
+        // trigger the source handle this property.
+        gtk_drag_get_data(m_widget, context, xdsAtom, GDK_CURRENT_TIME);
+    }
+
 }
 
 PassOwnPtr<DragData> GtkDragAndDropHelper::handleDragDrop(GdkDragContext* context, const IntPoint& position)
