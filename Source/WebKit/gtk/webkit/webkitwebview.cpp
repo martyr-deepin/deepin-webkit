@@ -633,15 +633,11 @@ GdkWindow*  webkit_web_view_get_forward_window(GtkWidget* widget)
     return WEBKIT_WEB_VIEW(widget)->priv->forwardWindow;
 }
 
-static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfigure *event, gpointer user_data)
+static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfigure *event)
 {
-    GdkWindow* window = GDK_WINDOW(user_data);
-    gpointer webView = NULL;
-    gdk_window_get_user_data(window, &webView);
-    int x, y;
-    gdk_window_get_origin(window, &x, &y);
-    gdk_window_move_resize(WEBKIT_WEB_VIEW(webView)->priv->forwardWindow,
-            x, y, gdk_window_get_width(window), gdk_window_get_height(window));
+    int x, y, width, height;
+    gdk_window_get_geometry(gtk_widget_get_window(widget), &x, &y, &width, &height);
+    gdk_window_move_resize(WEBKIT_WEB_VIEW(widget)->priv->forwardWindow, x, y, width, height);
     return false;
 }
 
@@ -1093,11 +1089,8 @@ static void webkit_web_view_realize(GtkWidget* widget)
 
     GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
     gdk_window_set_accept_focus(fw, true);
-    gdk_window_set_transient_for(fw, gdk_window_get_parent(window));
-    gdk_window_set_skip_pager_hint(fw, true);
-    gdk_window_set_skip_taskbar_hint(fw, true);
+    gdk_window_set_override_redirect(fw, true);
     priv->forwardWindow = fw;
-    gdk_window_set_decorations(fw, GdkWMDecoration(0));
     GdkRGBA rgba = {0, 0, 0, 0};
     gdk_window_set_background_rgba(fw, &rgba);
     gdk_window_set_user_data(fw, widget);
@@ -5254,11 +5247,7 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
     cairo_region_destroy(region);
 
     if (webView->priv->forward_sig_id == 0) {
-        gpointer widget = NULL;
-        gdk_window_get_user_data(window, &widget);
-        GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(widget));
-        GdkWindow* webViewWindow = gtk_widget_get_window(GTK_WIDGET(webView));
-        webView->priv->forward_sig_id = g_signal_connect(toplevel, "configure-event", G_CALLBACK(webkit_web_view_configure_event), webViewWindow);
+        webView->priv->forward_sig_id = g_signal_connect(webView, "configure-event", G_CALLBACK(webkit_web_view_configure_event), NULL);
     }
 }
 
