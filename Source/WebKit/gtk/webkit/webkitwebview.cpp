@@ -1089,7 +1089,11 @@ static void webkit_web_view_realize(GtkWidget* widget)
 
     GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
     gdk_window_set_accept_focus(fw, true);
-    gdk_window_set_override_redirect(fw, true);
+    gdk_window_set_skip_pager_hint(fw, true);
+    gdk_window_set_skip_taskbar_hint(fw, true);
+    gdk_window_set_transient_for(fw, gdk_window_get_parent(window));
+    gdk_window_set_decorations(fw, GdkWMDecoration(0));
+    //gdk_window_set_override_redirect(fw, true);
     priv->forwardWindow = fw;
     GdkRGBA rgba = {0, 0, 0, 0};
     gdk_window_set_background_rgba(fw, &rgba);
