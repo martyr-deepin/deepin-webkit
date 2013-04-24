@@ -211,109 +211,27 @@ void SecurityOrigin::setDomainFromDOM(const String& newDomain)
 
 bool SecurityOrigin::canAccess(const SecurityOrigin* other) const
 {
-    if (m_universalAccess)
-        return true;
-
-    if (this == other)
-        return true;
-
-    if (isUnique() || other->isUnique())
-        return false;
-
-    // Here are two cases where we should permit access:
-    //
-    // 1) Neither document has set document.domain. In this case, we insist
-    //    that the scheme, host, and port of the URLs match.
-    //
-    // 2) Both documents have set document.domain. In this case, we insist
-    //    that the documents have set document.domain to the same value and
-    //    that the scheme of the URLs match.
-    //
-    // This matches the behavior of Firefox 2 and Internet Explorer 6.
-    //
-    // Internet Explorer 7 and Opera 9 are more strict in that they require
-    // the port numbers to match when both pages have document.domain set.
-    //
-    // FIXME: Evaluate whether we can tighten this policy to require matched
-    //        port numbers.
-    //
-    // Opera 9 allows access when only one page has set document.domain, but
-    // this is a security vulnerability.
-
-    bool canAccess = false;
-    if (m_protocol == other->m_protocol) {
-        if (!m_domainWasSetInDOM && !other->m_domainWasSetInDOM) {
-            if (m_host == other->m_host && m_port == other->m_port)
-                canAccess = true;
-        } else if (m_domainWasSetInDOM && other->m_domainWasSetInDOM) {
-            if (m_domain == other->m_domain)
-                canAccess = true;
-        }
-    }
-
-    if (canAccess && isLocal())
-       canAccess = passesFileCheck(other);
-
-    return canAccess;
+    return true;
 }
 
 bool SecurityOrigin::passesFileCheck(const SecurityOrigin* other) const
 {
-    ASSERT(isLocal() && other->isLocal());
-
-    if (!m_enforceFilePathSeparation && !other->m_enforceFilePathSeparation)
-        return true;
-
-    return (m_filePath == other->m_filePath);
+    return true;
 }
 
 bool SecurityOrigin::canRequest(const KURL& url) const
 {
-    if (m_universalAccess)
-        return true;
-
-    if (isUnique())
-        return false;
-
-    RefPtr<SecurityOrigin> targetOrigin = SecurityOrigin::create(url);
-
-    if (targetOrigin->isUnique())
-        return false;
-
-    // We call isSameSchemeHostPort here instead of canAccess because we want
-    // to ignore document.domain effects.
-    if (isSameSchemeHostPort(targetOrigin.get()))
-        return true;
-
-    if (SecurityPolicy::isAccessWhiteListed(this, targetOrigin.get()))
-        return true;
-
-    return false;
+    return true;
 }
 
 bool SecurityOrigin::taintsCanvas(const KURL& url) const
 {
-    if (canRequest(url))
-        return false;
-
-    // This function exists because we treat data URLs as having a unique origin,
-    // contrary to the current (9/19/2009) draft of the HTML5 specification.
-    // We still want to let folks paint data URLs onto untainted canvases, so
-    // we special case data URLs below. If we change to match HTML5 w.r.t.
-    // data URL security, then we can remove this function in favor of
-    // !canRequest.
-    if (url.protocolIsData())
-        return false;
-
     return true;
 }
 
 bool SecurityOrigin::canReceiveDragData(const SecurityOrigin* dragInitiator) const
 {
-    if (this == dragInitiator)
-        return true;
-
-    return canAccess(dragInitiator);  
+    return true;
 }
 
 // This is a hack to allow keep navigation to http/https feeds working. To remove this
