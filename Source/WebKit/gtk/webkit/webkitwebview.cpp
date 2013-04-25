@@ -636,8 +636,11 @@ GdkWindow*  webkit_web_view_get_forward_window(GtkWidget* widget)
 static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfigure *event)
 {
     int x, y, width, height;
-    gdk_window_get_geometry(gtk_widget_get_window(widget), &x, &y, &width, &height);
-    gdk_window_move_resize(WEBKIT_WEB_VIEW(widget)->priv->forwardWindow, x, y, width, height);
+    GdkWindow* fw = WEBKIT_WEB_VIEW(widget)->priv->forwardWindow;
+    if (fw != event->window) {
+        gdk_window_get_geometry(gtk_widget_get_window(widget), &x, &y, &width, &height);
+        gdk_window_move_resize(WEBKIT_WEB_VIEW(widget)->priv->forwardWindow, x, y, width, height);
+    }
     return false;
 }
 
@@ -5251,7 +5254,7 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
     cairo_region_destroy(region);
 
     if (webView->priv->forward_sig_id == 0) {
-        webView->priv->forward_sig_id = g_signal_connect(webView, "configure-event", G_CALLBACK(webkit_web_view_configure_event), NULL);
+        webView->priv->forward_sig_id = g_signal_connect(webView, "size-allocate", G_CALLBACK(webkit_web_view_configure_event), NULL);
     }
 }
 
