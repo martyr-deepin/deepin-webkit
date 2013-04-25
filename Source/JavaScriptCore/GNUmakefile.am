@@ -127,7 +127,7 @@ Programs_minidom_LDFLAGS = \
 # jsc
 Programs/jsc$(EXEEXT): Programs/jsc-@WEBKITGTK_API_MAJOR_VERSION@$(EXEEXT)
 	$(AM_V_GEN)cp -f Programs/jsc-@WEBKITGTK_API_MAJOR_VERSION@$(EXEEXT) Programs/jsc$(EXEEXT)
-Programs_jsc_LDADD =
+Programs_jsc_LDADD = 
 Programs_jsc_SOURCES =
 
 Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_CPPFLAGS = \
@@ -142,6 +142,7 @@ Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_CXXFLAGS = \
 	$(UNICODE_CFLAGS)
 
 Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_LDADD = \
+	-lstdc++ \
 	-lpthread \
 	libjavascriptcoredeepin-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	$(WINMM_LIBS)

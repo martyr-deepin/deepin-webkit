@@ -425,7 +425,8 @@ webkit_tests_ldadd = \
 	libdeepin_webkit-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	$(GTK_LIBS) \
 	$(GLIB_LIBS) \
-	$(LIBSOUP_LIBS)
+	$(LIBSOUP_LIBS) \
+	-lstdc++
 
 webkit_tests_ldflags = \
 	-no-install \
