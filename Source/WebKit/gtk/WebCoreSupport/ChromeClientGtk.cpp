@@ -553,7 +553,7 @@ static void paintWebView(WebKitWebView* webView, Frame* frame, Region dirtyRegio
             layer->setForcePaint(false);
             //ggc.setStrokeColor(Color(255, 0, 0), ColorSpaceDeviceRGB);
             //ggc.strokeRect(rect, 4);
-            //ggc.restore();
+            ggc.restore();
         }
 
         frame->view()->setNodeToDraw(0);
