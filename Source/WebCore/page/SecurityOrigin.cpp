@@ -91,29 +91,7 @@ static KURL extractInnerURL(const KURL& url)
 
 static bool shouldTreatAsUniqueOrigin(const KURL& url)
 {
-    if (!url.isValid())
-        return true;
-
-    // FIXME: Do we need to unwrap the URL further?
-    KURL innerURL = shouldUseInnerURL(url) ? extractInnerURL(url) : url;
-
-    // FIXME: Check whether innerURL is valid.
-
-    // For edge case URLs that were probably misparsed, make sure that the origin is unique.
-    // FIXME: Do we really need to do this? This looks to be a hack around a
-    // security bug in CFNetwork that might have been fixed.
-    if (schemeRequiresAuthority(innerURL) && innerURL.host().isEmpty())
-        return true;
-
-    // SchemeRegistry needs a lower case protocol because it uses HashMaps
-    // that assume the scheme has already been canonicalized.
-    String protocol = innerURL.protocol().lower();
-
-    if (SchemeRegistry::shouldTreatURLSchemeAsNoAccess(protocol))
-        return true;
-
-    // This is the common case.
-    return false;
+    return true;
 }
 
 SecurityOrigin::SecurityOrigin(const KURL& url)
@@ -256,20 +234,6 @@ static bool isFeedWithNestedProtocolInHTTPFamily(const KURL& url)
 
 bool SecurityOrigin::canDisplay(const KURL& url) const
 {
-    String protocol = url.protocol().lower();
-
-    if (isFeedWithNestedProtocolInHTTPFamily(url))
-        return true;
-
-    if (SchemeRegistry::canDisplayOnlyIfCanRequest(protocol))
-        return canRequest(url);
-
-    if (SchemeRegistry::shouldTreatURLSchemeAsDisplayIsolated(protocol))
-        return m_protocol == protocol || SecurityPolicy::isAccessToURLWhiteListed(this, url);
-
-    if (SecurityPolicy::restrictAccessToLocal() && SchemeRegistry::shouldTreatURLSchemeAsLocal(protocol))
-        return canLoadLocalResources() || SecurityPolicy::isAccessToURLWhiteListed(this, url);
-
     return true;
 }
 
@@ -297,7 +261,7 @@ void SecurityOrigin::enforceFilePathSeparation()
 
 bool SecurityOrigin::isLocal() const
 {
-    return SchemeRegistry::shouldTreatURLSchemeAsLocal(m_protocol);
+    return true;
 }
 
 String SecurityOrigin::toString() const
@@ -395,35 +359,11 @@ String SecurityOrigin::databaseIdentifier() const
 
 bool SecurityOrigin::equal(const SecurityOrigin* other) const 
 {
-    if (other == this)
-        return true;
-    
-    if (!isSameSchemeHostPort(other))
-        return false;
-
-    if (m_domainWasSetInDOM != other->m_domainWasSetInDOM)
-        return false;
-
-    if (m_domainWasSetInDOM && m_domain != other->m_domain)
-        return false;
-
     return true;
 }
 
 bool SecurityOrigin::isSameSchemeHostPort(const SecurityOrigin* other) const 
 {
-    if (m_host != other->m_host)
-        return false;
-
-    if (m_protocol != other->m_protocol)
-        return false;
-
-    if (m_port != other->m_port)
-        return false;
-
-    if (isLocal() && !passesFileCheck(other))
-        return false;
-
     return true;
 }
 
