@@ -599,7 +599,9 @@ void ChromeClient::paint(WebCore::Timer<ChromeClient>*)
     static const double minimumFrameInterval = 1.0 / 60.0; // No more than 60 frames a second.
     double timeSinceLastDisplay = currentTime() - m_lastDisplayTime;
     double timeUntilNextDisplay = minimumFrameInterval - timeSinceLastDisplay;
-
+    if (timeSinceLastDisplay < 0) { // We can go back to the past in computer World:)
+        timeUntilNextDisplay = 0;
+    }
     if (timeUntilNextDisplay > 0) {
         m_displayTimer.startOneShot(timeUntilNextDisplay);
         return;
