@@ -270,10 +270,7 @@ bool CachedResource::passesAccessControlCheck(SecurityOrigin* securityOrigin)
 
 bool CachedResource::isExpired() const
 {
-    if (m_response.isNull())
-        return false;
-
-    return currentAge() > freshnessLifetime();
+    return true;
 }
     
 double CachedResource::currentAge() const
