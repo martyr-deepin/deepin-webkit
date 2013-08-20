@@ -455,6 +455,7 @@ void ChromeClient::widgetSizeChanged(const IntSize& oldWidgetSize, IntSize newSi
             cairo_set_source_surface(cr.get(), backingStore->cairoSurface(), 0, 0);
             cairo_rectangle(cr.get(), 0, 0, backingStore->size().width(), backingStore->size().height());
             cairo_fill(cr.get());
+            cairo_surface_flush(backingStore->cairoSurface());
         }
 
         m_webView->priv->backingStore = newBackingStore.release();
