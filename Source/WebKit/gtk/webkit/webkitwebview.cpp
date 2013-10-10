@@ -1082,7 +1082,6 @@ static void webkit_web_view_realize(GtkWidget* widget)
     attributes.y = 0;
     attributes.width = 0;
     attributes.height = 0;
-    attributes.type_hint = GDK_WINDOW_TYPE_HINT_DIALOG;
     GdkScreen *screen = gdk_screen_get_default();
     attributes.visual = gdk_screen_get_rgba_visual(screen);
     if (!attributes.visual) {
@@ -1091,6 +1090,7 @@ static void webkit_web_view_realize(GtkWidget* widget)
     }
 
     GdkWindow* fw = gdk_window_new(NULL, &attributes, attributes_mask);
+    gdk_window_set_type_hint(fw, GDK_WINDOW_TYPE_HINT_SPLASHSCREEN);
     gdk_window_set_accept_focus(fw, true);
     gdk_window_set_skip_pager_hint(fw, true);
     gdk_window_set_skip_taskbar_hint(fw, true);
@@ -5244,14 +5244,15 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
     if (has_content)
         gdk_window_shape_combine_region(window, region, 0, 0);
 
-    if (has_content && gdk_window_is_visible(window) == false) {
+    cairo_region_destroy(region);
+
+    if (has_content && !gdk_window_is_visible(window)) {
         gdk_window_show(window);
         gdk_window_set_keep_above(window, true);
-    } 
+    }
     if (!has_content && gdk_window_is_visible(window)) {
         gdk_window_hide(window);
     }
-    cairo_region_destroy(region);
 
     if (webView->priv->forward_sig_id == 0) {
         webView->priv->forward_sig_id = g_signal_connect(webView, "size-allocate", G_CALLBACK(webkit_web_view_configure_event), NULL);
