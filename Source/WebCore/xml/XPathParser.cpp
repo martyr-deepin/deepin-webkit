@@ -36,10 +36,10 @@
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/StringHash.h>
 
-int xpathyyparse(void*);
 
 using namespace WTF;
 using namespace Unicode;
+int xpathyyparse(void*);
 
 namespace WebCore {
 namespace XPath {
@@ -475,7 +475,7 @@ Expression* Parser::parseStatement(const String& statement, PassRefPtr<XPathNSRe
     
     Parser* oldParser = currentParser;
     currentParser = this;
-    int parseError = xpathyyparse(this);
+    int parseError = ::xpathyyparse(this);
     currentParser = oldParser;
 
     if (parseError) {
