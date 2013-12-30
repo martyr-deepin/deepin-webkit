@@ -21,22 +21,26 @@ extern "C" {
         JSC::ExecState* exec = toJS(ctx);
         JSC::APIEntryShim  entryShim(exec);
         HTMLCanvasElement* canvas = toHTMLCanvasElement(toJS(exec, v));
-        if (canvas == NULL)
+        if (canvas == NULL) {
+	    g_warning("fetch_cairo_from_html_canvas failed (Maybe the canvas hasn't be initiated.)\n");
             return NULL;
+	}
 
-        ImageBuffer* buf = canvas->buffer();
-        if (buf == NULL)
-            return NULL;
         GraphicsContext* gc = canvas->drawingContext();
-        if (gc == NULL)
+        if (gc == NULL) {
+	    g_warning("fetch_cairo_from_html_canvas failed (Maybe the canvas's hasn't an valid size.)\n");
+	    printf("canvas-drawingContext() failed\n");
             return NULL;
+	}
 
         cairo_t *cr = gc->platformContext()->cr();
         if (cr != NULL) {
             cairo_reference(cr);
             canvas->ref();
             cairo_set_user_data(cr, _deepin_cairo_custom_key, canvas, NULL);
-        }
+        } else {
+	    g_warning("fetch_cairo_from_html_canvas failed (unknown reason.)\n");
+	}
         return cr;
     }
 
