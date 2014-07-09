@@ -102,6 +102,7 @@ void DragIcon::useForDrag(GdkDragContext* context)
 
 void DragIcon::useForDrag(GdkDragContext* context, const IntPoint& hotspot)
 {
+    gtk_widget_set_opacity(m_window, 1);
     gtk_drag_set_icon_widget(context, m_window, hotspot.x(), hotspot.y());
 }
 
