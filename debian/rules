@@ -95,36 +95,14 @@ install-stamp: build-stamp
 
 	dh_clean -k
 
-ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
-	$(MAKE) -C build-3.0 install DESTDIR="$(CURDIR)"/debian/tmp-3.0
-
-	[ ! -d debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec ] && install -d -m 755 debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec || true
-	build-3.0/libtool --mode=install install -m 755 build-3.0/Programs/GtkLauncher "$(CURDIR)"/debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec/GtkLauncher
-	chrpath -d debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec/GtkLauncher
-
-	install -d -m 755 debian/tmp-3.0/usr/share/doc/libdeepin_webkit-3.0-dev/html
-	install -m 644 build-3.0/Documentation/webkitgtk/html/* \
-		debian/tmp-3.0/usr/share/doc/libdeepin_webkit-3.0-dev/html/
-endif
+#ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
+	#$(MAKE) -C build-3.0 install DESTDIR="$(CURDIR)"/debian/tmp-3.0
+	#[ ! -d debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec ] && install -d -m 755 debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec || true
+	#build-3.0/libtool --mode=install install -m 755 build-3.0/Programs/GtkLauncher "$(CURDIR)"/debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec/GtkLauncher
+	#chrpath -d debian/tmp-3.0/usr/lib/webkitgtk-3.0-0/libexec/GtkLauncher
+#endif
 
 	touch $@
-
-# Build architecture-independent files here.
-binary-indep: build install
-	dh_testdir
-	dh_testroot
-	dh_installdocs -i
-	dh_installchangelogs -i
-ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
-	dh_install -plibdeepin_webkit-3.0-common --sourcedir=debian/tmp-3.0
-endif
-	dh_link -i
-	dh_compress -i
-	dh_fixperms -i
-	dh_installdeb -i
-	dh_gencontrol -i
-	dh_md5sums -i
-	dh_builddeb -i
 
 # Build architecture-dependent files here.
 binary-arch: build install
@@ -132,24 +110,29 @@ binary-arch: build install
 	dh_testroot
 	dh_installdocs -a
 	dh_installchangelogs -a
-
 ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
+	install -d debian/libdeepin-webkit-3.0-0/usr/lib/
+	install -d debian/libdeepin-webkit-3.0-0/usr/lib/pkgconfig/
+	install -m 644 build-3.0/.libs/libdeepin_webkit-3.0.so.0.13.3 debian/libdeepin-webkit-3.0-0/usr/lib/
+	install -m 644 build-3.0/.libs/libjavascriptcoredeepin-3.0.so.0.13.3 debian/libdeepin-webkit-3.0-0/usr/lib/
+	install -m 644 build-3.0/Source/WebKit/gtk/webkitgtk-3.0.pc debian/libdeepin-webkit-3.0-0/usr/lib/pkgconfig/deepin-webkit-3.0.pc
+	install -m 644 build-3.0/Source/JavaScriptCore/javascriptcoredeepin-3.0.pc debian/libdeepin-webkit-3.0-0/usr/lib/pkgconfig/
 	dh_install -plibdeepin_webkit-3.0-0 --sourcedir=debian/tmp-3.0
-	dh_install -plibdeepin_webkit-3.0-dev --sourcedir=debian/tmp-3.0
-	dh_install -pgir1.2-webkit-3.0 --sourcedir=debian/tmp-3.0
+	#dh_install -plibdeepin_webkit-3.0-dev --sourcedir=debian/tmp-3.0
+	#dh_install -pgir1.2-webkit-3.0 --sourcedir=debian/tmp-3.0
 endif
 	dh_link -a
 
 	dh_compress -a
 	dh_fixperms -a
-ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
-	dh_makeshlibs -plibdeepin_webkit-3.0-0 -V 'libdeepin_webkit-3.0-0 (>= 1.7.5)' -- -c4
-	dh_girepository --package=gir1.2-webkit-3.0
-endif
+#ifeq (3.0,$(filter 3.0,$(GTK_VERSIONS)))
+	#dh_makeshlibs -plibdeepin_webkit-3.0-0 -V 'libdeepin_webkit-3.0-0 (>= 1.7.5)' -- -c4
+	#dh_girepository --package=gir1.2-webkit-3.0
+#endif
 	dh_installdeb -a
-	dh_shlibdeps -a
+	#dh_shlibdeps -a
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
 
-binary: binary-indep binary-arch
+binary: binary-arch
