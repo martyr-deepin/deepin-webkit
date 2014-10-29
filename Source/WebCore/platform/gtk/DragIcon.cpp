@@ -50,6 +50,7 @@ static gboolean dragIconWindowDrawEventCallback(GtkWidget*, cairo_t* context, Dr
 DragIcon::DragIcon()
     : m_window(gtk_window_new(GTK_WINDOW_POPUP))
 {
+    gtk_widget_set_app_paintable(m_window, TRUE);
 #ifdef GTK_API_VERSION_2
     g_signal_connect(m_window, "expose-event", G_CALLBACK(dragIconWindowDrawEventCallback), this);
 #else
