@@ -45,7 +45,6 @@ typedef struct _WebKitWebViewPrivate WebKitWebViewPrivate;
 struct _WebKitWebViewPrivate {
     WebCore::Page* corePage;
     GdkWindow* forwardWindow;
-    unsigned long forward_sig_id;
     bool hasNativeWindow;
     OwnPtr<WebCore::WidgetBackingStore> backingStore;
     GRefPtr<WebKitWebSettings> webSettings;

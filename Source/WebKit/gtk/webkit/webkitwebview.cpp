@@ -633,16 +633,6 @@ GdkWindow*  webkit_web_view_get_forward_window(GtkWidget* widget)
     return WEBKIT_WEB_VIEW(widget)->priv->forwardWindow;
 }
 
-static gboolean webkit_web_view_configure_event(GtkWidget* widget, GdkEventConfigure *event)
-{
-    int x, y, width, height;
-    GdkWindow* fw = WEBKIT_WEB_VIEW(widget)->priv->forwardWindow;
-    if (fw != event->window) {
-        gdk_window_get_geometry(gtk_widget_get_window(widget), &x, &y, &width, &height);
-        gdk_window_move_resize(WEBKIT_WEB_VIEW(widget)->priv->forwardWindow, x, y, width, height);
-    }
-    return false;
-}
 
 static gboolean webkit_web_view_draw(GtkWidget* widget, cairo_t* cr)
 {
@@ -935,6 +925,12 @@ static void webkit_web_view_size_allocate(GtkWidget* widget, GtkAllocation* allo
         return;
     }
     resizeWebViewFromAllocation(webView, allocation);
+
+    GdkWindow* fw = WEBKIT_WEB_VIEW(widget)->priv->forwardWindow;
+    if (fw != 0) {
+        GdkWindow* w = gtk_widget_get_window(widget);
+        gdk_window_resize(fw, gdk_window_get_width(w), gdk_window_get_height(w));
+    }
 }
 
 static void webkitWebViewMap(GtkWidget* widget)
@@ -1482,7 +1478,7 @@ static gdouble webViewGetDPI(WebKitWebView* webView)
 
     static const double defaultDPI = 96;
     GdkScreen* screen = gtk_widget_has_screen(GTK_WIDGET(webView)) ? gtk_widget_get_screen(GTK_WIDGET(webView)) : gdk_screen_get_default();
-    if (!screen) 
+    if (!screen)
         return defaultDPI;
 
     // gdk_screen_get_resolution() returns -1 when no DPI is set.
@@ -2428,7 +2424,7 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
      * cursor movement described by its parameters to the @view.
      *
      * Return value: %TRUE or %FALSE
-     * 
+     *
      * Since: 1.1.4
      */
     webkit_web_view_signals[MOVE_CURSOR] = g_signal_new("move-cursor",
@@ -2630,7 +2626,7 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
         G_STRUCT_OFFSET(WebKitWebViewClass, should_allow_editing_action), g_signal_accumulator_first_wins, 0,
         webkit_marshal_BOOLEAN__OBJECT, G_TYPE_BOOLEAN, 1, WEBKIT_TYPE_DOM_RANGE);
 
-    webkit_web_view_signals[SHOULD_INSERT_NODE] = g_signal_new("should-insert-node", G_TYPE_FROM_CLASS(webViewClass), 
+    webkit_web_view_signals[SHOULD_INSERT_NODE] = g_signal_new("should-insert-node", G_TYPE_FROM_CLASS(webViewClass),
         static_cast<GSignalFlags>(G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION),
         G_STRUCT_OFFSET(WebKitWebViewClass, should_allow_editing_action), g_signal_accumulator_first_wins, 0,
         webkit_marshal_BOOLEAN__OBJECT_OBJECT_ENUM, G_TYPE_BOOLEAN,
@@ -2685,16 +2681,16 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
      * @web_view: the object which received the signal
      * @viewport_attributes: the #WebKitViewportAttributes which has the viewport attributes.
      *
-     * The #WebKitWebView::viewport-attributes-recompute-requested 
+     * The #WebKitWebView::viewport-attributes-recompute-requested
      * signal will be emitted when a page with a viewport meta tag
      * loads and when webkit_viewport_attributes_recompute is called.
      *
      * The #WebKitViewportAttributes will have device size, available size,
-     * desktop width, and device DPI pre-filled by values that make sense 
-     * for the current screen and widget, but you can override those values 
+     * desktop width, and device DPI pre-filled by values that make sense
+     * for the current screen and widget, but you can override those values
      * if you have special requirements (for instance, if you made your
-     * widget bigger than the available visible area, you should override 
-     * the available-width and available-height properties to the actual 
+     * widget bigger than the available visible area, you should override
+     * the available-width and available-height properties to the actual
      * visible area).
      *
      * Since: 1.3.8
@@ -2713,11 +2709,11 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
      * @web_view: the object which received the signal
      * @viewport_attributes: the #WebKitViewportAttributes which has the viewport attributes.
      *
-     * The #WebKitWebView::viewport-attributes-changed signal will be emitted 
-     * after the emission of #WebKitWebView::viewport-attributes-recompute-requested 
-     * and the subsequent viewport attribute recomputation. At this point, 
+     * The #WebKitWebView::viewport-attributes-changed signal will be emitted
+     * after the emission of #WebKitWebView::viewport-attributes-recompute-requested
+     * and the subsequent viewport attribute recomputation. At this point,
      * if the #WebKitViewportAttributes are valid, the viewport attributes are available.
-     * 
+     *
      * Since: 1.3.8
      */
     webkit_web_view_signals[VIEWPORT_ATTRIBUTES_CHANGED] = g_signal_new("viewport-attributes-changed",
@@ -2941,7 +2937,7 @@ static void webkit_web_view_class_init(WebKitWebViewClass* webViewClass)
                                  "paste_clipboard", 0);
 
     /* Movement */
-    
+
     gtk_binding_entry_add_signal(binding_set, GDK_Down, static_cast<GdkModifierType>(0),
                                  "move-cursor", 2,
                                  G_TYPE_ENUM, GTK_MOVEMENT_DISPLAY_LINES,
@@ -4038,7 +4034,7 @@ void webkit_web_view_load_request(WebKitWebView* webView, WebKitNetworkRequest* 
 /**
  * webkit_web_view_stop_loading:
  * @web_view: a #WebKitWebView
- * 
+ *
  * Stops any ongoing load in the @web_view.
  **/
 void webkit_web_view_stop_loading(WebKitWebView* webView)
@@ -4485,7 +4481,7 @@ static void webkit_web_view_apply_zoom_level(WebKitWebView* webView, gfloat zoom
     if (priv->zoomFullContent)
         frame->setPageZoomFactor(zoomLevel);
     else
-        frame->setTextZoomFactor(zoomLevel);        
+        frame->setTextZoomFactor(zoomLevel);
 }
 
 /**
@@ -5100,7 +5096,7 @@ GdkPixbuf* webkit_web_view_try_get_favicon_pixbuf(WebKitWebView* webView, guint 
 /**
  * webkit_web_view_get_dom_document:
  * @web_view: a #WebKitWebView
- * 
+ *
  * Returns: (transfer none): the #WebKitDOMDocument currently loaded in the @web_view
  *
  * Since: 1.3.1
@@ -5247,15 +5243,16 @@ void forward_region_changed(WebCore::Page* page, const Vector<IntRect>& rv)
     cairo_region_destroy(region);
 
     if (has_content && !gdk_window_is_visible(window)) {
-        gdk_window_show(window);
+        gdk_window_show_unraised(window);
+
+        int x, y;
+        gdk_window_get_origin(gtk_widget_get_window(GTK_WIDGET(webView)), &x, &y);
+        gdk_window_move(window, x, y);
         gdk_window_set_keep_above(window, true);
+
     }
     if (!has_content && gdk_window_is_visible(window)) {
         gdk_window_hide(window);
-    }
-
-    if (webView->priv->forward_sig_id == 0) {
-        webView->priv->forward_sig_id = g_signal_connect(webView, "size-allocate", G_CALLBACK(webkit_web_view_configure_event), NULL);
     }
 }
 
